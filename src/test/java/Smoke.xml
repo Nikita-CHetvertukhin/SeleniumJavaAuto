@@ -8,7 +8,7 @@
             <!--<include name="recover"/>--> <!--Если  "pro.doczilla.recover":"true"-->
             <!--<include name="signup"/>--> <!--Если "pro.doczilla.signup":"true"-->
             <!--<include name="sharing-outer"/>--> <!--Если ""pro.doczilla.sharing.outer":"true"-->
-            <!--<include name="sharing-drives"/>--> <!--Если "pro.doczilla.sharing.drives":"true"-->
+            <include name="sharing-drives"/> <!--Если "pro.doczilla.sharing.drives":"true"-->
             <!--<include name=""pro.doczilla.ai":"true""/>--> <!--Если "pro.doczilla.ai":"true"-->
         </run>
     </groups>
@@ -16,6 +16,7 @@
             <class name="SmokeTestCase.T1_Authorization_Availability"/>
             <class name="SmokeTestCase.T2_Authorization"/>
             <class name="SmokeTestCase.T3_Generator"/>
+            <class name="SmokeTestCase.T4_menu_Work_Area"/>
         </classes>
     </test>
 </suite>
