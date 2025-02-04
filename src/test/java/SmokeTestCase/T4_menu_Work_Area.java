@@ -177,8 +177,61 @@ public class T4_menu_Work_Area {
 			}
 	    }
 	    
-	    @Test(groups = {""})
-	    public void processButtons() {
+	    @Test(groups = {"smoke", "speed"})
+	    public void t4_4_Header_buttons() {
+	    	
+	    	System.out.println("Запуск t4_4_Header_buttons");
+	    	
+	    	// Найдите все элементы <a class="btn default"> внутри <div class="header-menu">
+	        List<WebElement> buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default']"));
+
+	        // Инициализация WebDriverWait
+	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	        // Проход по всем найденным элементам
+	        for (WebElement button : buttons) {
+	            // Кликнуть по кнопке
+	            wait.until(ExpectedConditions.elementToBeClickable(button)).click();
+
+	            // Проверить наличие элемента <div class="scroller items">
+	            List<WebElement> scrollerItems = driver.findElements(By.xpath("//div[@class='scroller items']"));
+	            if (!scrollerItems.isEmpty()) {
+	                // Найти все строки таблицы <tr id="id34" class="item menu" tabindex="-1">
+	                List<WebElement> tableRows = driver.findElements(By.xpath("//tr[@class='item menu' and @tabindex='-1' or contains(@class, 'item menu active')]"));
+
+	                // Проход по всем найденным строкам таблицы
+	                for (WebElement row : tableRows) {
+	                    // Ожидать, пока строка не станет интерактивной, и кликнуть по строке таблицы
+	                    wait.until(ExpectedConditions.elementToBeClickable(row)).click();
+
+	                    // Добавить небольшую задержку, чтобы дать классу время измениться
+	                    try {
+	                        Thread.sleep(500); // Задержка в 0.5 секунды
+	                    } catch (InterruptedException e) {
+	                        e.printStackTrace();
+	                    }
+
+	                    // Найти элемент <div class=" text"> на 3 уровне вложенности внутри строки таблицы
+	                    WebElement uniqueTextDiv = row.findElement(By.xpath(".//div[contains(@class, ' text') and @title]"));
+	                    // Извлечь и вывести уникальный текст
+	                    String uniqueText = uniqueTextDiv.getText();
+	                    System.out.println("Unique text: " + uniqueText);
+
+	                    // Проверить, что класс изменился на "item menu active"
+	                    String rowClass = row.getDomAttribute("class");
+	                    if (rowClass.contains("active")) {
+	                        System.out.println("Row is active: " + uniqueText);
+	                    } else {
+	                        System.out.println("Row is not active: " + uniqueText);
+	                    }
+
+	                    // Открыть выпадающий список заново, кликнув на кнопку
+	                    wait.until(ExpectedConditions.elementToBeClickable(button)).click();
+	                }
+	            }
+	        }
+	        
+	        System.out.println("Вывод в консоль вообще-то работает");
 	        
 	    }
 }

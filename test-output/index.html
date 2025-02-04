@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-SmokeTest" class="navigator-link">
-              <span class="suite-name border-passed">SmokeTest</span>
+              <span class="suite-name border-failed">SmokeTest</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -60,7 +60,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-SmokeTest" class="navigator-link ">
-                    <span>3 groups</span>
+                    <span>2 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">9 methods,   9 passed</span>
+                    <span class="method-stats">4 methods, 1 failed,   3 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-SmokeTest" class="hide-methods failed suite-SmokeTest"> (hide)</a> <!-- hide-methods failed suite-SmokeTest -->
+                      <a href="#" panel-name="suite-SmokeTest" class="show-methods failed suite-SmokeTest"> (show)</a> <!-- show-methods failed suite-SmokeTest -->
+                    </span>
+                    <div class="method-list-content failed suite-SmokeTest">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T4_menu_Work_Area" class="method navigator-link" hash-for-method="t4_4_Header_buttons">t4_4_Header_buttons</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-SmokeTest -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -108,42 +122,12 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T1_Authorization_Availability" class="method navigator-link" hash-for-method="t1_2_Url_Refresh">t1_2_Url_Refresh</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T2_Authorization" class="method navigator-link" hash-for-method="t2_1_Incorrect_Credentials">t2_1_Incorrect_Credentials</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T2_Authorization" class="method navigator-link" hash-for-method="t2_2_Incorrect_Login">t2_2_Incorrect_Login</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T2_Authorization" class="method navigator-link" hash-for-method="t2_3_Incorrect_Password">t2_3_Incorrect_Password</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T2_Authorization" class="method navigator-link" hash-for-method="t2_4_Correct_Credentials">t2_4_Correct_Credentials</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T3_Generator" class="method navigator-link" hash-for-method="t3_1_Generation_Schem">t3_1_Generation_Schem</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T4_menu_Work_Area" class="method navigator-link" hash-for-method="t4_1_Sidebar_Tabs">t4_1_Sidebar_Tabs</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T4_menu_Work_Area" class="method navigator-link" hash-for-method="t4_2_Sidebar_Tabs_Sharing_Drives">t4_2_Sidebar_Tabs_Sharing_Drives</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-SmokeTest -->
@@ -158,21 +142,33 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-SmokeTest" class="panel SmokeTest">
-          <div class="suite-SmokeTest-class-passed">
+          <div class="suite-SmokeTest-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">SmokeTestCase.T3_Generator</span>
+              <img src="failed.png"/>
+              <span class="class-name">SmokeTestCase.T4_menu_Work_Area</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="t3_1_Generation_Schem">
-                  </a> <!-- t3_1_Generation_Schem -->
-                  <span class="method-name">t3_1_Generation_Schem</span>
+                  <a name="t4_4_Header_buttons">
+                  </a> <!-- t4_4_Header_buttons -->
+                  <span class="method-name">t4_4_Header_buttons</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on windows (a3cbd2c9dd391b92aa3bd390ff9ce206)] -&gt; xpath: //tr[@class=&apos;item menu&apos; and @tabindex=&apos;-1&apos; or contains(@class, &apos;item menu active&apos;)]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.28.1&apos;, revision: &apos;73f5ad48a2&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 132.0.6834.160, chrome: {chromedriverVersion: 132.0.6834.159 (2d77d3fc445..., userDataDir: C:\Users\843E~1\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65514}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65514/devtoo..., se:cdpVersion: 132.0.6834.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a3cbd2c9dd391b92aa3bd390ff9ce206
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at SmokeTestCase.T4_menu_Work_Area.t4_4_Header_buttons(T4_menu_Work_Area.java:205)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 25 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-SmokeTest-class-passed -->
+          </div> <!-- suite-SmokeTest-class-failed -->
           <div class="suite-SmokeTest-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -186,13 +182,6 @@
                   <span class="method-name">t4_1_Sidebar_Tabs</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="t4_2_Sidebar_Tabs_Sharing_Drives">
-                  </a> <!-- t4_2_Sidebar_Tabs_Sharing_Drives -->
-                  <span class="method-name">t4_2_Sidebar_Tabs_Sharing_Drives</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-SmokeTest-class-passed -->
           <div class="suite-SmokeTest-class-passed">
@@ -201,27 +190,6 @@
               <span class="class-name">SmokeTestCase.T2_Authorization</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="t2_1_Incorrect_Credentials">
-                  </a> <!-- t2_1_Incorrect_Credentials -->
-                  <span class="method-name">t2_1_Incorrect_Credentials</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="t2_2_Incorrect_Login">
-                  </a> <!-- t2_2_Incorrect_Login -->
-                  <span class="method-name">t2_2_Incorrect_Login</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="t2_3_Incorrect_Password">
-                  </a> <!-- t2_3_Incorrect_Password -->
-                  <span class="method-name">t2_3_Incorrect_Password</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="t2_4_Correct_Credentials">
@@ -244,13 +212,6 @@
                   <span class="method-name">t1_1_Url_Availability</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="t1_2_Url_Refresh">
-                  </a> <!-- t1_2_Url_Refresh -->
-                  <span class="method-name">t1_2_Url_Refresh</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-SmokeTest-class-passed -->
         </div> <!-- panel SmokeTest -->
@@ -266,9 +227,7 @@
   &lt;test thread-count=&quot;5&quot; name=&quot;Smoke Group&quot;&gt;
     &lt;groups&gt;
       &lt;run&gt;
-        &lt;include name=&quot;smoke&quot;/&gt;
         &lt;include name=&quot;speed&quot;/&gt;
-        &lt;include name=&quot;sharing-drives&quot;/&gt;
       &lt;/run&gt;
     &lt;/groups&gt;
     &lt;classes&gt;
@@ -300,14 +259,6 @@
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="test-group">
-              <span class="test-group-name">sharing-drives</span>
-              <br/>
-              <div class="method-in-group">
-                <span class="method-in-group-name">t4_2_Sidebar_Tabs_Sharing_Drives</span>
-                <br/>
-              </div> <!-- method-in-group -->
-            </div> <!-- test-group -->
-            <div class="test-group">
               <span class="test-group-name">smoke</span>
               <br/>
               <div class="method-in-group">
@@ -315,31 +266,15 @@
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
-                <span class="method-in-group-name">t1_2_Url_Refresh</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">t2_1_Incorrect_Credentials</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">t2_2_Incorrect_Login</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">t2_3_Incorrect_Password</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
                 <span class="method-in-group-name">t2_4_Correct_Credentials</span>
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
-                <span class="method-in-group-name">t3_1_Generation_Schem</span>
+                <span class="method-in-group-name">t4_1_Sidebar_Tabs</span>
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
-                <span class="method-in-group-name">t4_1_Sidebar_Tabs</span>
+                <span class="method-in-group-name">t4_4_Header_buttons</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -356,6 +291,10 @@
               </div> <!-- method-in-group -->
               <div class="method-in-group">
                 <span class="method-in-group-name">t4_1_Sidebar_Tabs</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">t4_4_Header_buttons</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -375,48 +314,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(9);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 't3_1_Generation_Schem')
-data.setCell(0, 2, 'SmokeTestCase.T3_Generator')
-data.setCell(0, 3, 6748);
+data.setCell(0, 1, 't4_4_Header_buttons')
+data.setCell(0, 2, 'SmokeTestCase.T4_menu_Work_Area')
+data.setCell(0, 3, 12614);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 't2_3_Incorrect_Password')
-data.setCell(1, 2, 'SmokeTestCase.T2_Authorization')
-data.setCell(1, 3, 4702);
+data.setCell(1, 1, 't1_1_Url_Availability')
+data.setCell(1, 2, 'SmokeTestCase.T1_Authorization_Availability')
+data.setCell(1, 3, 3112);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 't2_2_Incorrect_Login')
+data.setCell(2, 1, 't2_4_Correct_Credentials')
 data.setCell(2, 2, 'SmokeTestCase.T2_Authorization')
-data.setCell(2, 3, 4112);
+data.setCell(2, 3, 2796);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 't2_4_Correct_Credentials')
-data.setCell(3, 2, 'SmokeTestCase.T2_Authorization')
-data.setCell(3, 3, 3820);
-data.setCell(4, 0, 4)
-data.setCell(4, 1, 't1_1_Url_Availability')
-data.setCell(4, 2, 'SmokeTestCase.T1_Authorization_Availability')
-data.setCell(4, 3, 2946);
-data.setCell(5, 0, 5)
-data.setCell(5, 1, 't1_2_Url_Refresh')
-data.setCell(5, 2, 'SmokeTestCase.T1_Authorization_Availability')
-data.setCell(5, 3, 2412);
-data.setCell(6, 0, 6)
-data.setCell(6, 1, 't2_1_Incorrect_Credentials')
-data.setCell(6, 2, 'SmokeTestCase.T2_Authorization')
-data.setCell(6, 3, 1161);
-data.setCell(7, 0, 7)
-data.setCell(7, 1, 't4_1_Sidebar_Tabs')
-data.setCell(7, 2, 'SmokeTestCase.T4_menu_Work_Area')
-data.setCell(7, 3, 483);
-data.setCell(8, 0, 8)
-data.setCell(8, 1, 't4_2_Sidebar_Tabs_Sharing_Drives')
-data.setCell(8, 2, 'SmokeTestCase.T4_menu_Work_Area')
-data.setCell(8, 3, 114);
+data.setCell(3, 1, 't4_1_Sidebar_Tabs')
+data.setCell(3, 2, 'SmokeTestCase.T4_menu_Work_Area')
+data.setCell(3, 3, 540);
 window.suiteTableData['SmokeTest']= { tableData: data, tableDiv: 'times-div-SmokeTest'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 26 seconds</span>
+              <span class="suite-total-time">Total running time: 19 seconds</span>
               <div id="times-div-SmokeTest">
               </div> <!-- times-div-SmokeTest -->
             </div> <!-- times-div -->
@@ -431,15 +350,33 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-SmokeTest" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">3 ignored methods</span>
+            <span class="header-content">8 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
+              <span class="ignored-class-name">SmokeTestCase.T3_Generator</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">t3_1_Generation_Schem</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
               <span class="ignored-class-name">SmokeTestCase.T4_menu_Work_Area</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">processButtons</span>
-                <br/>
                 <span class="ignored-method-name">t4_3_Sidebar_Tabs_AI</span>
+                <br/>
+                <span class="ignored-method-name">t4_2_Sidebar_Tabs_Sharing_Drives</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">SmokeTestCase.T2_Authorization</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">t2_3_Incorrect_Password</span>
+                <br/>
+                <span class="ignored-method-name">t2_2_Incorrect_Login</span>
+                <br/>
+                <span class="ignored-method-name">t2_1_Incorrect_Credentials</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -447,6 +384,8 @@ return data;
               <span class="ignored-class-name">SmokeTestCase.T1_Authorization_Availability</span>
               <div class="ignored-methods-div">
                 <span class="ignored-method-name">t1_3_Special_Button</span>
+                <br/>
+                <span class="ignored-method-name">t1_2_Url_Refresh</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -465,72 +404,44 @@ return data;
               </div> <!-- configuration-suite before -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
-              <div class="chronological-class-name">SmokeTestCase.T3_Generator</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">SmokeTestCase.T2_Authorization</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">1239 ms</span>
+                <span class="method-start">1215 ms</span>
               </div> <!-- configuration-suite before -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">SmokeTestCase.T4_menu_Work_Area</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">1239 ms</span>
-              </div> <!-- configuration-suite before -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">SmokeTestCase.T2_Authorization</div> <!-- chronological-class-name -->
-              <div class="configuration-suite before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">1239 ms</span>
+                <span class="method-start">1216 ms</span>
               </div> <!-- configuration-suite before -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">SmokeTestCase.T1_Authorization_Availability</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">t1_1_Url_Availability</span>
-                <span class="method-start">1257 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">t1_2_Url_Refresh</span>
-                <span class="method-start">4206 ms</span>
+                <span class="method-start">1232 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">SmokeTestCase.T2_Authorization</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">t2_1_Incorrect_Credentials</span>
-                <span class="method-start">6620 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">t2_2_Incorrect_Login</span>
-                <span class="method-start">7782 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">t2_3_Incorrect_Password</span>
-                <span class="method-start">11895 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
                 <span class="method-name">t2_4_Correct_Credentials</span>
-                <span class="method-start">16599 ms</span>
-              </div> <!-- test-method -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">SmokeTestCase.T3_Generator</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">t3_1_Generation_Schem</span>
-                <span class="method-start">20420 ms</span>
+                <span class="method-start">4347 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">SmokeTestCase.T4_menu_Work_Area</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">t4_1_Sidebar_Tabs</span>
-                <span class="method-start">27170 ms</span>
+                <span class="method-start">7144 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">t4_2_Sidebar_Tabs_Sharing_Drives</span>
-                <span class="method-start">27654 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">t4_4_Header_buttons</span>
+                <span class="method-start">7686 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
