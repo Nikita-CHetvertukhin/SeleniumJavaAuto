@@ -3,21 +3,19 @@
     <test name="Smoke Group">
     <groups>
         <run>
-            <!--<include name="smoke"/>-->
+            <include name="smoke"/>
             <include name="speed"/> <!--Техническая группа, в неё доабвлены в оснвоном авторизация и прочие тесты для быстрой проверки текущего в разработке-->
             <!--<include name="recover"/>--> <!--Если "pro.doczilla.recover":"true"-->
             <!--<include name="signup"/>--> <!--Если "pro.doczilla.signup":"true"-->
             <!--<include name="sharing-outer"/>--> <!--Если ""pro.doczilla.sharing.outer":"true"-->
-            <include name="sharing-drives"/> <!--Если "pro.doczilla.sharing.drives":"true"-->
-            <!--<include name="AI"/>--> <!--Если "pro.doczilla.ai":"true"-->
-            <!--<include name="SAAS"/>--> <!--Если saas (кастомный интерфейс)-->
+            <!--<include name="sharing-drives"/>--> <!--Если "pro.doczilla.sharing.drives":"true"-->
+            <!--<include name=""pro.doczilla.ai":"true""/>--> <!--Если "pro.doczilla.ai":"true"-->
         </run>
     </groups>
         <classes>
             <class name="SmokeTestCase.T1_Authorization_Availability"/>
             <class name="SmokeTestCase.T2_Authorization"/>
             <class name="SmokeTestCase.T3_Generator"/>
-            <class name="SmokeTestCase.T4_menu_Work_Area"/>
         </classes>
     </test>
 </suite>

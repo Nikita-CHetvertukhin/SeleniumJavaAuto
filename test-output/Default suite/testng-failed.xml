@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="SmokeTestCase.T4_menu_Work_Area">
+      <class name="SmokeTestCase.T3_Generator">
         <methods>
+          <include name="t3_1_Generation_Schem"/>
           <include name="setUp"/>
-          <include name="t4_1_Sidebar_Tabs"/>
         </methods>
-      </class> <!-- SmokeTestCase.T4_menu_Work_Area -->
+      </class> <!-- SmokeTestCase.T3_Generator -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
