@@ -12,6 +12,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.ArrayList;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -178,60 +179,66 @@ public class T4_menu_Work_Area {
 	    }
 	    
 	    @Test(groups = {"smoke", "speed"})
-	    public void t4_4_Header_buttons() {
-	    	
-	    	System.out.println("Запуск t4_4_Header_buttons");
-	    	
-	    	// Найдите все элементы <a class="btn default"> внутри <div class="header-menu">
-	        List<WebElement> buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default']"));
 
-	        // Инициализация WebDriverWait
+	    public void t4_4_Header_buttons() {
+	        System.out.println("Запуск t4_4_Header_buttons");
 	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-	        // Проход по всем найденным элементам
-	        for (WebElement button : buttons) {
-	            // Кликнуть по кнопке
+	        // Основной цикл для прохождения по всем кнопкам
+	        List<WebElement> buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default']"));
+	        for (int i = 0; i < buttons.size(); i++) {
+	            WebElement button = buttons.get(i);
 	            wait.until(ExpectedConditions.elementToBeClickable(button)).click();
-
-	            // Проверить наличие элемента <div class="scroller items">
+	            
 	            List<WebElement> scrollerItems = driver.findElements(By.xpath("//div[@class='scroller items']"));
 	            if (!scrollerItems.isEmpty()) {
-	                // Найти все строки таблицы <tr id="id34" class="item menu" tabindex="-1">
-	                List<WebElement> tableRows = driver.findElements(By.xpath("//tr[@class='item menu' and @tabindex='-1' or contains(@class, 'item menu active')]"));
-
-	                // Проход по всем найденным строкам таблицы
+	                List<WebElement> tableRows = driver.findElements(By.xpath("//tr[@class='item menu' or contains(@class, 'item menu active')]"));
 	                for (WebElement row : tableRows) {
-	                    // Ожидать, пока строка не станет интерактивной, и кликнуть по строке таблицы
 	                    wait.until(ExpectedConditions.elementToBeClickable(row)).click();
-
-	                    // Добавить небольшую задержку, чтобы дать классу время измениться
 	                    try {
-	                        Thread.sleep(500); // Задержка в 0.5 секунды
+	                        Thread.sleep(1000); // Задержка в 1 секунду
 	                    } catch (InterruptedException e) {
 	                        e.printStackTrace();
 	                    }
-
-	                    // Найти элемент <div class=" text"> на 3 уровне вложенности внутри строки таблицы
-	                    WebElement uniqueTextDiv = row.findElement(By.xpath(".//div[contains(@class, ' text') and @title]"));
-	                    // Извлечь и вывести уникальный текст
-	                    String uniqueText = uniqueTextDiv.getText();
-	                    System.out.println("Unique text: " + uniqueText);
-
-	                    // Проверить, что класс изменился на "item menu active"
-	                    String rowClass = row.getDomAttribute("class");
-	                    if (rowClass.contains("active")) {
-	                        System.out.println("Row is active: " + uniqueText);
+	                    
+	                    List<WebElement> cellDivs = row.findElements(By.xpath(".//div[contains(@class, 'cell')]"));
+	                    if (!cellDivs.isEmpty()) {
+	                        WebElement cellDiv = cellDivs.get(0);
+	                        List<WebElement> uniqueTextDivs = cellDiv.findElements(By.xpath(".//div[contains(@class, ' text') and @title]"));
+	                        if (!uniqueTextDivs.isEmpty()) {
+	                            WebElement uniqueTextDiv = uniqueTextDivs.get(0);
+	                            String titleAttribute = uniqueTextDiv.getDomAttribute("title");
+	                            System.out.println("Title attribute: " + titleAttribute);
+	                            
+	                            String rowClass = row.getDomAttribute("class");
+	                            if (rowClass.contains("active")) {
+	                                System.out.println("Row is active: " + titleAttribute);
+	                            } else {
+	                                System.out.println("Row is not active: " + titleAttribute);
+	                            }
+	                        } else {
+	                            System.out.println("Element <div class='text' and @title> not found inside <div class='cell'>.");
+	                        }
 	                    } else {
-	                        System.out.println("Row is not active: " + uniqueText);
+	                        System.out.println("Element <div class='cell'> not found inside row.");
 	                    }
-
-	                    // Открыть выпадающий список заново, кликнув на кнопку
+	                    
+	                    // Перезагрузить список кнопок перед повторным открытием выпадающего списка
+	                    buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default']"));
+	                    button = buttons.get(i);
 	                    wait.until(ExpectedConditions.elementToBeClickable(button)).click();
 	                }
+	            } else {
+	                System.out.println("Element <div class='scroller items'> not found.");
 	            }
+	            
+	            // Перезагрузить страницу после обработки каждой кнопки
+	            driver.navigate().refresh();
+	            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='header-menu']//a[@class='btn default']")));
+	            
+	            // Обновить список кнопок после перезагрузки страницы
+	            buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default']"));
 	        }
-	        
 	        System.out.println("Вывод в консоль вообще-то работает");
-	        
 	    }
 }
