@@ -177,15 +177,15 @@ public class T2_Authorization {
 	        //Нажатие на кнопку входа
 	        button.click();
 	        
-	        // Вставляем задержку 1 секунда
+	        // Вставляем задержку 2 секунды
 	        try {
-	            Thread.sleep(1000); // 1000 миллисекунд = 1 секунда
+	            Thread.sleep(2000); // 2000 миллисекунд = 2 секунды
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
 	        }
 	        
 	        // Проверка отсутствия элемента с помощью findElements
-	        boolean isUserBtnPresent = driver.findElements(By.cssSelector(".divided.user.btn.default, .user.btn.default")).size() > 0;
+	        boolean isUserBtnPresent = driver.findElements(By.cssSelector("user.divided.btn.default, .divided.user.btn.default, .user.btn.default")).size() > 0;
 	        
 	        // Проверка, что элемент найден на странице
 	        Assert.assertTrue(isUserBtnPresent, "Элемент с классами 'divided user btn default' или 'user btn default' не найден на странице");

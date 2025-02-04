@@ -4,23 +4,21 @@
   <test thread-count="5" name="Smoke Group(failed)">
     <groups>
       <run>
-        <include name="smoke"/>
         <include name="speed"/>
+        <include name="sharing-drives"/>
       </run>
     </groups>
     <classes>
-      <class name="SmokeTestCase.T3_Generator">
+      <class name="SmokeTestCase.T4_menu_Work_Area">
         <methods>
-          <include name="t3_1_Generation_Schem"/>
+          <include name="processButtons"/>
+          <include name="verifySection"/>
+          <include name="t4_1_Sidebar_Tabs"/>
+          <include name="processDropdownButtons"/>
           <include name="setUp"/>
+          <include name="t4_2_Sidebar_Tabs_Sharing_Drives"/>
         </methods>
-      </class> <!-- SmokeTestCase.T3_Generator -->
-      <class name="SmokeTestCase.T2_Authorization">
-        <methods>
-          <include name="t2_4_Correct_Credentials"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- SmokeTestCase.T2_Authorization -->
+      </class> <!-- SmokeTestCase.T4_menu_Work_Area -->
     </classes>
   </test> <!-- Smoke Group(failed) -->
 </suite> <!-- Failed suite [SmokeTest] -->
