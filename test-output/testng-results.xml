@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="3" failed="1" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-04T23:47:45 CET" name="SmokeTest" finished-at="2025-02-04T23:48:28 CET" duration-ms="43357">
+  <suite started-at="2025-02-05T13:34:59 CET" name="SmokeTest" finished-at="2025-02-05T13:35:56 CET" duration-ms="57784">
     <groups>
       <group name="smoke">
         <method signature="T1_Authorization_Availability.t1_1_Url_Availability()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@169e6180]" name="t1_1_Url_Availability" class="SmokeTestCase.T1_Authorization_Availability"/>
@@ -17,101 +17,37 @@
         <method signature="T4_menu_Work_Area.t4_4_Header_buttons()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@1da2cb77]" name="t4_4_Header_buttons" class="SmokeTestCase.T4_menu_Work_Area"/>
       </group> <!-- speed -->
     </groups>
-    <test started-at="2025-02-04T23:47:45 CET" name="Smoke Group" finished-at="2025-02-04T23:48:28 CET" duration-ms="43357">
+    <test started-at="2025-02-05T13:34:59 CET" name="Smoke Group" finished-at="2025-02-05T13:35:56 CET" duration-ms="57784">
       <class name="SmokeTestCase.T1_Authorization_Availability">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@169e6180]" started-at="2025-02-04T23:47:44 CET" name="setUp" finished-at="2025-02-04T23:47:45 CET" duration-ms="1352" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@169e6180]" started-at="2025-02-05T13:34:56 CET" name="setUp" finished-at="2025-02-05T13:34:59 CET" duration-ms="2358" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="t1_1_Url_Availability()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@169e6180]" started-at="2025-02-04T23:47:45 CET" name="t1_1_Url_Availability" finished-at="2025-02-04T23:47:55 CET" duration-ms="10163" status="PASS">
+        <test-method signature="t1_1_Url_Availability()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@169e6180]" started-at="2025-02-05T13:34:59 CET" name="t1_1_Url_Availability" finished-at="2025-02-05T13:35:02 CET" duration-ms="3234" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t1_1_Url_Availability -->
       </class> <!-- SmokeTestCase.T1_Authorization_Availability -->
       <class name="SmokeTestCase.T4_menu_Work_Area">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@1da2cb77]" started-at="2025-02-04T23:47:45 CET" name="setUp" finished-at="2025-02-04T23:47:45 CET" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@1da2cb77]" started-at="2025-02-05T13:34:59 CET" name="setUp" finished-at="2025-02-05T13:34:59 CET" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="t4_1_Sidebar_Tabs()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@1da2cb77]" started-at="2025-02-04T23:48:01 CET" name="t4_1_Sidebar_Tabs" finished-at="2025-02-04T23:48:01 CET" duration-ms="631" status="PASS">
+        <test-method signature="t4_1_Sidebar_Tabs()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@1da2cb77]" started-at="2025-02-05T13:35:05 CET" name="t4_1_Sidebar_Tabs" finished-at="2025-02-05T13:35:05 CET" duration-ms="500" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t4_1_Sidebar_Tabs -->
-        <test-method signature="t4_4_Header_buttons()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@1da2cb77]" started-at="2025-02-04T23:48:01 CET" name="t4_4_Header_buttons" finished-at="2025-02-04T23:48:28 CET" duration-ms="26728" status="FAIL">
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
-            <message>
-              <![CDATA[element click intercepted: Element <a anchor="id75" class="btn default" tabindex="0" title="">...</a> is not clickable at point (291, 18). Other element would receive the click: <div class="window-mask">...</div>
-  (Session info: chrome=132.0.6834.160)
-Build info: version: '4.28.1', revision: '73f5ad48a2'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [67b3354701a419dbe6d52b4842eed7fd, clickElement {id=f.1B9850D23A5C72DB7DD450BE949971CC.d.B4983A5B72278274CA890786AF9AF2EE.e.407}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 132.0.6834.160, chrome: {chromedriverVersion: 132.0.6834.159 (2d77d3fc445..., userDataDir: C:\Users\843E~1\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51316}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51316/devtoo..., se:cdpVersion: 132.0.6834.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (67b3354701a419dbe6d52b4842eed7fd)] -> xpath: //div[@class='header-menu']//a[@class='btn default']]
-Session ID: 67b3354701a419dbe6d52b4842eed7fd]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <a anchor="id75" class="btn default" tabindex="0" title="">...</a> is not clickable at point (291, 18). Other element would receive the click: <div class="window-mask">...</div>
-  (Session info: chrome=132.0.6834.160)
-Build info: version: '4.28.1', revision: '73f5ad48a2'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [67b3354701a419dbe6d52b4842eed7fd, clickElement {id=f.1B9850D23A5C72DB7DD450BE949971CC.d.B4983A5B72278274CA890786AF9AF2EE.e.407}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 132.0.6834.160, chrome: {chromedriverVersion: 132.0.6834.159 (2d77d3fc445..., userDataDir: C:\Users\843E~1\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51316}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51316/devtoo..., se:cdpVersion: 132.0.6834.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (67b3354701a419dbe6d52b4842eed7fd)] -> xpath: //div[@class='header-menu']//a[@class='btn default']]
-Session ID: 67b3354701a419dbe6d52b4842eed7fd
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-at SmokeTestCase.T4_menu_Work_Area.t4_4_Header_buttons(T4_menu_Work_Area.java:229)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+        <test-method signature="t4_4_Header_buttons()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@1da2cb77]" started-at="2025-02-05T13:35:05 CET" name="t4_4_Header_buttons" finished-at="2025-02-05T13:35:56 CET" duration-ms="51374" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t4_4_Header_buttons -->
       </class> <!-- SmokeTestCase.T4_menu_Work_Area -->
       <class name="SmokeTestCase.T2_Authorization">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T2_Authorization@3b6ddd1d]" started-at="2025-02-04T23:47:45 CET" name="setUp" finished-at="2025-02-04T23:47:45 CET" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T2_Authorization@3b6ddd1d]" started-at="2025-02-05T13:34:59 CET" name="setUp" finished-at="2025-02-05T13:34:59 CET" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="t2_4_Correct_Credentials()[pri:0, instance:SmokeTestCase.T2_Authorization@3b6ddd1d]" started-at="2025-02-04T23:47:55 CET" name="t2_4_Correct_Credentials" finished-at="2025-02-04T23:48:01 CET" duration-ms="5808" status="PASS">
+        <test-method signature="t2_4_Correct_Credentials()[pri:0, instance:SmokeTestCase.T2_Authorization@3b6ddd1d]" started-at="2025-02-05T13:35:02 CET" name="t2_4_Correct_Credentials" finished-at="2025-02-05T13:35:05 CET" duration-ms="2651" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t2_4_Correct_Credentials -->

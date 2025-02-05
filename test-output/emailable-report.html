@@ -9,33 +9,13 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">SmokeTest</th></tr>
-<tr><td><a href="#t0">Smoke Group</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">43 357</td><td>speed</td><td></td></tr>
+<tr><td><a href="#t0">Smoke Group</a></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">57 784</td><td>speed</td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">SmokeTest</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Smoke Group &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">SmokeTestCase.T4_menu_Work_Area</td><td><a href="#m0">t4_4_Header_buttons</a></td><td rowspan="1">1738709281984</td><td rowspan="1">26728</td></tr><tr><th colspan="4">Smoke Group &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">SmokeTestCase.T1_Authorization_Availability</td><td><a href="#m1">t1_1_Url_Availability</a></td><td rowspan="1">1738709265376</td><td rowspan="1">10163</td></tr><tr class="passedodd"><td rowspan="1">SmokeTestCase.T2_Authorization</td><td><a href="#m2">t2_4_Correct_Credentials</a></td><td rowspan="1">1738709275543</td><td rowspan="1">5808</td></tr><tr class="passedeven"><td rowspan="1">SmokeTestCase.T4_menu_Work_Area</td><td><a href="#m3">t4_1_Sidebar_Tabs</a></td><td rowspan="1">1738709281352</td><td rowspan="1">631</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">SmokeTest</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Smoke Group &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">SmokeTestCase.T1_Authorization_Availability</td><td><a href="#m0">t1_1_Url_Availability</a></td><td rowspan="1">1738758899189</td><td rowspan="1">3234</td></tr><tr class="passedodd"><td rowspan="1">SmokeTestCase.T2_Authorization</td><td><a href="#m1">t2_4_Correct_Credentials</a></td><td rowspan="1">1738758902426</td><td rowspan="1">2651</td></tr><tr class="passedeven"><td rowspan="2">SmokeTestCase.T4_menu_Work_Area</td><td><a href="#m2">t4_1_Sidebar_Tabs</a></td><td rowspan="1">1738758905078</td><td rowspan="1">500</td></tr><tr class="passedeven"><td><a href="#m3">t4_4_Header_buttons</a></td><td rowspan="1">1738758905579</td><td rowspan="1">51374</td></tr></tbody>
 </table>
-<h2>Smoke Group</h2><h3 id="m0">SmokeTestCase.T4_menu_Work_Area#t4_4_Header_buttons</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;a anchor=&quot;id75&quot; class=&quot;btn default&quot; tabindex=&quot;0&quot; title=&quot;&quot;&gt;...&lt;/a&gt; is not clickable at point (291, 18). Other element would receive the click: &lt;div class=&quot;window-mask&quot;&gt;...&lt;/div&gt;
-  (Session info: chrome=132.0.6834.160)
-Build info: version: &apos;4.28.1&apos;, revision: &apos;73f5ad48a2&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [67b3354701a419dbe6d52b4842eed7fd, clickElement {id=f.1B9850D23A5C72DB7DD450BE949971CC.d.B4983A5B72278274CA890786AF9AF2EE.e.407}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 132.0.6834.160, chrome: {chromedriverVersion: 132.0.6834.159 (2d77d3fc445..., userDataDir: C:\Users\843E~1\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51316}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51316/devtoo..., se:cdpVersion: 132.0.6834.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (67b3354701a419dbe6d52b4842eed7fd)] -&gt; xpath: //div[@class=&apos;header-menu&apos;]//a[@class=&apos;btn default&apos;]]
-Session ID: 67b3354701a419dbe6d52b4842eed7fd
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at SmokeTestCase.T4_menu_Work_Area.t4_4_Header_buttons(T4_menu_Work_Area.java:229)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-... Removed 28 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">SmokeTestCase.T1_Authorization_Availability#t1_1_Url_Availability</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">SmokeTestCase.T2_Authorization#t2_4_Correct_Credentials</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">SmokeTestCase.T4_menu_Work_Area#t4_1_Sidebar_Tabs</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Smoke Group</h2><h3 id="m0">SmokeTestCase.T1_Authorization_Availability#t1_1_Url_Availability</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">SmokeTestCase.T2_Authorization#t2_4_Correct_Credentials</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">SmokeTestCase.T4_menu_Work_Area#t4_1_Sidebar_Tabs</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">SmokeTestCase.T4_menu_Work_Area#t4_4_Header_buttons</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

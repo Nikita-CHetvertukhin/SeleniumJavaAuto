@@ -183,13 +183,14 @@ public class T4_menu_Work_Area {
 	    public void t4_4_Header_buttons() {
 	        System.out.println("Запуск t4_4_Header_buttons");
 	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	        WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(1));
 
 	        // Основной цикл для прохождения по всем кнопкам
 	        List<WebElement> buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default']"));
 	        for (int i = 0; i < buttons.size(); i++) {
 	            WebElement button = buttons.get(i);
 	            wait.until(ExpectedConditions.elementToBeClickable(button)).click();
-	            
+
 	            List<WebElement> scrollerItems = driver.findElements(By.xpath("//div[@class='scroller items']"));
 	            if (!scrollerItems.isEmpty()) {
 	                List<WebElement> tableRows = driver.findElements(By.xpath("//tr[@class='item menu' or contains(@class, 'item menu active')]"));
@@ -200,7 +201,29 @@ public class T4_menu_Work_Area {
 	                    } catch (InterruptedException e) {
 	                        e.printStackTrace();
 	                    }
+
+	                    /*// Проверка наличия кнопки "Отменить" после клика по строке таблицы
+	                    try {
+	                        WebElement cancelButton = shortWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='btn default push']//span[text()='Отменить']")));
+	                        if (cancelButton != null) {
+	                            cancelButton.click();
+	                            System.out.println("Кнопка 'Отменить' найдена и кликнута.");
+	                        }
+	                    } catch (TimeoutException e) {
+	                        System.out.println("Кнопка 'Отменить' не найдена.");
+	                    }*/
 	                    
+	                 // Проверка наличия кнопки "Закрыть" после клика по строке таблицы
+	                    try {
+	                    	WebElement closeButton = shortWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@class='btn-tool btn default no-text' and descendant::i[@class='fa-close fa icon']]")));
+	                        if (closeButton != null) {
+	                            closeButton.click();
+	                            System.out.println("Кнопка 'Закрыть' найдена и кликнута.");
+	                        }
+	                    } catch (TimeoutException e) {
+	                        System.out.println("Кнопка 'Закрыть' не найдена.");
+	                    }
+
 	                    List<WebElement> cellDivs = row.findElements(By.xpath(".//div[contains(@class, 'cell')]"));
 	                    if (!cellDivs.isEmpty()) {
 	                        WebElement cellDiv = cellDivs.get(0);
@@ -209,7 +232,7 @@ public class T4_menu_Work_Area {
 	                            WebElement uniqueTextDiv = uniqueTextDivs.get(0);
 	                            String titleAttribute = uniqueTextDiv.getDomAttribute("title");
 	                            System.out.println("Title attribute: " + titleAttribute);
-	                            
+
 	                            String rowClass = row.getDomAttribute("class");
 	                            if (rowClass.contains("active")) {
 	                                System.out.println("Row is active: " + titleAttribute);
@@ -220,9 +243,9 @@ public class T4_menu_Work_Area {
 	                            System.out.println("Element <div class='text' and @title> not found inside <div class='cell'>.");
 	                        }
 	                    } else {
-	                        System.out.println("Element <div class='cell'> not found inside row.");
+	                        System.out.println("Element <div='cell'> not found inside row.");
 	                    }
-	                    
+
 	                    // Перезагрузить список кнопок перед повторным открытием выпадающего списка
 	                    buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default']"));
 	                    button = buttons.get(i);
@@ -231,14 +254,15 @@ public class T4_menu_Work_Area {
 	            } else {
 	                System.out.println("Element <div class='scroller items'> not found.");
 	            }
-	            
+
 	            // Перезагрузить страницу после обработки каждой кнопки
 	            driver.navigate().refresh();
 	            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='header-menu']//a[@class='btn default']")));
-	            
+
 	            // Обновить список кнопок после перезагрузки страницы
 	            buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default']"));
 	        }
 	        System.out.println("Вывод в консоль вообще-то работает");
 	    }
+
 }
