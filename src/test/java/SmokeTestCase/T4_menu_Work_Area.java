@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.NoSuchElementException;
 
 import java.time.Duration;
 import java.util.List;
@@ -195,55 +196,15 @@ public class T4_menu_Work_Area {
 	            if (!scrollerItems.isEmpty()) {
 	                List<WebElement> tableRows = driver.findElements(By.xpath("//tr[@class='item menu' or contains(@class, 'item menu active')]"));
 	                for (WebElement row : tableRows) {
-	                    wait.until(ExpectedConditions.elementToBeClickable(row)).click();
-	                    try {
-	                        Thread.sleep(1000); // Задержка в 1 секунду
-	                    } catch (InterruptedException e) {
-	                        e.printStackTrace();
-	                    }
-
-	                    /*// Проверка наличия кнопки "Отменить" после клика по строке таблицы
-	                    try {
-	                        WebElement cancelButton = shortWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='btn default push']//span[text()='Отменить']")));
-	                        if (cancelButton != null) {
-	                            cancelButton.click();
-	                            System.out.println("Кнопка 'Отменить' найдена и кликнута.");
-	                        }
-	                    } catch (TimeoutException e) {
-	                        System.out.println("Кнопка 'Отменить' не найдена.");
-	                    }*/
-	                    
-	                 // Проверка наличия кнопки "Закрыть" после клика по строке таблицы
-	                    try {
-	                    	WebElement closeButton = shortWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@class='btn-tool btn default no-text' and descendant::i[@class='fa-close fa icon']]")));
-	                        if (closeButton != null) {
-	                            closeButton.click();
-	                            System.out.println("Кнопка 'Закрыть' найдена и кликнута.");
-	                        }
-	                    } catch (TimeoutException e) {
-	                        System.out.println("Кнопка 'Закрыть' не найдена.");
-	                    }
-
-	                    List<WebElement> cellDivs = row.findElements(By.xpath(".//div[contains(@class, 'cell')]"));
-	                    if (!cellDivs.isEmpty()) {
-	                        WebElement cellDiv = cellDivs.get(0);
-	                        List<WebElement> uniqueTextDivs = cellDiv.findElements(By.xpath(".//div[contains(@class, ' text') and @title]"));
-	                        if (!uniqueTextDivs.isEmpty()) {
-	                            WebElement uniqueTextDiv = uniqueTextDivs.get(0);
-	                            String titleAttribute = uniqueTextDiv.getDomAttribute("title");
-	                            System.out.println("Title attribute: " + titleAttribute);
-
-	                            String rowClass = row.getDomAttribute("class");
-	                            if (rowClass.contains("active")) {
-	                                System.out.println("Row is active: " + titleAttribute);
-	                            } else {
-	                                System.out.println("Row is not active: " + titleAttribute);
-	                            }
-	                        } else {
-	                            System.out.println("Element <div class='text' and @title> not found inside <div class='cell'>.");
-	                        }
+	                	hoverOverElement(row);
+	                    if (additionalDropdownAppears()) {
+	                    	System.out.println("additionalDropdownAppears: true");
+	                    	// Добавьте здесь логику для обработки выпадающего списка
+	                    	
 	                    } else {
-	                        System.out.println("Element <div='cell'> not found inside row.");
+	                    	System.out.println("additionalDropdownAppears: false");
+	                        wait.until(ExpectedConditions.elementToBeClickable(row)).click();
+	                        handleRowActions(shortWait, row);
 	                    }
 
 	                    // Перезагрузить список кнопок перед повторным открытием выпадающего списка
@@ -255,7 +216,7 @@ public class T4_menu_Work_Area {
 	                System.out.println("Element <div class='scroller items'> not found.");
 	            }
 
-	            // Перезагрузить страницу после обработки каждой кнопки
+	            // Перезагрузить страницу после обработки каждой кнопки (из-за перестраивания DOM)
 	            driver.navigate().refresh();
 	            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='header-menu']//a[@class='btn default']")));
 
@@ -263,6 +224,83 @@ public class T4_menu_Work_Area {
 	            buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default']"));
 	        }
 	        System.out.println("Вывод в консоль вообще-то работает");
+	    }
+	    
+	    //Перманентная задержка между кликами в 1 секунду (из-за перестраивания DOM)
+	    private void handleRowActions(WebDriverWait shortWait, WebElement row) {
+	        try {
+	            Thread.sleep(1000); // Задержка в 1 секунду
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+
+	        handleCloseButton(shortWait);
+	        handleTableRow(row);
+	    }
+	    
+	    //метод наведения на строку выпадающего списка
+	    private void hoverOverElement(WebElement element) {
+	        Actions actions = new Actions(driver);
+	        actions.moveToElement(element).perform();
+	    }
+	    
+	    //Характеристики классов выпадающего списка второго уровня...
+	    private boolean additionalDropdownAppears() {
+	        try {
+	            // Добавим небольшую задержку перед проверкой наличия выпадающего списка
+	            Thread.sleep(1000); // Секунда задержки
+
+	            WebElement dropdown = driver.findElement(By.xpath("//div[contains(@class, 'submenu')]"));
+	            boolean isDisplayed = dropdown.isDisplayed();
+	            System.out.println("submenu found: " + isDisplayed);
+	            return isDisplayed;
+	        } catch (NoSuchElementException e) {
+	            System.out.println("submenu not found");
+	            return false;
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	            return false;
+	        }
+	    }
+
+
+	    
+	    //Метод закрытия мешающих экранов в процессе прокликивания кнопок
+	    private void handleCloseButton(WebDriverWait shortWait) {
+	        try {
+	            WebElement closeButton = shortWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@class='btn-tool btn default no-text' and descendant::i[@class='fa-close fa icon']]")));
+	            if (closeButton != null) {
+	                closeButton.click();
+	                System.out.println("Кнопка 'Закрыть' найдена и кликнута.");
+	            }
+	        } catch (TimeoutException e) {
+	            System.out.println("Кнопка 'Закрыть' не найдена.");
+	        }
+	    }
+	    
+	    //метод для обработки строк выпадающего списка первого уровня
+	    private void handleTableRow(WebElement row) {
+	        List<WebElement> cellDivs = row.findElements(By.xpath(".//div[contains(@class, 'cell')]"));
+	        if (!cellDivs.isEmpty()) {
+	            WebElement cellDiv = cellDivs.get(0);
+	            List<WebElement> uniqueTextDivs = cellDiv.findElements(By.xpath(".//div[contains(@class, ' text') and @title]"));
+	            if (!uniqueTextDivs.isEmpty()) {
+	                WebElement uniqueTextDiv = uniqueTextDivs.get(0);
+	                String titleAttribute = uniqueTextDiv.getDomAttribute("title");
+	                System.out.println("Title attribute: " + titleAttribute);
+
+	                String rowClass = row.getDomAttribute("class");
+	                if (rowClass.contains("active")) {
+	                    System.out.println("Row is active: " + titleAttribute);
+	                } else {
+	                    System.out.println("Row is not active: " + titleAttribute);
+	                }
+	            } else {
+	                System.out.println("Element <div class='text' and @title> not found inside <div class='cell'>.");
+	            }
+	        } else {
+	            System.out.println("Element <div class='cell'> not found inside row.");
+	        }
 	    }
 
 }
