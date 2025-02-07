@@ -7,16 +7,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.Keys;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.ArrayList;
+import java.awt.*;
+import java.awt.datatransfer.*;
+import java.io.IOException;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
+import org.testng.asserts.SoftAssert;
 
 import methods.DriverConst;
 
@@ -179,8 +182,7 @@ public class T4_menu_Work_Area {
 			}
 	    }
 	    
-	    @Test(groups = {"smoke", "speed"})
-
+	    @Test(groups = {"smoke"})
 	    public void t4_4_Header_buttons() {
 			
 			System.out.println("Запуск t4_4_Header_buttons");
@@ -284,8 +286,90 @@ public class T4_menu_Work_Area {
 		            	continue;
 		            }
 	        }
-		}
-		//метод наведения на строку выпадающего списка
+	        
+	        //Ищем и кликаем по "Лого"
+			WebElement logoButton = shortWait.until(ExpectedConditions.elementToBeClickable(
+	    	        By.xpath("//div[@class = 'header']//a[@class = 'logo btn default']")
+	    	    ));
+			logoButton.click();
+			
+	        // Перезагружаем страницу
+	        driver.navigate().refresh();  
+		}	
+	    
+	    @Test(groups = {"smoke", "speed"})
+	    public void t4_5_Help_button() {
+	    	
+	    	System.out.println("Запуск t4_5_Help_button");
+	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	        SoftAssert softAssert = new SoftAssert();
+	        
+	        WebElement helpButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='header']//a[@class='help-btn btn default']")));
+	        helpButton.click();
+	        
+	        List<WebElement> listButtons = helpButton.findElements(By.xpath(".//td[@class='column'][@title]"));
+	        
+	        for (WebElement button : listButtons) {
+	            // Получаем и выводим значение атрибута title
+	            String titleValue = button.getDomAttribute("title");
+	            if (titleValue.equals("База знаний")) {
+	                System.out.println("Найден элемент с title: " + titleValue);
+	                WebElement currentButton = helpButton.findElement(By.xpath(".//td[@class='column' and @title='" + titleValue + "']"));
+	                wait.until(ExpectedConditions.elementToBeClickable(currentButton)).click();
+	                //Метод переключения на вкладку и проверки url
+	                boolean isUrlCorrect = switchWindowAndCheckUrl("https://help.doczilla.pro/home/ru-ru/");
+	                softAssert.assertTrue(isUrlCorrect, "По нажатию на кнопку " + titleValue + "Не получили ожидаемый URL");
+	            }
+	            if (titleValue.equals("Обучающие видео")) {
+	                System.out.println("Найден элемент с title: " + titleValue);
+	                WebElement currentButton = helpButton.findElement(By.xpath(".//td[@class='column' and @title='" + titleValue + "']"));
+	                wait.until(ExpectedConditions.elementToBeClickable(currentButton)).click();
+	                //Метод переключения на вкладку и проверки url
+	                boolean isUrlCorrect = switchWindowAndCheckUrl("https://doczilla.pro/ru/academy/");
+	                softAssert.assertTrue(isUrlCorrect, "По нажатию на кнопку " + titleValue + "Не получили ожидаемый URL");
+	            }
+	            if (titleValue.equals("Курс AI для юриста")) {
+	                System.out.println("Найден элемент с title: " + titleValue);
+	                WebElement currentButton = helpButton.findElement(By.xpath(".//td[@class='column' and @title='" + titleValue + "']"));
+	                wait.until(ExpectedConditions.elementToBeClickable(currentButton)).click();
+	                //Метод переключения на вкладку и проверки url
+	                boolean isUrlCorrect = switchWindowAndCheckUrl("https://doczilla.academy/AI_jurist_BS");
+	                softAssert.assertTrue(isUrlCorrect, "По нажатию на кнопку " + titleValue + "Не получили ожидаемый URL");
+	            }
+	            if (titleValue.equals("Сочетания клавиш")) {
+	                System.out.println("Найден элемент с title: " + titleValue);
+	                WebElement currentButton = helpButton.findElement(By.xpath(".//td[@class='column' and @title='" + titleValue + "']"));
+	                wait.until(ExpectedConditions.elementToBeClickable(currentButton)).click();
+	                //Проверка окна горячих клавиш
+	                WebElement hotkeys = driver.findElement(By.xpath("//div[@class='shortcut-window window']//div[@class='header']//div[@class='text' and text()='" + titleValue + "']"));
+	                softAssert.assertTrue(hotkeys.isDisplayed());
+	                pressEscKey();
+	            }
+	            if (titleValue.equals("mailto:support@doczilla.pro")) {
+	                System.out.println("Найден элемент с title: " + titleValue);
+	                WebElement currentButton = helpButton.findElement(By.xpath(".//td[@class='column' and @title='" + titleValue + "']"));
+	                wait.until(ExpectedConditions.elementToBeClickable(currentButton)).click();
+	                switchWindow();
+	                boolean isCorrect = checkClipboard("support@doczilla.pro");
+	                softAssert.assertTrue(isCorrect, "Текст в буфере обмена не совпадает с ожидаемым");
+	            }
+	            if (titleValue.equals("8 (800) 700-08-16")) {
+	                System.out.println("Найден элемент с title: " + titleValue);
+	                WebElement currentButton = helpButton.findElement(By.xpath(".//td[@class='column' and @title='" + titleValue + "']"));
+	                wait.until(ExpectedConditions.elementToBeClickable(currentButton)).click();
+	                switchWindow();
+	                boolean isCorrect = checkClipboard("8 (800) 700-08-16");
+	                softAssert.assertTrue(isCorrect, "Текст в буфере обмена не совпадает с ожидаемым");
+	            }
+	            wait.until(ExpectedConditions.elementToBeClickable(helpButton)).click();
+	        }
+	        
+	        // После завершения всех проверок вызываем assertAll, чтобы убедиться, что все утверждения прошли
+	        softAssert.assertAll();
+	        
+	    }
+	    
+	    //метод наведения на строку выпадающего списка
 	    private void hoverOverElement(WebElement element) {
 	        Actions actions = new Actions(driver);
 	        actions.moveToElement(element).perform();
@@ -303,7 +387,7 @@ public class T4_menu_Work_Area {
 	        }
 	    }
 	    
-	  //Метод закрытия мешающих экранов в процессе прокликивания кнопок
+	    //Метод закрытия мешающих экранов в процессе прокликивания кнопок
 	    private void CloseButton(WebDriverWait shortWait) {
 	        try {
 	            WebElement closeButton = shortWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@class='btn-tool btn default no-text' and descendant::i[@class='fa-close fa icon']]")));
@@ -314,5 +398,104 @@ public class T4_menu_Work_Area {
 	        } catch (TimeoutException e) {
 	            //System.out.println("Кнопка 'Закрыть' не найдена."); //Логирование
 	        }
+	    }
+	    
+	    //Метод проверки url сайта в новом окне на соответствие ожидаемому
+	    public boolean switchWindowAndCheckUrl(String expectedUrlPart) {
+	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	        // Запоминаем дескриптор старой вкладки
+	        String originalWindow = driver.getWindowHandle();
+
+	        // Ожидание появления новой вкладки
+	        wait.until(webDriver -> webDriver.getWindowHandles().size() > 1);
+
+	        // Переключение на новую вкладку
+	        Set<String> allWindows = driver.getWindowHandles();
+	        for (String windowHandle : allWindows) {
+	            if (!windowHandle.equals(originalWindow)) {
+	                driver.switchTo().window(windowHandle);
+	                break;
+	            }
+	        }
+
+	        boolean isUrlCorrect = false;
+
+	        // Проверка загрузки новой страницы с обработкой ошибок
+	        try {
+	            // Ожидаем, что URL будет содержать ожидаемую часть
+	            wait.until(ExpectedConditions.urlContains(expectedUrlPart));
+	            // Если ожидаемая часть URL найдена, устанавливаем isUrlCorrect в true
+	            isUrlCorrect = true;
+	        } catch (TimeoutException e) {
+	            // Логирование ошибки, если URL не был найден
+	            System.out.println("URL не содержит ожидаемую часть: " + expectedUrlPart);
+	        }
+
+	        // Получение URL новой вкладки
+	        //String newUrl = driver.getCurrentUrl(); // Логирование
+	        //System.out.println("URL новой вкладки: " + newUrl); // Логирование
+
+	        // Закрываем новую вкладку
+	        driver.close();
+
+	        // Возвращаемся на исходную вкладку
+	        driver.switchTo().window(originalWindow);
+	        //System.out.println("Вернулись на исходную вкладку: " + driver.getCurrentUrl()); // Логирование
+
+	        // Возвращаем результат проверки URL
+	        return isUrlCorrect;
+	    }
+	    
+	    //Метод Переключения на открытую новую вкладку и закрытие с возвращение на текущую
+	    public void switchWindow() {
+	    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    	
+	    	// Запоминаем дескриптор старой вкладки
+            String originalWindow = driver.getWindowHandle();
+            
+            // Ожидание появления новой вкладки
+            wait.until(webDriver -> webDriver.getWindowHandles().size() > 1);
+            
+            // Переключение на новую вкладку
+            Set<String> allWindows = driver.getWindowHandles();
+            for (String windowHandle : allWindows) {
+                if (!windowHandle.equals(originalWindow)) {
+                    driver.switchTo().window(windowHandle);
+                    break;
+                }
+            }
+
+            // Закрываем новую вкладку
+            driver.close();
+
+            // Возвращаемся на исходную вкладку
+            driver.switchTo().window(originalWindow);
+	    }
+	    
+	    //Метод нажатия ESC)
+	    public void pressEscKey() {
+	        Actions actions = new Actions(driver);
+	        actions.sendKeys(Keys.ESCAPE).perform(); // Отправляем клавишу ESC
+	    }
+	    
+	    //Получаем содержимое буфера обмена
+	    public static boolean checkClipboard(String expectedText) {
+	        try {
+	            // Получаем содержимое буфера обмена
+	            Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+	            Transferable contents = clipboard.getContents(null);
+
+	            // Проверяем, что содержимое является строкой
+	            if (contents != null && contents.isDataFlavorSupported(DataFlavor.stringFlavor)) {
+	                String clipboardText = (String) contents.getTransferData(DataFlavor.stringFlavor);
+
+	                // Сравниваем с ожидаемым значением
+	                return clipboardText.equals(expectedText);
+	            }
+	        } catch (UnsupportedFlavorException | IOException e) {
+	            e.printStackTrace();
+	        }
+	        return false;
 	    }
 }

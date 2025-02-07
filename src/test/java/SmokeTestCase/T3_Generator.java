@@ -98,19 +98,40 @@ public class T3_Generator {
         Assert.assertEquals(secondElementText1, "JUST-IN-TIME COMPILATION SUCCESSFUL", "Текст во втором 'p' не равен 'JUST-IN-TIME COMPILATION SUCCESSFUL'");
         Assert.assertEquals(secondElementText2, "Планировщик заданий запущен", "Текст во втором 'p' не равен 'Планировщик заданий запущен'");
         
+        try {
+            Thread.sleep(250); // 250 милисекунд задержки
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
+            System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
+        } catch (TimeoutException e) {
+            System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
+        }
+        
         // Закрыть все кнопки с классом "close-button btn default no-text" и атрибутом title="Закрыть"
         List<WebElement> closeButtons = driver.findElements(
         	By.xpath("//a[contains(@class, 'close-button btn default no-text') and @title='Закрыть'] | //div[contains(@class, 'close fa fa-fw fa-times')]"));
         for (WebElement closeButton : closeButtons) {
         	closeButton.click();
         	}
-
+        
+        try {
+            Thread.sleep(250); // 250 милисекунд задержки
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
+            System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
+        } catch (TimeoutException e) {
+            System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
+        }
         
         // Найти и кликнуть по кнопке "Готово"
         WebElement buttonReady = wait.until(ExpectedConditions.elementToBeClickable(
             By.xpath("//a[contains(@class, 'btn primary push')]//span[contains(text(), 'Готово')]")
         ));
-        buttonReady.click();	
+        
+        buttonReady.click();
+        
+        // Перезагружаем страницу
+        driver.navigate().refresh();
 	}
     
     @AfterMethod

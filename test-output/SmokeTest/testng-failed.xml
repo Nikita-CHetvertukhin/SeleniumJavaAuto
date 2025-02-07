@@ -4,14 +4,15 @@
   <test thread-count="5" name="Smoke Group(failed)">
     <groups>
       <run>
+        <include name="smoke"/>
         <include name="speed"/>
       </run>
     </groups>
     <classes>
       <class name="SmokeTestCase.T4_menu_Work_Area">
         <methods>
+          <include name="t4_5_Help_button"/>
           <include name="setUp"/>
-          <include name="t4_4_Header_buttons"/>
         </methods>
       </class> <!-- SmokeTestCase.T4_menu_Work_Area -->
     </classes>
