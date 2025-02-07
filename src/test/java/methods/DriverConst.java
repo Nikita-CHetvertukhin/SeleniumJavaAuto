@@ -9,6 +9,7 @@ public class DriverConst {
     public static WebDriver getDriver() {
         if (driver == null) {
             driver = new ChromeDriver();
+            driver.manage().window().maximize();
         }
         return driver;
     }

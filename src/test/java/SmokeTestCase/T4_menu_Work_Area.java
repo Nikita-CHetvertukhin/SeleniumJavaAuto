@@ -30,7 +30,7 @@ public class T4_menu_Work_Area {
 	        this.driver = DriverConst.getDriver();
 	    }
 		
-	    @Test(groups = {"smoke", "speed"})
+	    @Test(groups = {"smoke"})
 		public void t4_1_Sidebar_Tabs() {
 	    	
 	    	System.out.println("Запуск t4_1_Sidebar_Tabs");
@@ -195,6 +195,7 @@ public class T4_menu_Work_Area {
 	        	WebElement button = buttons.get(i);
 	        	//System.out.println("Текущий номер кнопки: " + (i)); //Логирование
 	            wait.until(ExpectedConditions.elementToBeClickable(button)).click();
+	            timing();
 	            
 	        	List<WebElement> scrollerItems = button.findElements(By.xpath(".//div[@class='scroller items']"));
 		            if (!scrollerItems.isEmpty()) {
@@ -207,8 +208,17 @@ public class T4_menu_Work_Area {
 		            	
 		            	for (int k = 0; k < tableRows.size(); k++) {
 		            		WebElement row = tableRows.get(k);
+		            		
+		            		// Проверим, содержит ли строка элемент div с классом "text" и параметром title="Генерация схемы данных" если содержит пропускаем
+		            	    List<WebElement> rowGeneration = row.findElements(By.xpath("./div[@class=' text' and (@title='Генерация схемы данных' or @title='Чтение и валидация структуры документа' or @title='Добавить пользователя в группу' or @title='Обновление связи анкеты с шаблоном' or @title='Индексация формулировок' or @title='Индексация документов' or @title='Поделиться папками' or @title='Исправление типов документов пакета' or @title='Заблокировать неактивных пользователей' or @title='Добавить всех в группу Users' or @title='Массовое заведение пользователей')]"));
+		            	    // Если такой элемент найден, пропускаем текущую строку и переходим к следующей
+		            	    if (!rowGeneration.isEmpty()) {
+		            	        continue;
+		            	    }
+		            		
 		            		//System.out.println("Текущий номер строки: " + (k)); //Логирование
 		            		hoverOverElement(row);// наведение курсора на строку row первого уровня button
+		            		timing();
 		            		List<WebElement> secondScrollerItems = row.findElements(By.xpath(".//div[contains(@class, 'cell')]"));
 		                    if (!secondScrollerItems.isEmpty()) { //Определение есть ли подсписок
 		                    	//System.out.println("submenu found: "); //Логирование
@@ -221,43 +231,57 @@ public class T4_menu_Work_Area {
 		                    	for (int n = 0; n < secondScrollerItems.size(); n++) {
 		    	            		WebElement item = secondScrollerItems.get(n);
 		    	            		//System.out.println("Текущий номер элемента: " + (n)); //Логирование
+		    	            		
+		    	            		// Проверим, содержит ли строка элемент div с классом "text" и параметром title="Генерация схемы данных" если содержит пропускаем (также добавлены кнопки побуждающие к запуску кастомных задач)
+				            	    List<WebElement> itemGeneration = item.findElements(By.xpath("./div[@class=' text' and (@title='Генерация схемы данных' or @title='Чтение и валидация структуры документа' or @title='Добавить пользователя в группу' or @title='Обновление связи анкеты с шаблоном' or @title='Индексация формулировок' or @title='Индексация документов' or @title='Поделиться папками' or @title='Исправление типов документов пакета' or @title='Заблокировать неактивных пользователей' or @title='Добавить всех в группу Users' or @title='Массовое заведение пользователей')]"));
+				            	    // Если такой элемент найден, пропускаем текущую строку и переходим к следующей
+				            	    if (!itemGeneration.isEmpty()) {
+				            	    	//System.out.println("Кнопка генерации найдена"); //Логирование
+				            	        continue;
+				            	    }
+		    	            		
 		                    		wait.until(ExpectedConditions.elementToBeClickable(item)).click();
 		                    		CloseButton(shortWait);
+		                    		timing();
 		                    		
 		                    		//Проверка true/false теста, смотрит, чтобы признак нажатой кнопки менялся на item menu active
 			                        WebElement trItem = item.findElement(By.xpath("ancestor::tr[1][contains(@class, 'item menu')]"));
 			                        String itemClass = trItem.getDomAttribute("class");
-			                        Assert.assertTrue(itemClass.contains("active"), "Row is not active");
+			                        Assert.assertTrue(itemClass.contains("active"), "При нажатии на пункт не активировалось меню");
 		                    		
 		                    		// Перезагрузить список кнопок перед повторным открытием выпадающего списка
 		                    		//buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default'] | //div[@class='header-menu']//div[@class='btn']"));
 				                    button = buttons.get(i);
 				                    wait.until(ExpectedConditions.elementToBeClickable(button)).click();
+				                    timing();
 				                    
 				                 // Перезагрузить список первого уровня перед повторным открытием выпадающего списка
 				                    //tableRows = driver.findElements(By.xpath("//tr[@class='item menu' or contains(@class, 'item menu active')]"));
 				                    row = tableRows.get(k);
 				                    hoverOverElement(row);// наведение курсора на строку row первого уровня button
+				                    timing();
 		                    	}
 		                    } else { //Если нет подсписка
 		                    	//System.out.println("submenu not found"); //Логирование
 		                        wait.until(ExpectedConditions.elementToBeClickable(row)).click();
 		                        CloseButton(shortWait); //После клика на row если появляется мешающие всплывающие окна - убираем их
+		                        timing();
 		                        
 		                        //Проверка true/false теста, смотрит, чтобы признак нажатой кнопки менялся на item menu active
 		                        WebElement trRow = row.findElement(By.xpath("ancestor::tr[1][contains(@class, 'item menu')]"));
 		                        String rowClass = trRow.getDomAttribute("class");
-		                        Assert.assertTrue(rowClass.contains("active"), "Row is not active");
+		                        Assert.assertTrue(rowClass.contains("active"), "При нажатии на пункт не активировалось меню");
 		                        
 		                     // Перезагрузить список кнопок перед повторным открытием выпадающего списка
 		                        buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default'] | //div[@class='header-menu']//div[@class='btn']"));
 			                    button = buttons.get(i);
 			                    wait.until(ExpectedConditions.elementToBeClickable(button)).click();
+			                    timing();
 		                    }
 		            	}
 		                    
 		            } else {
-		            	//здесь действия если у кнопок в header-menu нет выпадашки (Пока n/a)
+		            	continue;
 		            }
 	        }
 		}
@@ -265,6 +289,18 @@ public class T4_menu_Work_Area {
 	    private void hoverOverElement(WebElement element) {
 	        Actions actions = new Actions(driver);
 	        actions.moveToElement(element).perform();
+	    }
+	    
+	    //Перманентная задержка (связано с особенностями перестраивания DOM)
+	    private void timing() {
+	        try {
+	            Thread.sleep(200); // 200 милисекунд задержки
+	        } catch (InterruptedException e) {
+	            Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
+	            System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
+	        } catch (TimeoutException e) {
+	            System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
+	        }
 	    }
 	    
 	  //Метод закрытия мешающих экранов в процессе прокликивания кнопок
