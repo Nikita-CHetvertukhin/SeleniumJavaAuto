@@ -2,7 +2,7 @@
 <testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-06T19:18:35 CET" name="SmokeTest" finished-at="2025-02-06T19:20:19 CET" duration-ms="104379">
+  <suite started-at="2025-02-07T16:50:00 CET" name="SmokeTest" finished-at="2025-02-07T16:51:02 CET" duration-ms="62793">
     <groups>
       <group name="smoke">
         <method signature="T1_Authorization_Availability.t1_1_Url_Availability()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@5acf93bb]" name="t1_1_Url_Availability" class="SmokeTestCase.T1_Authorization_Availability"/>
@@ -17,37 +17,37 @@
         <method signature="T4_menu_Work_Area.t4_4_Header_buttons()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@618425b5]" name="t4_4_Header_buttons" class="SmokeTestCase.T4_menu_Work_Area"/>
       </group> <!-- speed -->
     </groups>
-    <test started-at="2025-02-06T19:18:35 CET" name="Smoke Group" finished-at="2025-02-06T19:20:19 CET" duration-ms="104379">
+    <test started-at="2025-02-07T16:50:00 CET" name="Smoke Group" finished-at="2025-02-07T16:51:02 CET" duration-ms="62793">
       <class name="SmokeTestCase.T1_Authorization_Availability">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@5acf93bb]" started-at="2025-02-06T19:18:33 CET" name="setUp" finished-at="2025-02-06T19:18:35 CET" duration-ms="1227" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@5acf93bb]" started-at="2025-02-07T16:49:58 CET" name="setUp" finished-at="2025-02-07T16:50:00 CET" duration-ms="1302" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="t1_1_Url_Availability()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@5acf93bb]" started-at="2025-02-06T19:18:35 CET" name="t1_1_Url_Availability" finished-at="2025-02-06T19:18:37 CET" duration-ms="2778" status="PASS">
+        <test-method signature="t1_1_Url_Availability()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@5acf93bb]" started-at="2025-02-07T16:50:00 CET" name="t1_1_Url_Availability" finished-at="2025-02-07T16:50:02 CET" duration-ms="2971" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t1_1_Url_Availability -->
       </class> <!-- SmokeTestCase.T1_Authorization_Availability -->
       <class name="SmokeTestCase.T4_menu_Work_Area">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@618425b5]" started-at="2025-02-06T19:18:35 CET" name="setUp" finished-at="2025-02-06T19:18:35 CET" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@618425b5]" started-at="2025-02-07T16:50:00 CET" name="setUp" finished-at="2025-02-07T16:50:00 CET" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="t4_1_Sidebar_Tabs()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@618425b5]" started-at="2025-02-06T19:18:40 CET" name="t4_1_Sidebar_Tabs" finished-at="2025-02-06T19:18:41 CET" duration-ms="549" status="PASS">
+        <test-method signature="t4_1_Sidebar_Tabs()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@618425b5]" started-at="2025-02-07T16:50:05 CET" name="t4_1_Sidebar_Tabs" finished-at="2025-02-07T16:50:06 CET" duration-ms="732" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t4_1_Sidebar_Tabs -->
-        <test-method signature="t4_4_Header_buttons()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@618425b5]" started-at="2025-02-06T19:18:41 CET" name="t4_4_Header_buttons" finished-at="2025-02-06T19:20:19 CET" duration-ms="98402" status="PASS">
+        <test-method signature="t4_4_Header_buttons()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@618425b5]" started-at="2025-02-07T16:50:06 CET" name="t4_4_Header_buttons" finished-at="2025-02-07T16:51:02 CET" duration-ms="56231" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t4_4_Header_buttons -->
       </class> <!-- SmokeTestCase.T4_menu_Work_Area -->
       <class name="SmokeTestCase.T2_Authorization">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T2_Authorization@1e04fa0a]" started-at="2025-02-06T19:18:35 CET" name="setUp" finished-at="2025-02-06T19:18:35 CET" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T2_Authorization@1e04fa0a]" started-at="2025-02-07T16:50:00 CET" name="setUp" finished-at="2025-02-07T16:50:00 CET" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="t2_4_Correct_Credentials()[pri:0, instance:SmokeTestCase.T2_Authorization@1e04fa0a]" started-at="2025-02-06T19:18:37 CET" name="t2_4_Correct_Credentials" finished-at="2025-02-06T19:18:40 CET" duration-ms="2627" status="PASS">
+        <test-method signature="t2_4_Correct_Credentials()[pri:0, instance:SmokeTestCase.T2_Authorization@1e04fa0a]" started-at="2025-02-07T16:50:02 CET" name="t2_4_Correct_Credentials" finished-at="2025-02-07T16:50:05 CET" duration-ms="2836" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t2_4_Correct_Credentials -->

@@ -189,42 +189,45 @@ public class T4_menu_Work_Area {
 
 	        // Основной цикл для прохождения по всем кнопкам
 	        List<WebElement> buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default'] | //div[@class='header-menu']//div[@class='btn']"));
-	        System.out.println("buttons.size() равен: " + (buttons.size()));
+	        //System.out.println("buttons.size() равен: " + (buttons.size())); //Логирование
 	        
 	        for (int i = 0; i < buttons.size(); i++) {
 	        	WebElement button = buttons.get(i);
-	        	System.out.println("Текущий номер кнопки: " + (i));
+	        	//System.out.println("Текущий номер кнопки: " + (i)); //Логирование
 	            wait.until(ExpectedConditions.elementToBeClickable(button)).click();
 	            
 	        	List<WebElement> scrollerItems = button.findElements(By.xpath(".//div[@class='scroller items']"));
 		            if (!scrollerItems.isEmpty()) {
-		            	//List<WebElement> tableRows = scrollerItems.findElements(By.xpath(".//div[@class='cell']"));
 		            	List<WebElement> tableRows = new ArrayList<>();
 		            	for (WebElement scrollerItem : scrollerItems) {
 		            	    List<WebElement> cells = scrollerItem.findElements(By.xpath(".//div[@class='cell']"));
 		            	    tableRows.addAll(cells);
 		            	}
-		            	System.out.println("tableRows.size() равен: " + (tableRows.size()));
+		            	//System.out.println("tableRows.size() равен: " + (tableRows.size())); //Логирование
 		            	
 		            	for (int k = 0; k < tableRows.size(); k++) {
 		            		WebElement row = tableRows.get(k);
-		            		System.out.println("Текущий номер строки: " + (k));
+		            		//System.out.println("Текущий номер строки: " + (k)); //Логирование
 		            		hoverOverElement(row);// наведение курсора на строку row первого уровня button
-		            		timing();
 		            		List<WebElement> secondScrollerItems = row.findElements(By.xpath(".//div[contains(@class, 'cell')]"));
 		                    if (!secondScrollerItems.isEmpty()) { //Определение есть ли подсписок
-		                    	System.out.println("submenu found: ");
-		                    	System.out.println("Количество элементов: " + secondScrollerItems.size());
+		                    	//System.out.println("submenu found: "); //Логирование
+		                    	//System.out.println("Количество элементов: " + secondScrollerItems.size()); //Логирование
 		                    	// Вывод названий всех элементов подсписка
-		                        for (WebElement item : secondScrollerItems) {
+		                        /*for (WebElement item : secondScrollerItems) {
 		                            System.out.println("Название элемента: " + item.getText());
-		                        }
+		                        }*/ //Логирование
 		                    	
 		                    	for (int n = 0; n < secondScrollerItems.size(); n++) {
 		    	            		WebElement item = secondScrollerItems.get(n);
-		    	            		System.out.println("Текущий номер элемента: " + (n));
+		    	            		//System.out.println("Текущий номер элемента: " + (n)); //Логирование
 		                    		wait.until(ExpectedConditions.elementToBeClickable(item)).click();
 		                    		CloseButton(shortWait);
+		                    		
+		                    		//Проверка true/false теста, смотрит, чтобы признак нажатой кнопки менялся на item menu active
+			                        WebElement trItem = item.findElement(By.xpath("ancestor::tr[1][contains(@class, 'item menu')]"));
+			                        String itemClass = trItem.getDomAttribute("class");
+			                        Assert.assertTrue(itemClass.contains("active"), "Row is not active");
 		                    		
 		                    		// Перезагрузить список кнопок перед повторным открытием выпадающего списка
 		                    		//buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default'] | //div[@class='header-menu']//div[@class='btn']"));
@@ -235,15 +238,16 @@ public class T4_menu_Work_Area {
 				                    //tableRows = driver.findElements(By.xpath("//tr[@class='item menu' or contains(@class, 'item menu active')]"));
 				                    row = tableRows.get(k);
 				                    hoverOverElement(row);// наведение курсора на строку row первого уровня button
-				                    timing();
 		                    	}
-		                    	
-		                    	//Перезагрузить страницу
-		                    	   
 		                    } else { //Если нет подсписка
-		                    	System.out.println("submenu not found");
+		                    	//System.out.println("submenu not found"); //Логирование
 		                        wait.until(ExpectedConditions.elementToBeClickable(row)).click();
 		                        CloseButton(shortWait); //После клика на row если появляется мешающие всплывающие окна - убираем их
+		                        
+		                        //Проверка true/false теста, смотрит, чтобы признак нажатой кнопки менялся на item menu active
+		                        WebElement trRow = row.findElement(By.xpath("ancestor::tr[1][contains(@class, 'item menu')]"));
+		                        String rowClass = trRow.getDomAttribute("class");
+		                        Assert.assertTrue(rowClass.contains("active"), "Row is not active");
 		                        
 		                     // Перезагрузить список кнопок перед повторным открытием выпадающего списка
 		                        buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default'] | //div[@class='header-menu']//div[@class='btn']"));
@@ -253,15 +257,8 @@ public class T4_menu_Work_Area {
 		            	}
 		                    
 		            } else {
-		            	//здесь действия если у кнопок в header-menu нет выпадашки
+		            	//здесь действия если у кнопок в header-menu нет выпадашки (Пока n/a)
 		            }
-		            
-		            //Перезагрузить страницу после обработки каждой кнопки (из-за перестраивания DOM)
-		            driver.navigate().refresh();
-		            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='header-menu']//a[@class='btn default'] | //div[@class='header-menu']//div[@class='btn']")));
-
-		            // Обновить список кнопок после перезагрузки страницы
-		            buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default'] | //div[@class='header-menu']//div[@class='btn']"));
 	        }
 		}
 		//метод наведения на строку выпадающего списка
@@ -269,24 +266,17 @@ public class T4_menu_Work_Area {
 	        Actions actions = new Actions(driver);
 	        actions.moveToElement(element).perform();
 	    }
-	    //Перманентная задержка между кликами в 1 секунду (из-за перестраивания DOM)
-	    private void timing() {
-	        try {
-	            Thread.sleep(1000); // Задержка в 1 секунду
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
-	    }
+	    
 	  //Метод закрытия мешающих экранов в процессе прокликивания кнопок
 	    private void CloseButton(WebDriverWait shortWait) {
 	        try {
 	            WebElement closeButton = shortWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@class='btn-tool btn default no-text' and descendant::i[@class='fa-close fa icon']]")));
 	            if (closeButton != null) {
 	                closeButton.click();
-	                System.out.println("Кнопка 'Закрыть' найдена и кликнута.");
+	                //System.out.println("Кнопка 'Закрыть' найдена и кликнута."); //Логирование
 	            }
 	        } catch (TimeoutException e) {
-	            System.out.println("Кнопка 'Закрыть' не найдена.");
+	            //System.out.println("Кнопка 'Закрыть' не найдена."); //Логирование
 	        }
 	    }
 }
