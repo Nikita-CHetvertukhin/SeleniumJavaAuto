@@ -297,7 +297,7 @@ public class T4_menu_Work_Area {
 	        driver.navigate().refresh();  
 		}	
 	    
-	    @Test(groups = {"smoke", "speed"})
+	    @Test(groups = {"smoke"})
 	    public void t4_5_Help_button() {
 	    	
 	    	System.out.println("Запуск t4_5_Help_button");
@@ -366,6 +366,9 @@ public class T4_menu_Work_Area {
 	        
 	        // После завершения всех проверок вызываем assertAll, чтобы убедиться, что все утверждения прошли
 	        softAssert.assertAll();
+	        
+	     // Перезагружаем страницу
+	        driver.navigate().refresh();  
 	        
 	    }
 	    

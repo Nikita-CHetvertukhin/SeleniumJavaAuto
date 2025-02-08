@@ -177,9 +177,9 @@ public class T2_Authorization {
 	        //Нажатие на кнопку входа
 	        button.click();
 	        
-	        // Вставляем задержку 1 секунда
+	        // Вставляем задержку 2 секунды
 	        try {
-	            Thread.sleep(1000); // 1000 миллисекунд = 1 секунда
+	            Thread.sleep(2000); // 2000 миллисекунд = 2 секунды
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
 	        }

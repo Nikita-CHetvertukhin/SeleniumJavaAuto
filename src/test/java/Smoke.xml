@@ -17,6 +17,7 @@
             <class name="SmokeTestCase.T2_Authorization"/>
             <class name="SmokeTestCase.T3_Generator"/>
             <class name="SmokeTestCase.T4_menu_Work_Area"/>
+            <class name="SmokeTestCase.T5_Folders"/>
         </classes>
     </test>
 </suite>
