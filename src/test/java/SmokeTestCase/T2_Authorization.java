@@ -39,11 +39,11 @@ public class T2_Authorization {
 	    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    	
 	    	//Поиск кнопки логина, ввод некорректного логина 
-	        driver.findElement(By.cssSelector("input[placeholder='Логин или email']")).sendKeys(username + "123");
-			
+	    	WebElement loginField = driver.findElement(By.cssSelector("input[placeholder='Логин или email']"));
+	    	loginField.sendKeys(username + "123");
 	        //Поиск кнопки пароля, ввод некорреткного пароля
-	        driver.findElement(By.cssSelector("input[placeholder='Пароль']")).sendKeys(password + "123");
-	        
+	    	WebElement passwordField = driver.findElement(By.cssSelector("input[placeholder='Пароль']"));
+	    	passwordField.sendKeys(password + "123");
 	        //Нажатие на кнопку входа
 	        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(
 					By.xpath("//a[contains(@class, 'btn primary push')]//span[contains(text(), 'Войти')]")
@@ -59,18 +59,17 @@ public class T2_Authorization {
 	        
 	        // Проверка отсутствия элемента с помощью findElements
 	        boolean isUserBtnPresent = driver.findElements(By.cssSelector(".divided.user.btn.default, .user.btn.default")).size() > 0;
-	        
 	        // Проверка, что элемент не найден на странице
 	        Assert.assertFalse(isUserBtnPresent, "Элемент с классами 'divided user btn default' или 'user btn default' найден на странице");
+	        
+	        loginField.clear();
+	        passwordField.clear();
 	    }
 	    
 	    @Test(groups = {"smoke"})
 	    public void t2_2_Incorrect_Login() {
 	    	
 	    	System.out.println("Запуск t2_2_Incorrect_Login");
-	    	
-	    	//Перезагрузка страницы
-			driver.navigate().refresh();
 	    	
 	    	//Подтягиваем  данные из ConfigReader.java
 	    	String username = ConfigReader.getProperty("username");
@@ -84,11 +83,11 @@ public class T2_Authorization {
 				));
 	    	
 	    	//Поиск кнопки логина, ввод некорректного логина 
-	        driver.findElement(By.cssSelector("input[placeholder='Логин или email']")).sendKeys(username + "123");
-			
+	    	WebElement loginField = driver.findElement(By.cssSelector("input[placeholder='Логин или email']"));
+	    	loginField.sendKeys(username + "123");
 	        //Поиск кнопки пароля, ввод корректного пароля
-	        driver.findElement(By.cssSelector("input[placeholder='Пароль']")).sendKeys(password);
-	        
+	    	WebElement passwordField = driver.findElement(By.cssSelector("input[placeholder='Пароль']"));
+	    	passwordField.sendKeys(password);
 	        //Нажатие на кнопку входа
 	        button.click();
 	        
@@ -101,18 +100,17 @@ public class T2_Authorization {
 	        
 	        // Проверка отсутствия элемента с помощью findElements
 	        boolean isUserBtnPresent = driver.findElements(By.cssSelector(".divided.user.btn.default, .user.btn.default")).size() > 0;
-	        
 	        // Проверка, что элемент не найден на странице
 	        Assert.assertFalse(isUserBtnPresent, "Элемент с классами 'divided user btn default' или 'user btn default' найден на странице");
+	        
+	        loginField.clear();
+	        passwordField.clear();
 	    }
 	    
 	    @Test(groups = {"smoke"})
 	    public void t2_3_Incorrect_Password() {
 	    	
 	    	System.out.println("Запуск t2_3_Incorrect_Password");
-	    	
-	    	//Перезагрузка страницы
-			driver.navigate().refresh();
 	    	
 	    	//Подтягиваем  данные из ConfigReader.java
 	    	String username = ConfigReader.getProperty("username");
@@ -126,11 +124,11 @@ public class T2_Authorization {
 				));
 	    	
 	    	//Поиск кнопки логина, ввод некорректного логина 
-	        driver.findElement(By.cssSelector("input[placeholder='Логин или email']")).sendKeys(username);
-			
+	    	WebElement loginField = driver.findElement(By.cssSelector("input[placeholder='Логин или email']"));
+	    	loginField.sendKeys(username);
 	        //Поиск кнопки пароля, ввод корректного пароля
-	        driver.findElement(By.cssSelector("input[placeholder='Пароль']")).sendKeys(password + "123");
-	        
+	    	WebElement passwordField = driver.findElement(By.cssSelector("input[placeholder='Пароль']"));
+	    	passwordField.sendKeys(password + "123");
 	        //Нажатие на кнопку входа
 	        button.click();
 	        
@@ -144,18 +142,17 @@ public class T2_Authorization {
 	        // Проверка отсутствия элемента с помощью findElements
 	        boolean isUserBtnPresent = driver.findElements(
 	        		By.cssSelector(".divided.user.btn.default, .user.btn.default")).size() > 0;
-	        
 	        // Проверка, что элемент не найден на странице
 	        Assert.assertFalse(isUserBtnPresent, "Элемент с классами 'divided user btn default' или 'user btn default' найден на странице");
+	        
+	        loginField.clear();
+	        passwordField.clear();
 	    }
 	    
 	    @Test(groups = {"smoke", "speed"})
 	    public void t2_4_Correct_Credentials() {
 	    	
 	    	System.out.println("Запуск t2_4_Correct_Credentials");
-	    	
-	    	//Перезагрузка страницы
-			driver.navigate().refresh();
 	    	
 	    	//Подтягиваем  данные из ConfigReader.java
 	    	String username = ConfigReader.getProperty("username");

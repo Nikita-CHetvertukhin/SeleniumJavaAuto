@@ -11,19 +11,12 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 
 import java.time.Duration;
-import java.util.List;
-import java.util.Set;
-import java.util.ArrayList;
-import java.awt.*;
-import java.awt.datatransfer.*;
-import java.io.IOException;
 import java.time.LocalDate;
 import org.openqa.selenium.JavascriptExecutor;
 import java.time.format.DateTimeFormatter;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
-import org.testng.asserts.SoftAssert;
 
 import methods.DriverConst;
 
@@ -182,6 +175,53 @@ public class T5_Folders {
     	WebElement folderName = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[@class='item folder active']//div[@class='cell']//span[@class='text' and @title='1 Smoke тестирование от " + formattedDate + "']")));
     	Assert.assertNotNull(checkError, "Ожидаемая ошибка не найдена");
         Assert.assertNotNull(folderName, "Имя папки не возвращено");
+    }
+    
+    @Test(groups = {"smoke", "speed"})
+    public void t5_5_RemoveFolder() {
+    	
+    	System.out.println("Запуск t5_5_RemoveFolder");
+    	Actions actions = new Actions(driver);
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    	WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(1));
+    	LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDate = currentDate.format(formatter);
+   
+        WebElement currentFolder = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[@class='item folder active']//div[@class='cell']")));
+        // Выполнить клик правой кнопкой мыши
+        actions.contextClick(currentFolder).perform();
+        	
+        WebElement removeButton = driver.findElement(By.xpath("//td[@title='Переместить в Корзину']"));
+        removeButton.click();
+        
+      //Ищем и кликаем по "Корзина"
+		WebElement buttonRecycleBin = wait.until(ExpectedConditions.elementToBeClickable(
+    	        By.xpath("//a[contains(@class, 'recycle-bin tag btn default')]//span[contains(text(), 'Корзина')]")
+    	    ));
+		buttonRecycleBin.click();
+		
+    	WebElement folderRecycle = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[@class='item folder active']//div[@class='cell']//span[@class='text' and @title='1 Smoke тестирование от " + formattedDate + "']")));
+    	Assert.assertNotNull(folderRecycle, "Папка не найдена в корзине");
+    	// Выполнить клик правой кнопкой мыши
+        actions.contextClick(folderRecycle).perform();
+        WebElement deleteButton = driver.findElement(By.xpath("//td[@title='Удалить навсегда']"));
+        deleteButton.click();
+        WebElement approvedButton = driver.findElement(By.xpath("//a[@class='btn primary push']//span[@class='text' and text()='Удалить документы']"));
+        approvedButton.click();
+        
+        try {
+            Thread.sleep(1000); // 1 секунда задержки
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
+            System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
+        } catch (TimeoutException e) {
+            System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
+        }
+        
+        Boolean isFolderInvisible = shortWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//tr[@class='item folder active']//div[@class='cell']//span[@class='text' and @title='1 Smoke тестирование от " + formattedDate + "']")));
+        Assert.assertTrue(isFolderInvisible, "Папка найдена после удаления");
+
     }
     
   //Перманентная задержка (связано с особенностями перестраивания DOM)
