@@ -37,6 +37,9 @@ public class T4_menu_Work_Area {
 		public void t4_1_Sidebar_Tabs() {
 	    	
 	    	System.out.println("Запуск t4_1_Sidebar_Tabs");
+	    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    	//Проверяем что рабочая область "Мои файлы" отображается и доступна
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//tr[@class='item folder' or @class='item file']")));
 			
 			//Инициируем ожидание с лимитом в 1 секунду
 			WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(1));

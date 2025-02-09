@@ -10,9 +10,9 @@
     <classes>
       <class name="SmokeTestCase.T5_Folders">
         <methods>
+          <include name="t5_3_MoveFolder"/>
           <include name="setUp"/>
-          <include name="t5_2_RenameFolders"/>
-          <include name="t5_1_CreateRenameFolders"/>
+          <include name="t5_4_RenameNull"/>
         </methods>
       </class> <!-- SmokeTestCase.T5_Folders -->
       <class name="SmokeTestCase.T4_menu_Work_Area">
@@ -20,12 +20,6 @@
           <include name="setUp"/>
         </methods>
       </class> <!-- SmokeTestCase.T4_menu_Work_Area -->
-      <class name="SmokeTestCase.T2_Authorization">
-        <methods>
-          <include name="t2_4_Correct_Credentials"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- SmokeTestCase.T2_Authorization -->
     </classes>
   </test> <!-- Smoke Group(failed) -->
 </suite> <!-- Failed suite [SmokeTest] -->

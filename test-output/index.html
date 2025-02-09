@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods,   4 passed</span>
+                    <span class="method-stats">6 methods,   6 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -119,6 +119,16 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T5_Folders" class="method navigator-link" hash-for-method="t5_2_RenameFolders">t5_2_RenameFolders</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T5_Folders" class="method navigator-link" hash-for-method="t5_3_MoveFolder">t5_3_MoveFolder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T5_Folders" class="method navigator-link" hash-for-method="t5_4_RenameNull">t5_4_RenameNull</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-SmokeTest -->
@@ -151,6 +161,20 @@
                   <a name="t5_2_RenameFolders">
                   </a> <!-- t5_2_RenameFolders -->
                   <span class="method-name">t5_2_RenameFolders</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="t5_3_MoveFolder">
+                  </a> <!-- t5_3_MoveFolder -->
+                  <span class="method-name">t5_3_MoveFolder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="t5_4_RenameNull">
+                  </a> <!-- t5_4_RenameNull -->
+                  <span class="method-name">t5_4_RenameNull</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -249,6 +273,14 @@
                 <span class="method-in-group-name">t5_2_RenameFolders</span>
                 <br/>
               </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">t5_3_MoveFolder</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">t5_4_RenameNull</span>
+                <br/>
+              </div> <!-- method-in-group -->
             </div> <!-- test-group -->
             <div class="test-group">
               <span class="test-group-name">speed</span>
@@ -269,6 +301,14 @@
                 <span class="method-in-group-name">t5_2_RenameFolders</span>
                 <br/>
               </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">t5_3_MoveFolder</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">t5_4_RenameNull</span>
+                <br/>
+              </div> <!-- method-in-group -->
             </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
@@ -286,28 +326,36 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(6);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 't2_4_Correct_Credentials')
 data.setCell(0, 2, 'SmokeTestCase.T2_Authorization')
-data.setCell(0, 3, 3910);
+data.setCell(0, 3, 3786);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 't1_1_Url_Availability')
-data.setCell(1, 2, 'SmokeTestCase.T1_Authorization_Availability')
-data.setCell(1, 3, 3242);
+data.setCell(1, 1, 't5_3_MoveFolder')
+data.setCell(1, 2, 'SmokeTestCase.T5_Folders')
+data.setCell(1, 3, 3284);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 't5_1_CreateRenameFolders')
-data.setCell(2, 2, 'SmokeTestCase.T5_Folders')
-data.setCell(2, 3, 1096);
+data.setCell(2, 1, 't1_1_Url_Availability')
+data.setCell(2, 2, 'SmokeTestCase.T1_Authorization_Availability')
+data.setCell(2, 3, 2668);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 't5_2_RenameFolders')
+data.setCell(3, 1, 't5_1_CreateRenameFolders')
 data.setCell(3, 2, 'SmokeTestCase.T5_Folders')
-data.setCell(3, 3, 670);
+data.setCell(3, 3, 1728);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 't5_4_RenameNull')
+data.setCell(4, 2, 'SmokeTestCase.T5_Folders')
+data.setCell(4, 3, 785);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 't5_2_RenameFolders')
+data.setCell(5, 2, 'SmokeTestCase.T5_Folders')
+data.setCell(5, 3, 715);
 window.suiteTableData['SmokeTest']= { tableData: data, tableDiv: 'times-div-SmokeTest'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 8 seconds</span>
+              <span class="suite-total-time">Total running time: 12 seconds</span>
               <div id="times-div-SmokeTest">
               </div> <!-- times-div-SmokeTest -->
             </div> <!-- times-div -->
@@ -337,33 +385,33 @@ return data;
               <div class="ignored-methods-div">
                 <span class="ignored-method-name">t4_3_Sidebar_Tabs_AI</span>
                 <br/>
-                <span class="ignored-method-name">t4_5_Help_button</span>
-                <br/>
                 <span class="ignored-method-name">t4_4_Header_buttons</span>
+                <br/>
+                <span class="ignored-method-name">t4_2_Sidebar_Tabs_Sharing_Drives</span>
                 <br/>
                 <span class="ignored-method-name">t4_1_Sidebar_Tabs</span>
                 <br/>
-                <span class="ignored-method-name">t4_2_Sidebar_Tabs_Sharing_Drives</span>
+                <span class="ignored-method-name">t4_5_Help_button</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
             <div class="ignored-class-div">
               <span class="ignored-class-name">SmokeTestCase.T2_Authorization</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">t2_3_Incorrect_Password</span>
+                <span class="ignored-method-name">t2_1_Incorrect_Credentials</span>
                 <br/>
                 <span class="ignored-method-name">t2_2_Incorrect_Login</span>
                 <br/>
-                <span class="ignored-method-name">t2_1_Incorrect_Credentials</span>
+                <span class="ignored-method-name">t2_3_Incorrect_Password</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
             <div class="ignored-class-div">
               <span class="ignored-class-name">SmokeTestCase.T1_Authorization_Availability</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">t1_2_Url_Refresh</span>
-                <br/>
                 <span class="ignored-method-name">t1_3_Special_Button</span>
+                <br/>
+                <span class="ignored-method-name">t1_2_Url_Refresh</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -382,49 +430,57 @@ return data;
               </div> <!-- configuration-suite before -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
-              <div class="chronological-class-name">SmokeTestCase.T2_Authorization</div> <!-- chronological-class-name -->
-              <div class="configuration-suite before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">1254 ms</span>
-              </div> <!-- configuration-suite before -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
               <div class="chronological-class-name">SmokeTestCase.T4_menu_Work_Area</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">1254 ms</span>
+                <span class="method-start">1269 ms</span>
+              </div> <!-- configuration-suite before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">SmokeTestCase.T2_Authorization</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">1269 ms</span>
               </div> <!-- configuration-suite before -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">SmokeTestCase.T5_Folders</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">1255 ms</span>
+                <span class="method-start">1270 ms</span>
               </div> <!-- configuration-suite before -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">SmokeTestCase.T1_Authorization_Availability</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">t1_1_Url_Availability</span>
-                <span class="method-start">1272 ms</span>
+                <span class="method-start">1291 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">SmokeTestCase.T2_Authorization</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">t2_4_Correct_Credentials</span>
-                <span class="method-start">4518 ms</span>
+                <span class="method-start">3961 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">SmokeTestCase.T5_Folders</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">t5_1_CreateRenameFolders</span>
-                <span class="method-start">8430 ms</span>
+                <span class="method-start">7748 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">t5_2_RenameFolders</span>
-                <span class="method-start">9528 ms</span>
+                <span class="method-start">9477 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">t5_3_MoveFolder</span>
+                <span class="method-start">10193 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">t5_4_RenameNull</span>
+                <span class="method-start">13478 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
