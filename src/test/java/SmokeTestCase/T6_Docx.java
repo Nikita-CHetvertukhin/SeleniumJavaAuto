@@ -71,28 +71,15 @@ public class T6_Docx {
     	rename.sendKeys("Docx Smoke тестирование от " + formattedDate);
     	pressEnterKey();
     }
-    
-    @Test(groups = {"smoke", "speed"})
-	public void t6_2_CheckDocx() {
-    	
-    	System.out.println("Запуск t6_2_CheckDocx");
-    	
-    }
 
     @Test(groups = {"smoke", "speed"})
-	public void t6_3_DownloadDocx() {
+	public void t6_2_DownloadDocx() {
 		
-		System.out.println("Запуск t6_3_DownloadDocx");
+		System.out.println("Запуск t6_2_DownloadDocx");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String formattedDate = currentDate.format(formatter);
-        
-      //Ищем и кликаем по "Лого"
-		WebElement logoButton = wait.until(ExpectedConditions.elementToBeClickable(
-    	        By.xpath("//div[@class = 'header']//a[@class = 'logo btn default']")
-    	    ));
-		logoButton.click();
 		
 		try {
             Thread.sleep(1000); // 1000 милисекунд задержки
@@ -132,17 +119,23 @@ public class T6_Docx {
         }
     }
     
-  //Перманентная задержка (связано с особенностями перестраивания DOM)
-    private void timing() {
-        try {
-            Thread.sleep(200); // 200 милисекунд задержки
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
-            System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
-        } catch (TimeoutException e) {
-            System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
-        }
-    }
+    @Test(groups = {"smoke", "speed"})
+   	public void t6_3_CheckDocx() {
+       	
+       	System.out.println("Запуск t6_3_CheckDocx");
+       	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDate = currentDate.format(formatter);
+       	// Перезагружаем страницу
+           driver.navigate().refresh();
+           
+        WebElement checkDocx = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='Docx Smoke тестирование от " + formattedDate + "']")));
+        WebElement checkDownloadDocx = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='DoczillaStyles Smoke тестирование от " + formattedDate + "']")));
+        Assert.assertNotNull(checkDocx, "Созданный вручную docx не найден");
+        Assert.assertNotNull(checkDownloadDocx, "Загруженный docx не найден");
+       	
+       }
     
  // Метод нажатия Enter
     public void pressEnterKey() {
