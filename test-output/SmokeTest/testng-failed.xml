@@ -8,23 +8,19 @@
       </run>
     </groups>
     <classes>
+      <class name="SmokeTestCase.T7_Dotx">
+        <methods>
+          <include name="setUp"/>
+          <include name="t7_1_CreateDotx"/>
+        </methods>
+      </class> <!-- SmokeTestCase.T7_Dotx -->
       <class name="SmokeTestCase.T6_Docx">
         <methods>
-          <include name="t6_3_DownloadDocx"/>
+          <include name="t6_3_CheckDocx"/>
           <include name="setUp"/>
-          <include name="t6_1_CreateDocx"/>
+          <include name="t6_2_DownloadDocx"/>
         </methods>
       </class> <!-- SmokeTestCase.T6_Docx -->
-      <class name="SmokeTestCase.T5_Folders">
-        <methods>
-          <include name="t5_3_MoveFolder"/>
-          <include name="setUp"/>
-          <include name="t5_2_RenameFolders"/>
-          <include name="t5_1_CreateRenameFolders"/>
-          <include name="t5_5_RemoveFolder"/>
-          <include name="t5_4_RenameNull"/>
-        </methods>
-      </class> <!-- SmokeTestCase.T5_Folders -->
       <class name="SmokeTestCase.T4_menu_Work_Area">
         <methods>
           <include name="setUp"/>

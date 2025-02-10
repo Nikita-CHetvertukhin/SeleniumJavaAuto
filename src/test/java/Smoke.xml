@@ -19,6 +19,7 @@
             <class name="SmokeTestCase.T4_menu_Work_Area"/>
             <class name="SmokeTestCase.T5_Folders"/>
             <class name="SmokeTestCase.T6_Docx"/>
+            <class name="SmokeTestCase.T7_Dotx"/>
         </classes>
     </test>
 </suite>

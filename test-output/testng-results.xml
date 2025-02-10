@@ -1,101 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
+<testng-results ignored="0" total="11" passed="11" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-10T18:48:15 CET" name="SmokeTest" finished-at="2025-02-10T18:48:35 CET" duration-ms="20471">
+  <suite started-at="2025-02-10T21:54:38 CET" name="SmokeTest" finished-at="2025-02-10T21:55:00 CET" duration-ms="22304">
     <groups>
       <group name="smoke">
-        <method signature="T1_Authorization_Availability.t1_1_Url_Availability()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@74751b3]" name="t1_1_Url_Availability" class="SmokeTestCase.T1_Authorization_Availability"/>
-        <method signature="T2_Authorization.t2_4_Correct_Credentials()[pri:0, instance:SmokeTestCase.T2_Authorization@bae7dc0]" name="t2_4_Correct_Credentials" class="SmokeTestCase.T2_Authorization"/>
-        <method signature="T5_Folders.t5_1_CreateRenameFolders()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" name="t5_1_CreateRenameFolders" class="SmokeTestCase.T5_Folders"/>
-        <method signature="T5_Folders.t5_2_RenameFolders()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" name="t5_2_RenameFolders" class="SmokeTestCase.T5_Folders"/>
-        <method signature="T5_Folders.t5_3_MoveFolder()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" name="t5_3_MoveFolder" class="SmokeTestCase.T5_Folders"/>
-        <method signature="T5_Folders.t5_4_RenameNull()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" name="t5_4_RenameNull" class="SmokeTestCase.T5_Folders"/>
-        <method signature="T5_Folders.t5_5_RemoveFolder()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" name="t5_5_RemoveFolder" class="SmokeTestCase.T5_Folders"/>
-        <method signature="T6_Docx.t6_1_CreateDocx()[pri:0, instance:SmokeTestCase.T6_Docx@2ed2d9cb]" name="t6_1_CreateDocx" class="SmokeTestCase.T6_Docx"/>
-        <method signature="T6_Docx.t6_2_DownloadDocx()[pri:0, instance:SmokeTestCase.T6_Docx@2ed2d9cb]" name="t6_2_DownloadDocx" class="SmokeTestCase.T6_Docx"/>
-        <method signature="T6_Docx.t6_3_CheckDocx()[pri:0, instance:SmokeTestCase.T6_Docx@2ed2d9cb]" name="t6_3_CheckDocx" class="SmokeTestCase.T6_Docx"/>
+        <method signature="T1_Authorization_Availability.t1_1_Url_Availability()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@306e95ec]" name="t1_1_Url_Availability" class="SmokeTestCase.T1_Authorization_Availability"/>
+        <method signature="T2_Authorization.t2_4_Correct_Credentials()[pri:0, instance:SmokeTestCase.T2_Authorization@e15b7e8]" name="t2_4_Correct_Credentials" class="SmokeTestCase.T2_Authorization"/>
+        <method signature="T5_Folders.t5_1_CreateRenameFolders()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" name="t5_1_CreateRenameFolders" class="SmokeTestCase.T5_Folders"/>
+        <method signature="T5_Folders.t5_2_RenameFolders()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" name="t5_2_RenameFolders" class="SmokeTestCase.T5_Folders"/>
+        <method signature="T5_Folders.t5_3_MoveFolder()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" name="t5_3_MoveFolder" class="SmokeTestCase.T5_Folders"/>
+        <method signature="T5_Folders.t5_4_RenameNull()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" name="t5_4_RenameNull" class="SmokeTestCase.T5_Folders"/>
+        <method signature="T5_Folders.t5_5_RemoveFolder()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" name="t5_5_RemoveFolder" class="SmokeTestCase.T5_Folders"/>
+        <method signature="T6_Docx.t6_1_CreateDocx()[pri:0, instance:SmokeTestCase.T6_Docx@43dac38f]" name="t6_1_CreateDocx" class="SmokeTestCase.T6_Docx"/>
+        <method signature="T6_Docx.t6_2_DownloadDocx()[pri:0, instance:SmokeTestCase.T6_Docx@43dac38f]" name="t6_2_DownloadDocx" class="SmokeTestCase.T6_Docx"/>
+        <method signature="T6_Docx.t6_3_CheckDocx()[pri:0, instance:SmokeTestCase.T6_Docx@43dac38f]" name="t6_3_CheckDocx" class="SmokeTestCase.T6_Docx"/>
+        <method signature="T7_Dotx.t7_1_CreateDotx()[pri:0, instance:SmokeTestCase.T7_Dotx@342c38f8]" name="t7_1_CreateDotx" class="SmokeTestCase.T7_Dotx"/>
       </group> <!-- smoke -->
       <group name="speed">
-        <method signature="T1_Authorization_Availability.t1_1_Url_Availability()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@74751b3]" name="t1_1_Url_Availability" class="SmokeTestCase.T1_Authorization_Availability"/>
-        <method signature="T2_Authorization.t2_4_Correct_Credentials()[pri:0, instance:SmokeTestCase.T2_Authorization@bae7dc0]" name="t2_4_Correct_Credentials" class="SmokeTestCase.T2_Authorization"/>
-        <method signature="T5_Folders.t5_1_CreateRenameFolders()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" name="t5_1_CreateRenameFolders" class="SmokeTestCase.T5_Folders"/>
-        <method signature="T5_Folders.t5_2_RenameFolders()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" name="t5_2_RenameFolders" class="SmokeTestCase.T5_Folders"/>
-        <method signature="T5_Folders.t5_3_MoveFolder()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" name="t5_3_MoveFolder" class="SmokeTestCase.T5_Folders"/>
-        <method signature="T5_Folders.t5_4_RenameNull()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" name="t5_4_RenameNull" class="SmokeTestCase.T5_Folders"/>
-        <method signature="T5_Folders.t5_5_RemoveFolder()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" name="t5_5_RemoveFolder" class="SmokeTestCase.T5_Folders"/>
-        <method signature="T6_Docx.t6_1_CreateDocx()[pri:0, instance:SmokeTestCase.T6_Docx@2ed2d9cb]" name="t6_1_CreateDocx" class="SmokeTestCase.T6_Docx"/>
-        <method signature="T6_Docx.t6_2_DownloadDocx()[pri:0, instance:SmokeTestCase.T6_Docx@2ed2d9cb]" name="t6_2_DownloadDocx" class="SmokeTestCase.T6_Docx"/>
-        <method signature="T6_Docx.t6_3_CheckDocx()[pri:0, instance:SmokeTestCase.T6_Docx@2ed2d9cb]" name="t6_3_CheckDocx" class="SmokeTestCase.T6_Docx"/>
+        <method signature="T1_Authorization_Availability.t1_1_Url_Availability()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@306e95ec]" name="t1_1_Url_Availability" class="SmokeTestCase.T1_Authorization_Availability"/>
+        <method signature="T2_Authorization.t2_4_Correct_Credentials()[pri:0, instance:SmokeTestCase.T2_Authorization@e15b7e8]" name="t2_4_Correct_Credentials" class="SmokeTestCase.T2_Authorization"/>
+        <method signature="T5_Folders.t5_1_CreateRenameFolders()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" name="t5_1_CreateRenameFolders" class="SmokeTestCase.T5_Folders"/>
+        <method signature="T5_Folders.t5_2_RenameFolders()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" name="t5_2_RenameFolders" class="SmokeTestCase.T5_Folders"/>
+        <method signature="T5_Folders.t5_3_MoveFolder()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" name="t5_3_MoveFolder" class="SmokeTestCase.T5_Folders"/>
+        <method signature="T5_Folders.t5_4_RenameNull()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" name="t5_4_RenameNull" class="SmokeTestCase.T5_Folders"/>
+        <method signature="T5_Folders.t5_5_RemoveFolder()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" name="t5_5_RemoveFolder" class="SmokeTestCase.T5_Folders"/>
+        <method signature="T6_Docx.t6_1_CreateDocx()[pri:0, instance:SmokeTestCase.T6_Docx@43dac38f]" name="t6_1_CreateDocx" class="SmokeTestCase.T6_Docx"/>
+        <method signature="T6_Docx.t6_2_DownloadDocx()[pri:0, instance:SmokeTestCase.T6_Docx@43dac38f]" name="t6_2_DownloadDocx" class="SmokeTestCase.T6_Docx"/>
+        <method signature="T6_Docx.t6_3_CheckDocx()[pri:0, instance:SmokeTestCase.T6_Docx@43dac38f]" name="t6_3_CheckDocx" class="SmokeTestCase.T6_Docx"/>
+        <method signature="T7_Dotx.t7_1_CreateDotx()[pri:0, instance:SmokeTestCase.T7_Dotx@342c38f8]" name="t7_1_CreateDotx" class="SmokeTestCase.T7_Dotx"/>
       </group> <!-- speed -->
     </groups>
-    <test started-at="2025-02-10T18:48:15 CET" name="Smoke Group" finished-at="2025-02-10T18:48:35 CET" duration-ms="20471">
+    <test started-at="2025-02-10T21:54:38 CET" name="Smoke Group" finished-at="2025-02-10T21:55:00 CET" duration-ms="22304">
       <class name="SmokeTestCase.T5_Folders">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" started-at="2025-02-10T18:48:15 CET" name="setUp" finished-at="2025-02-10T18:48:15 CET" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" started-at="2025-02-10T21:54:38 CET" name="setUp" finished-at="2025-02-10T21:54:38 CET" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="t5_1_CreateRenameFolders()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" started-at="2025-02-10T18:48:21 CET" name="t5_1_CreateRenameFolders" finished-at="2025-02-10T18:48:22 CET" duration-ms="1086" status="PASS">
+        <test-method signature="t5_1_CreateRenameFolders()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" started-at="2025-02-10T21:54:43 CET" name="t5_1_CreateRenameFolders" finished-at="2025-02-10T21:54:44 CET" duration-ms="1181" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t5_1_CreateRenameFolders -->
-        <test-method signature="t5_2_RenameFolders()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" started-at="2025-02-10T18:48:22 CET" name="t5_2_RenameFolders" finished-at="2025-02-10T18:48:23 CET" duration-ms="752" status="PASS">
+        <test-method signature="t5_2_RenameFolders()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" started-at="2025-02-10T21:54:44 CET" name="t5_2_RenameFolders" finished-at="2025-02-10T21:54:45 CET" duration-ms="737" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t5_2_RenameFolders -->
-        <test-method signature="t5_3_MoveFolder()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" started-at="2025-02-10T18:48:23 CET" name="t5_3_MoveFolder" finished-at="2025-02-10T18:48:26 CET" duration-ms="3248" status="PASS">
+        <test-method signature="t5_3_MoveFolder()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" started-at="2025-02-10T21:54:45 CET" name="t5_3_MoveFolder" finished-at="2025-02-10T21:54:49 CET" duration-ms="3852" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t5_3_MoveFolder -->
-        <test-method signature="t5_4_RenameNull()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" started-at="2025-02-10T18:48:26 CET" name="t5_4_RenameNull" finished-at="2025-02-10T18:48:27 CET" duration-ms="819" status="PASS">
+        <test-method signature="t5_4_RenameNull()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" started-at="2025-02-10T21:54:49 CET" name="t5_4_RenameNull" finished-at="2025-02-10T21:54:49 CET" duration-ms="835" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t5_4_RenameNull -->
-        <test-method signature="t5_5_RemoveFolder()[pri:0, instance:SmokeTestCase.T5_Folders@6392827e]" started-at="2025-02-10T18:48:27 CET" name="t5_5_RemoveFolder" finished-at="2025-02-10T18:48:29 CET" duration-ms="2079" status="PASS">
+        <test-method signature="t5_5_RemoveFolder()[pri:0, instance:SmokeTestCase.T5_Folders@d5b810e]" started-at="2025-02-10T21:54:49 CET" name="t5_5_RemoveFolder" finished-at="2025-02-10T21:54:52 CET" duration-ms="2076" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t5_5_RemoveFolder -->
       </class> <!-- SmokeTestCase.T5_Folders -->
       <class name="SmokeTestCase.T6_Docx">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T6_Docx@2ed2d9cb]" started-at="2025-02-10T18:48:15 CET" name="setUp" finished-at="2025-02-10T18:48:15 CET" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T6_Docx@43dac38f]" started-at="2025-02-10T21:54:38 CET" name="setUp" finished-at="2025-02-10T21:54:38 CET" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="t6_1_CreateDocx()[pri:0, instance:SmokeTestCase.T6_Docx@2ed2d9cb]" started-at="2025-02-10T18:48:29 CET" name="t6_1_CreateDocx" finished-at="2025-02-10T18:48:31 CET" duration-ms="2069" status="PASS">
+        <test-method signature="t6_1_CreateDocx()[pri:0, instance:SmokeTestCase.T6_Docx@43dac38f]" started-at="2025-02-10T21:54:52 CET" name="t6_1_CreateDocx" finished-at="2025-02-10T21:54:53 CET" duration-ms="1568" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t6_1_CreateDocx -->
-        <test-method signature="t6_2_DownloadDocx()[pri:0, instance:SmokeTestCase.T6_Docx@2ed2d9cb]" started-at="2025-02-10T18:48:31 CET" name="t6_2_DownloadDocx" finished-at="2025-02-10T18:48:33 CET" duration-ms="1988" status="PASS">
+        <test-method signature="t6_2_DownloadDocx()[pri:0, instance:SmokeTestCase.T6_Docx@43dac38f]" started-at="2025-02-10T21:54:53 CET" name="t6_2_DownloadDocx" finished-at="2025-02-10T21:54:55 CET" duration-ms="1937" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t6_2_DownloadDocx -->
-        <test-method signature="t6_3_CheckDocx()[pri:0, instance:SmokeTestCase.T6_Docx@2ed2d9cb]" started-at="2025-02-10T18:48:33 CET" name="t6_3_CheckDocx" finished-at="2025-02-10T18:48:35 CET" duration-ms="2357" status="PASS">
+        <test-method signature="t6_3_CheckDocx()[pri:0, instance:SmokeTestCase.T6_Docx@43dac38f]" started-at="2025-02-10T21:54:55 CET" name="t6_3_CheckDocx" finished-at="2025-02-10T21:54:57 CET" duration-ms="2347" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t6_3_CheckDocx -->
       </class> <!-- SmokeTestCase.T6_Docx -->
       <class name="SmokeTestCase.T1_Authorization_Availability">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@74751b3]" started-at="2025-02-10T18:48:13 CET" name="setUp" finished-at="2025-02-10T18:48:15 CET" duration-ms="1214" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@306e95ec]" started-at="2025-02-10T21:54:37 CET" name="setUp" finished-at="2025-02-10T21:54:38 CET" duration-ms="1259" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="t1_1_Url_Availability()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@74751b3]" started-at="2025-02-10T18:48:15 CET" name="t1_1_Url_Availability" finished-at="2025-02-10T18:48:18 CET" duration-ms="3859" status="PASS">
+        <test-method signature="t1_1_Url_Availability()[pri:0, instance:SmokeTestCase.T1_Authorization_Availability@306e95ec]" started-at="2025-02-10T21:54:38 CET" name="t1_1_Url_Availability" finished-at="2025-02-10T21:54:41 CET" duration-ms="2617" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t1_1_Url_Availability -->
       </class> <!-- SmokeTestCase.T1_Authorization_Availability -->
       <class name="SmokeTestCase.T4_menu_Work_Area">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@1b2abca6]" started-at="2025-02-10T18:48:15 CET" name="setUp" finished-at="2025-02-10T18:48:15 CET" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T4_menu_Work_Area@2ed2d9cb]" started-at="2025-02-10T21:54:38 CET" name="setUp" finished-at="2025-02-10T21:54:38 CET" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
       </class> <!-- SmokeTestCase.T4_menu_Work_Area -->
-      <class name="SmokeTestCase.T2_Authorization">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T2_Authorization@bae7dc0]" started-at="2025-02-10T18:48:15 CET" name="setUp" finished-at="2025-02-10T18:48:15 CET" duration-ms="0" status="PASS">
+      <class name="SmokeTestCase.T7_Dotx">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T7_Dotx@342c38f8]" started-at="2025-02-10T21:54:38 CET" name="setUp" finished-at="2025-02-10T21:54:38 CET" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="t2_4_Correct_Credentials()[pri:0, instance:SmokeTestCase.T2_Authorization@bae7dc0]" started-at="2025-02-10T18:48:18 CET" name="t2_4_Correct_Credentials" finished-at="2025-02-10T18:48:21 CET" duration-ms="2182" status="PASS">
+        <test-method signature="t7_1_CreateDotx()[pri:0, instance:SmokeTestCase.T7_Dotx@342c38f8]" started-at="2025-02-10T21:54:57 CET" name="t7_1_CreateDotx" finished-at="2025-02-10T21:55:00 CET" duration-ms="2963" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- t7_1_CreateDotx -->
+      </class> <!-- SmokeTestCase.T7_Dotx -->
+      <class name="SmokeTestCase.T2_Authorization">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T2_Authorization@e15b7e8]" started-at="2025-02-10T21:54:38 CET" name="setUp" finished-at="2025-02-10T21:54:38 CET" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="t2_4_Correct_Credentials()[pri:0, instance:SmokeTestCase.T2_Authorization@e15b7e8]" started-at="2025-02-10T21:54:41 CET" name="t2_4_Correct_Credentials" finished-at="2025-02-10T21:54:43 CET" duration-ms="2156" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t2_4_Correct_Credentials -->

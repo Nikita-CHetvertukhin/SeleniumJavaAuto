@@ -69,7 +69,7 @@ public class T5_Folders {
         	// Выполнить клик правой кнопкой мыши
         	actions.contextClick(currentFolder).perform();
         	
-        	WebElement renameButton = driver.findElement(By.xpath("//td[@title='Переименовать']"));
+        	WebElement renameButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[@title='Переименовать']")));
         	renameButton.click();
         	
         	WebElement rename = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//textarea[contains(@name,'input')]")));
@@ -101,7 +101,7 @@ public class T5_Folders {
         
         // Найти объект с классом "scroller items"
         try {
-        	WebElement scroller = driver.findElement(By.xpath("//div[@class='selector window']//div[@class='scroller items']//tbody"));
+        	WebElement scroller = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='selector window']//div[@class='scroller items']//tbody")));
         	if (scroller != null) {
                 //System.out.println("Скроллер найден"); //Логирование
 

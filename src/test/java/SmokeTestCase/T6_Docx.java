@@ -8,8 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.JavascriptExecutor;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -57,10 +55,10 @@ public class T6_Docx {
     	    );
         createDocx.click();
         
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='status tool btn default disabled']//span[contains(@title, 'Cохранен')]")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='status tool btn default disabled']//span[contains(@title, 'Cохранен') or contains(@title, 'Последнее')]")));
       	logoButton.click();
         
-        WebElement currentDocx = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tr[@class='item active file']//div[@class='cell']")));
+      	WebElement currentDocx = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tr[contains(@class, 'item') and (contains(@class, 'active file') or contains(@class, 'file active'))]//div[@class='cell']")));
     	// Выполнить клик правой кнопкой мыши
     	actions.contextClick(currentDocx).perform();
     	
@@ -82,7 +80,7 @@ public class T6_Docx {
         String formattedDate = currentDate.format(formatter);
 		
 		try {
-            Thread.sleep(1000); // 1000 милисекунд задержки
+            Thread.sleep(500); // 500 милисекунд задержки
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
             System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
@@ -100,6 +98,15 @@ public class T6_Docx {
 	    	    );
 	        downloads.click();
 
+	        try {
+	            Thread.sleep(400); // 400 милисекунд задержки
+	        } catch (InterruptedException e) {
+	            Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
+	            System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
+	        } catch (TimeoutException e) {
+	            System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
+	        }
+	        
             // Использовать Robot для нажатия клавиши ESC
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_ESCAPE);
