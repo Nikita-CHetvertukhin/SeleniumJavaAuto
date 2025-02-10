@@ -12,8 +12,19 @@
         <methods>
           <include name="t6_3_DownloadDocx"/>
           <include name="setUp"/>
+          <include name="t6_1_CreateDocx"/>
         </methods>
       </class> <!-- SmokeTestCase.T6_Docx -->
+      <class name="SmokeTestCase.T5_Folders">
+        <methods>
+          <include name="t5_3_MoveFolder"/>
+          <include name="setUp"/>
+          <include name="t5_2_RenameFolders"/>
+          <include name="t5_1_CreateRenameFolders"/>
+          <include name="t5_5_RemoveFolder"/>
+          <include name="t5_4_RenameNull"/>
+        </methods>
+      </class> <!-- SmokeTestCase.T5_Folders -->
       <class name="SmokeTestCase.T4_menu_Work_Area">
         <methods>
           <include name="setUp"/>

@@ -175,6 +175,8 @@ public class T5_Folders {
     	WebElement folderName = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[@class='item folder active']//div[@class='cell']//span[@class='text' and @title='1 Smoke тестирование от " + formattedDate + "']")));
     	Assert.assertNotNull(checkError, "Ожидаемая ошибка не найдена");
         Assert.assertNotNull(folderName, "Имя папки не возвращено");
+        WebElement closeButton = driver.findElement(By.xpath("//a[@class='close-button btn default no-text']"));
+        closeButton.click();
     }
     
     @Test(groups = {"smoke", "speed"})

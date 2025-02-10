@@ -32,12 +32,61 @@ public class T6_Docx {
         // Инициализируем драйвер, ожидающие объекты и другие переменные
         this.driver = DriverConst.getDriver();
     }
+    
+    @Test(groups = {"smoke", "speed"})
+	public void t6_1_CreateDocx() {
+		
+		System.out.println("Запуск t6_1_CreateDocx");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDate = currentDate.format(formatter);
+        Actions actions = new Actions(driver);
+        
+      //Ищем и кликаем по "Лого"
+		WebElement logoButton = wait.until(ExpectedConditions.elementToBeClickable(
+    	        By.xpath("//div[@class = 'header']//a[@class = 'logo btn default']")
+    	    ));
+		logoButton.click();
+		
+		WebElement createButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='create btn primary push']")));
+        createButton.click();
+        
+        WebElement createDocx = createButton.findElement(
+    	        By.xpath(".//td[@class='column' and @title='Новый документ']")
+    	    );
+        createDocx.click();
+        
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='status tool btn default disabled']//span[contains(@title, 'Cохранен')]")));
+      	logoButton.click();
+        
+        WebElement currentDocx = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tr[@class='item active file']//div[@class='cell']")));
+    	// Выполнить клик правой кнопкой мыши
+    	actions.contextClick(currentDocx).perform();
+    	
+    	WebElement renameButton = driver.findElement(By.xpath("//td[@title='Переименовать']"));
+    	renameButton.click();
+    	
+    	WebElement rename = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//textarea[contains(@name,'input')]")));
+    	rename.sendKeys("Docx Smoke тестирование от " + formattedDate);
+    	pressEnterKey();
+    }
+    
+    @Test(groups = {"smoke", "speed"})
+	public void t6_2_CheckDocx() {
+    	
+    	System.out.println("Запуск t6_2_CheckDocx");
+    	
+    }
 
     @Test(groups = {"smoke", "speed"})
 	public void t6_3_DownloadDocx() {
 		
-		System.out.println("Запуск t5_1_CreateFolders");
+		System.out.println("Запуск t6_3_DownloadDocx");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDate = currentDate.format(formatter);
         
       //Ищем и кликаем по "Лого"
 		WebElement logoButton = wait.until(ExpectedConditions.elementToBeClickable(
@@ -58,6 +107,7 @@ public class T6_Docx {
 			WebElement createButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='create btn primary push']")));
 	        createButton.click();
 	        
+	        //Здесь хитро, блок нужен, чтобы в DOM появился класс input с type='file', в который и будем загружать документ
 	        WebElement downloads = createButton.findElement(
 	    	        By.xpath(".//td[@class='column' and @title='Загрузить файлы']")
 	    	    );
@@ -71,12 +121,33 @@ public class T6_Docx {
             // Найти элемент для выбора файла
     		WebElement fileInput = driver.findElement(By.cssSelector("input[type='file']"));
     		
-    		// Указать путь к файлу в папке resources вашего проекта
-    		String filePath = System.getProperty("user.dir") + "/src/test/resources/test.docx";
+    		// Указать путь к файлу
+    		String filePath = System.getProperty("user.dir") + "/src/test/resources/doczillaStyles.docx";
     		fileInput.sendKeys(filePath);
+    		WebElement rename = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//textarea[contains(@name,'input')]")));
+        	rename.sendKeys("DoczillaStyles Smoke тестирование от " + formattedDate);
+        	pressEnterKey();
         } catch (AWTException e) {
             e.printStackTrace();
         }
+    }
+    
+  //Перманентная задержка (связано с особенностями перестраивания DOM)
+    private void timing() {
+        try {
+            Thread.sleep(200); // 200 милисекунд задержки
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
+            System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
+        } catch (TimeoutException e) {
+            System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
+        }
+    }
+    
+ // Метод нажатия Enter
+    public void pressEnterKey() {
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.ENTER).perform(); // Отправляем клавишу Enter
     }
 
 }
