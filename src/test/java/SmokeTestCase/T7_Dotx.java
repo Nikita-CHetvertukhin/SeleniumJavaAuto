@@ -14,10 +14,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.util.concurrent.TimeUnit;
 import java.awt.*;
 import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -35,9 +33,64 @@ public class T7_Dotx {
     }
 	
     @Test(groups = {"smoke", "speed"})
-	public void t7_1_CreateDotx() {
+	public void t7_1_DownloadingDotx() {
 		
-		System.out.println("Запуск t7_1_CreateDotx");
+		System.out.println("Запуск t7_1_DownloadingDotx");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDate = currentDate.format(formatter);
+		
+        timing();
+        
+		try {
+			WebElement createButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='create btn primary push']")));
+	        createButton.click();
+	        
+	        //Здесь хитро, блок нужен, чтобы в DOM появился класс input с type='file', в который и будем загружать документ
+	        WebElement downloads = createButton.findElement(
+	    	        By.xpath(".//td[@class='column' and @title='Загрузить файлы']")
+	    	    );
+	        downloads.click();
+
+	        timing();
+	        
+            // Использовать Robot для нажатия клавиши ESC
+            Robot robot = new Robot();
+            
+         // Получение размеров экрана
+            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+            int screenWidth = screenSize.width;
+            int screenHeight = screenSize.height;
+            
+         // Перемещение курсора в центр экрана и выполнение клика
+            robot.mouseMove(screenWidth / 2, screenHeight / 2);
+            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+            robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+            
+            robot.keyPress(KeyEvent.VK_ESCAPE);
+            robot.keyRelease(KeyEvent.VK_ESCAPE);
+            
+            // Найти элемент для выбора файла
+    		WebElement fileInput = driver.findElement(By.cssSelector("input[type='file']"));
+    		
+    		// Указать путь к файлу
+    		String filePath = System.getProperty("user.dir") + "/src/test/resources/dotxDownload.dotx";
+    		fileInput.sendKeys(filePath);
+    		WebElement rename = wait.until(ExpectedConditions.visibilityOfElementLocated(
+    				By.xpath("//textarea[contains(@name,'input')]")
+    				));
+        	rename.sendKeys("dotxDownload Smoke тестирование от " + formattedDate);
+        	pressEnterKey();
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @Test(groups = {"smoke", "speed"})
+	public void t7_2_CreateDotx() {
+		
+		System.out.println("Запуск t7_2_CreateDotx");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -111,61 +164,6 @@ public class T7_Dotx {
 	}
     
     @Test(groups = {"smoke", "speed"})
-	public void t7_2_DownloadingDotx() {
-		
-		System.out.println("Запуск t7_2_DownloadingDotx");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        LocalDate currentDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String formattedDate = currentDate.format(formatter);
-		
-        timing();
-        
-		try {
-			WebElement createButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='create btn primary push']")));
-	        createButton.click();
-	        
-	        //Здесь хитро, блок нужен, чтобы в DOM появился класс input с type='file', в который и будем загружать документ
-	        WebElement downloads = createButton.findElement(
-	    	        By.xpath(".//td[@class='column' and @title='Загрузить файлы']")
-	    	    );
-	        downloads.click();
-
-	        timing();
-	        
-            // Использовать Robot для нажатия клавиши ESC
-            Robot robot = new Robot();
-            
-         // Получение размеров экрана
-            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-            int screenWidth = screenSize.width;
-            int screenHeight = screenSize.height;
-            
-         // Перемещение курсора в центр экрана и выполнение клика
-            robot.mouseMove(screenWidth / 2, screenHeight / 2);
-            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-            robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-            
-            robot.keyPress(KeyEvent.VK_ESCAPE);
-            robot.keyRelease(KeyEvent.VK_ESCAPE);
-            
-            // Найти элемент для выбора файла
-    		WebElement fileInput = driver.findElement(By.cssSelector("input[type='file']"));
-    		
-    		// Указать путь к файлу
-    		String filePath = System.getProperty("user.dir") + "/src/test/resources/dotxDownload.dotx";
-    		fileInput.sendKeys(filePath);
-    		WebElement rename = wait.until(ExpectedConditions.visibilityOfElementLocated(
-    				By.xpath("//textarea[contains(@name,'input')]")
-    				));
-        	rename.sendKeys("dotxDownload Smoke тестирование от " + formattedDate);
-        	pressEnterKey();
-        } catch (AWTException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    @Test(groups = {"smoke", "speed"})
 	public void t7_3_CheckDotx() {
     	
     	System.out.println("Запуск t7_3_CheckDotx");
@@ -196,7 +194,7 @@ public class T7_Dotx {
         String formattedDate = currentDate.format(formatter);
         
         WebElement checkDownloadDotx = wait.until(ExpectedConditions.elementToBeClickable(
-        		By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='dotxDownload Smoke тестирование от " + formattedDate + "']")
+        		By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='createDotx Smoke тестирование от " + formattedDate + "']")
         		));
         checkDownloadDotx.click();
         
@@ -233,7 +231,7 @@ public class T7_Dotx {
             if (fileName.endsWith(".dotx")) {
                 // Проверка размера файла
                 if (downloadedFile.length() > 1024) {
-                    System.out.println("Файл " + fileName + " успешно скачан, формат и размер корректны.");
+                    //System.out.println("Файл " + fileName + " успешно скачан, формат и размер корректны."); //Логирование
                 } else {
                     System.out.println("Размер файла меньше 1 Кб.");
                 }

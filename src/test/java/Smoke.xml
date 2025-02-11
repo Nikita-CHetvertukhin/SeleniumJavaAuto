@@ -20,6 +20,7 @@
             <class name="SmokeTestCase.T5_Folders"/>
             <class name="SmokeTestCase.T6_Docx"/>
             <class name="SmokeTestCase.T7_Dotx"/>
+            <class name="SmokeTestCase.T8_Docz"/>
         </classes>
     </test>
 </suite>

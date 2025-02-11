@@ -65,7 +65,7 @@ public class T5_Folders {
         String formattedDate = currentDate.format(formatter);
     	
     	for (int i = 0; i < 2; i++) {
-        	WebElement currentFolder = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[@class='item folder active']//div[@class='cell']")));
+        	WebElement currentFolder = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tr[@class='item folder active']//div[@class='cell']")));
         	// Выполнить клик правой кнопкой мыши
         	actions.contextClick(currentFolder).perform();
         	
