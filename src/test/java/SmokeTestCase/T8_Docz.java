@@ -14,10 +14,7 @@ import org.openqa.selenium.NoSuchElementException;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.awt.event.KeyEvent;
 import java.io.File;
-import java.awt.*;
-import java.awt.event.InputEvent;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -210,6 +207,13 @@ public class T8_Docz {
         } else {
             System.out.println("Файл не найден.");
         }
+        
+      //Ищем и кликаем по "Лого"
+  		WebElement logoButton = wait.until(ExpectedConditions.elementToBeClickable(
+      	        By.xpath("//div[@class = 'header']//a[@class = 'logo btn default']")
+      	    ));
+  		logoButton.click();
+        
 	}
 	
 	//Перманентная задержка (связано с особенностями перестраивания DOM)

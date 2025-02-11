@@ -175,10 +175,10 @@ public class T7_Dotx {
     	// Перезагружаем страницу
         driver.navigate().refresh();
         
-        WebElement checkDotx = wait.until(ExpectedConditions.elementToBeClickable(
+        WebElement checkDotx = wait.until(ExpectedConditions.presenceOfElementLocated(
         		By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='createDotx Smoke тестирование от " + formattedDate + "']")
         		));
-        WebElement checkDownloadDotx = wait.until(ExpectedConditions.elementToBeClickable(
+        WebElement checkDownloadDotx = wait.until(ExpectedConditions.presenceOfElementLocated(
         		By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='dotxDownload Smoke тестирование от " + formattedDate + "']")
         		));
         Assert.assertNotNull(checkDotx, "Созданный вручную dotx не найден");
@@ -186,17 +186,47 @@ public class T7_Dotx {
     }
     
     @Test(groups = {"smoke", "speed"})
-	public void t7_4_DownloadDotx() {
-    	System.out.println("Запуск t7_4_DownloadDotx");
+	public void t7_4_CopyDotx() {
+    	
+    	System.out.println("Запуск t7_4_CopyDotx");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDate = currentDate.format(formatter);
+        Actions actions = new Actions(driver);
+        
+        WebElement checkDownloadingDotx = wait.until(ExpectedConditions.presenceOfElementLocated(
+        		By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='createDotx Smoke тестирование от " + formattedDate + "']")
+        		));
+        actions.contextClick(checkDownloadingDotx).perform();
+        WebElement copyButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[@title='Копировать']")));
+    	copyButton.click();
+    	
+    	WebElement renameArea = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[contains(@name, 'input') and @placeholder='Новое название']")));
+        renameArea.clear();
+        renameArea.sendKeys("copyCreateDotx Smoke тестирование от " + formattedDate);
+    	
+    	WebElement copyPushButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='selector window']//div[@class='footer']//a[@class='btn primary push']")));
+        copyPushButton.click();
+        
+        WebElement checkCopyDotx = wait.until(ExpectedConditions.elementToBeClickable(
+        		By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='copyCreateDotx Smoke тестирование от " + formattedDate + "']")
+        		));
+        Assert.assertNotNull(checkCopyDotx, "Скопированный dotx не найден");
+    }
+    
+    @Test(groups = {"smoke", "speed"})
+	public void t7_5_DownloadingDotx() {
+    	System.out.println("Запуск t7_5_DownloadingDotx");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String formattedDate = currentDate.format(formatter);
         
-        WebElement checkDownloadDotx = wait.until(ExpectedConditions.elementToBeClickable(
+        WebElement checkDownloadingDotx = wait.until(ExpectedConditions.elementToBeClickable(
         		By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='createDotx Smoke тестирование от " + formattedDate + "']")
         		));
-        checkDownloadDotx.click();
+        checkDownloadingDotx.click();
         
         pressEnterKey();
         
