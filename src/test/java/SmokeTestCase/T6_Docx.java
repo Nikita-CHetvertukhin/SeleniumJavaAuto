@@ -13,8 +13,11 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.AWTException;
+import java.awt.Dimension;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -55,6 +58,7 @@ public class T6_Docx {
     	    );
         createDocx.click();
         
+        timing();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='status tool btn default disabled']//span[contains(@title, 'Cохранен') or contains(@title, 'Последнее')]")));
       	logoButton.click();
         
@@ -71,22 +75,15 @@ public class T6_Docx {
     }
 
     @Test(groups = {"smoke", "speed"})
-	public void t6_2_DownloadDocx() {
+	public void t6_2_DownloadingDocx() {
 		
-		System.out.println("Запуск t6_2_DownloadDocx");
+		System.out.println("Запуск t6_2_DownloadingDocx");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String formattedDate = currentDate.format(formatter);
 		
-		try {
-            Thread.sleep(500); // 500 милисекунд задержки
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
-            System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
-        } catch (TimeoutException e) {
-            System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
-        }
+        timing();
         
 		try {
 			WebElement createButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='create btn primary push']")));
@@ -98,17 +95,21 @@ public class T6_Docx {
 	    	    );
 	        downloads.click();
 
-	        try {
-	            Thread.sleep(400); // 400 милисекунд задержки
-	        } catch (InterruptedException e) {
-	            Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
-	            System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
-	        } catch (TimeoutException e) {
-	            System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
-	        }
+	        timing();
 	        
             // Использовать Robot для нажатия клавиши ESC
             Robot robot = new Robot();
+            
+         // Получение размеров экрана
+            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+            int screenWidth = screenSize.width;
+            int screenHeight = screenSize.height;
+            
+         // Перемещение курсора в центр экрана и выполнение клика
+            robot.mouseMove(screenWidth / 2, screenHeight / 2);
+            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+            robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+            
             robot.keyPress(KeyEvent.VK_ESCAPE);
             robot.keyRelease(KeyEvent.VK_ESCAPE);
             
@@ -148,6 +149,17 @@ public class T6_Docx {
     public void pressEnterKey() {
         Actions actions = new Actions(driver);
         actions.sendKeys(Keys.ENTER).perform(); // Отправляем клавишу Enter
+    }
+    
+    private void timing() {
+        try {
+            Thread.sleep(400); // 400 милисекунд задержки
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
+            System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
+        } catch (TimeoutException e) {
+            System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
+        }
     }
 
 }
