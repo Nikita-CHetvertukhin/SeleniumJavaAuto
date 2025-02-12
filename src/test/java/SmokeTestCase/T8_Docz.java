@@ -119,7 +119,7 @@ public class T8_Docz {
 	@Test(groups = {"smoke", "speed"})
 	public void t8_2_DownloadingDocz() {
 		
-		System.out.println("Запуск t8_1_CreateDocz");
+		System.out.println("Запуск t8_2_DownloadingDocz");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         
         pressEnterKey();

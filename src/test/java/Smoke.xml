@@ -21,6 +21,7 @@
             <class name="SmokeTestCase.T6_Docx"/>
             <class name="SmokeTestCase.T7_Dotx"/>
             <class name="SmokeTestCase.T8_Docz"/>
+            <class name="SmokeTestCase.T9_Publish"/>
         </classes>
     </test>
 </suite>
