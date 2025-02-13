@@ -20,7 +20,7 @@ import methods.StopTestExecutionListener;
 import methods.DriverConst;
 
 @Listeners(StopTestExecutionListener.class)
-public class T3_Generator {
+public class T03_Generator {
 
 	private WebDriver driver;
 

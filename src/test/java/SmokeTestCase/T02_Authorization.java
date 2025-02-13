@@ -16,7 +16,7 @@ import org.testng.annotations.*;
 import methods.ConfigReader;
 import methods.DriverConst;
 
-public class T2_Authorization {
+public class T02_Authorization {
 	
 	 private WebDriver driver;
 

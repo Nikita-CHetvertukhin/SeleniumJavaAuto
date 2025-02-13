@@ -13,15 +13,15 @@
         </run>
     </groups>
         <classes>
-            <class name="SmokeTestCase.T1_Authorization_Availability"/>
-            <class name="SmokeTestCase.T2_Authorization"/>
-            <class name="SmokeTestCase.T3_Generator"/>
-            <class name="SmokeTestCase.T4_menu_Work_Area"/>
-            <class name="SmokeTestCase.T5_Folders"/>
-            <class name="SmokeTestCase.T6_Docx"/>
-            <class name="SmokeTestCase.T7_Dotx"/>
-            <class name="SmokeTestCase.T8_Docz"/>
-            <class name="SmokeTestCase.T9_Publish"/>
+            <class name="SmokeTestCase.T01_Authorization_Availability"/>
+            <class name="SmokeTestCase.T02_Authorization"/>
+            <class name="SmokeTestCase.T03_Generator"/>
+            <class name="SmokeTestCase.T04_menu_Work_Area"/>
+            <class name="SmokeTestCase.T05_Folders"/>
+            <class name="SmokeTestCase.T06_Docx"/>
+            <class name="SmokeTestCase.T07_Dotx"/>
+            <class name="SmokeTestCase.T08_Docz"/>
+            <class name="SmokeTestCase.T09_Publish"/>
         </classes>
     </test>
 </suite>

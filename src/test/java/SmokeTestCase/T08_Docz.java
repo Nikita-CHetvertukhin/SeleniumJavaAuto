@@ -21,7 +21,7 @@ import org.testng.annotations.*;
 
 import methods.DriverConst;
 
-public class T8_Docz {
+public class T08_Docz {
 	
 	private WebDriver driver;
 	

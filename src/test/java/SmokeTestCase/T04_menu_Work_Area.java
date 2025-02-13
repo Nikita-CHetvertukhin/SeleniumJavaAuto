@@ -23,7 +23,7 @@ import org.testng.asserts.SoftAssert;
 
 import methods.DriverConst;
 
-public class T4_menu_Work_Area {
+public class T04_menu_Work_Area {
 		
 	private WebDriver driver;
 

@@ -24,7 +24,7 @@ import org.testng.annotations.*;
 
 import methods.DriverConst;
 
-public class T6_Docx {
+public class T06_Docx {
 	
 	private WebDriver driver;
 

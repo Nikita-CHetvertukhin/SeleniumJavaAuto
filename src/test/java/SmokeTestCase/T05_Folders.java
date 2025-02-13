@@ -20,7 +20,7 @@ import org.testng.annotations.*;
 
 import methods.DriverConst;
 
-public class T5_Folders {
+public class T05_Folders {
 	
 	private WebDriver driver;
 

@@ -22,7 +22,7 @@ import org.testng.annotations.*;
 
 import methods.DriverConst;
 
-public class T7_Dotx {
+public class T07_Dotx {
 
 	private WebDriver driver;
 
@@ -175,10 +175,10 @@ public class T7_Dotx {
     	// Перезагружаем страницу
         driver.navigate().refresh();
         
-        WebElement checkDotx = wait.until(ExpectedConditions.presenceOfElementLocated(
+        WebElement checkDotx = wait.until(ExpectedConditions.elementToBeClickable(
         		By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='createDotx Smoke тестирование от " + formattedDate + "']")
         		));
-        WebElement checkDownloadDotx = wait.until(ExpectedConditions.presenceOfElementLocated(
+        WebElement checkDownloadDotx = wait.until(ExpectedConditions.elementToBeClickable(
         		By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='dotxDownload Smoke тестирование от " + formattedDate + "']")
         		));
         Assert.assertNotNull(checkDotx, "Созданный вручную dotx не найден");
