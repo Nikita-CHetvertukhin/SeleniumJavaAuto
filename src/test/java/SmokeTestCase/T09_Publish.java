@@ -22,13 +22,13 @@ public class T09_Publish {
 	
 private WebDriver driver;
 	
-	@BeforeSuite(groups = {"smoke"})
+	@BeforeSuite(groups = {"smoke", "speed"})
     public void setUp() {
         // Инициализируем драйвер, ожидающие объекты и другие переменные
         this.driver = DriverConst.getDriver();
     }
 	
-	@Test(groups = {"smoke"})
+	@Test(groups = {"smoke", "speed"})
 	public void t9_1_UserPublish() {
 		
 		System.out.println("Запуск t9_1_UserPublish");
@@ -82,7 +82,7 @@ private WebDriver driver;
   		logoButton.click();
 	}
 	
-	@Test(groups = {"smoke"})
+	@Test(groups = {"smoke", "speed"})
 	public void t9_2_GroupPublish() {
 		
 		System.out.println("Запуск t9_2_GroupPublish");
@@ -136,7 +136,7 @@ private WebDriver driver;
   		logoButton.click();
 	}
 	
-	@Test(groups = {"smoke"})
+	@Test(groups = {"smoke", "speed"})
 	public void t9_2_folderPublish() {
 		
 		System.out.println("Запуск t9_2_folderPublish");
