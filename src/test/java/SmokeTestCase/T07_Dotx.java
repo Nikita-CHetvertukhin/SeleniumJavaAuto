@@ -215,7 +215,7 @@ public class T07_Dotx {
         Assert.assertNotNull(checkCopyDotx, "Скопированный dotx не найден");
     }
     
-    @Test(groups = {"smoke", "speed"})
+    @Test(groups = {"smoke"})
 	public void t7_5_DownloadingDotx() {
     	System.out.println("Запуск t7_5_DownloadingDotx");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

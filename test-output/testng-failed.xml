@@ -8,34 +8,47 @@
       </run>
     </groups>
     <classes>
-      <class name="SmokeTestCase.T7_Dotx">
+      <class name="SmokeTestCase.T10_Share">
         <methods>
+          <include name="t10_3_CommentUserShare"/>
           <include name="setUp"/>
-          <include name="t7_4_CopyDotx"/>
+          <include name="t10_1_ReaderUserShare"/>
+          <include name="t10_2_ReaderGroupShare"/>
+          <include name="t10_4_EditorUserShare"/>
+          <include name="t10_5_addDeleteUserShare"/>
+        </methods>
+      </class> <!-- SmokeTestCase.T10_Share -->
+      <class name="SmokeTestCase.T07_Dotx">
+        <methods>
+          <include name="t7_1_DownloadingDotx"/>
           <include name="t7_3_CheckDotx"/>
-          <include name="t7_5_DownloadingDotx"/>
-        </methods>
-      </class> <!-- SmokeTestCase.T7_Dotx -->
-      <class name="SmokeTestCase.T9_Publish">
-        <methods>
-          <include name="t9_1_UserPublish"/>
-          <include name="setUp"/>
-          <include name="t9_2_folderPublish"/>
-          <include name="t9_2_GroupPublish"/>
-        </methods>
-      </class> <!-- SmokeTestCase.T9_Publish -->
-      <class name="SmokeTestCase.T4_menu_Work_Area">
-        <methods>
+          <include name="t7_2_CreateDotx"/>
+          <include name="t7_4_CopyDotx"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- SmokeTestCase.T4_menu_Work_Area -->
-      <class name="SmokeTestCase.T8_Docz">
+      </class> <!-- SmokeTestCase.T07_Dotx -->
+      <class name="SmokeTestCase.T06_Docx">
+        <methods>
+          <include name="t6_3_CheckDocx"/>
+          <include name="setUp"/>
+          <include name="t6_2_DownloadingDocx"/>
+          <include name="t6_1_CreateDocx"/>
+        </methods>
+      </class> <!-- SmokeTestCase.T06_Docx -->
+      <class name="SmokeTestCase.T05_Folders">
         <methods>
           <include name="setUp"/>
-          <include name="t8_2_DownloadingDocz"/>
-          <include name="t8_1_CreateDocz"/>
+          <include name="t5_4_RenameNull"/>
+          <include name="t5_3_MoveFolder"/>
+          <include name="t5_2_RenameFolders"/>
+          <include name="t5_5_RemoveFolder"/>
         </methods>
-      </class> <!-- SmokeTestCase.T8_Docz -->
+      </class> <!-- SmokeTestCase.T05_Folders -->
+      <class name="SmokeTestCase.T04_menu_Work_Area">
+        <methods>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- SmokeTestCase.T04_menu_Work_Area -->
     </classes>
   </test> <!-- Smoke Group(failed) -->
 </suite> <!-- Failed suite [SmokeTest] -->

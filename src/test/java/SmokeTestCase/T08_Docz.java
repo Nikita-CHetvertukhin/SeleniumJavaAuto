@@ -25,13 +25,13 @@ public class T08_Docz {
 	
 	private WebDriver driver;
 	
-	@BeforeSuite(groups = {"smoke", "speed"})
+	@BeforeSuite(groups = {"smoke"})
     public void setUp() {
         // Инициализируем драйвер, ожидающие объекты и другие переменные
         this.driver = DriverConst.getDriver();
     }
 
-	@Test(groups = {"smoke", "speed"})
+	@Test(groups = {"smoke"})
 	public void t8_1_CreateDocz() {
 		
 		System.out.println("Запуск t8_1_CreateDocz");
@@ -116,7 +116,7 @@ public class T08_Docz {
         }
 	}
 	
-	@Test(groups = {"smoke", "speed"})
+	@Test(groups = {"smoke"})
 	public void t8_2_DownloadingDocz() {
 		
 		System.out.println("Запуск t8_2_DownloadingDocz");

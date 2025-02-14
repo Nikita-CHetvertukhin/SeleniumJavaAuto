@@ -197,6 +197,8 @@ public class T05_Folders {
         WebElement removeButton = driver.findElement(By.xpath("//td[@title='Переместить в Корзину']"));
         removeButton.click();
         
+        timing();
+        
       //Ищем и кликаем по "Корзина"
 		WebElement buttonRecycleBin = wait.until(ExpectedConditions.elementToBeClickable(
     	        By.xpath("//a[contains(@class, 'recycle-bin tag btn default')]//span[contains(text(), 'Корзина')]")
