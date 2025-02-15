@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-14T14:45:03 CET" name="SmokeTest" finished-at="2025-02-14T14:45:09 CET" duration-ms="5634">
+  <suite started-at="2025-02-15T14:42:57 CET" name="SmokeTest" finished-at="2025-02-15T14:43:11 CET" duration-ms="13955">
     <groups>
       <group name="smoke">
         <method signature="T11_Check_Publish_Sharing.t11_0_UserAuthorization()[pri:0, instance:SmokeTestCase.T11_Check_Publish_Sharing@6404f418]" name="t11_0_UserAuthorization" class="SmokeTestCase.T11_Check_Publish_Sharing"/>
+        <method signature="T11_Check_Publish_Sharing.t11_1_Check_Publish_User()[pri:0, instance:SmokeTestCase.T11_Check_Publish_Sharing@6404f418]" name="t11_1_Check_Publish_User" class="SmokeTestCase.T11_Check_Publish_Sharing"/>
       </group> <!-- smoke -->
       <group name="speed2">
         <method signature="T11_Check_Publish_Sharing.t11_0_UserAuthorization()[pri:0, instance:SmokeTestCase.T11_Check_Publish_Sharing@6404f418]" name="t11_0_UserAuthorization" class="SmokeTestCase.T11_Check_Publish_Sharing"/>
+        <method signature="T11_Check_Publish_Sharing.t11_1_Check_Publish_User()[pri:0, instance:SmokeTestCase.T11_Check_Publish_Sharing@6404f418]" name="t11_1_Check_Publish_User" class="SmokeTestCase.T11_Check_Publish_Sharing"/>
       </group> <!-- speed2 -->
     </groups>
-    <test started-at="2025-02-14T14:45:03 CET" name="Smoke Group" finished-at="2025-02-14T14:45:09 CET" duration-ms="5634">
+    <test started-at="2025-02-15T14:42:57 CET" name="Smoke Group" finished-at="2025-02-15T14:43:11 CET" duration-ms="13955">
       <class name="SmokeTestCase.T11_Check_Publish_Sharing">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T11_Check_Publish_Sharing@6404f418]" started-at="2025-02-14T14:45:02 CET" name="setUp" finished-at="2025-02-14T14:45:03 CET" duration-ms="1349" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:SmokeTestCase.T11_Check_Publish_Sharing@6404f418]" started-at="2025-02-15T14:42:56 CET" name="setUp" finished-at="2025-02-15T14:42:57 CET" duration-ms="1258" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="t11_0_UserAuthorization()[pri:0, instance:SmokeTestCase.T11_Check_Publish_Sharing@6404f418]" started-at="2025-02-14T14:45:03 CET" name="t11_0_UserAuthorization" finished-at="2025-02-14T14:45:09 CET" duration-ms="5613" status="PASS">
+        <test-method signature="t11_0_UserAuthorization()[pri:0, instance:SmokeTestCase.T11_Check_Publish_Sharing@6404f418]" started-at="2025-02-15T14:42:57 CET" name="t11_0_UserAuthorization" finished-at="2025-02-15T14:43:05 CET" duration-ms="8222" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- t11_0_UserAuthorization -->
+        <test-method signature="t11_1_Check_Publish_User()[pri:0, instance:SmokeTestCase.T11_Check_Publish_Sharing@6404f418]" started-at="2025-02-15T14:43:05 CET" name="t11_1_Check_Publish_User" finished-at="2025-02-15T14:43:11 CET" duration-ms="5706" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- t11_1_Check_Publish_User -->
       </class> <!-- SmokeTestCase.T11_Check_Publish_Sharing -->
     </test> <!-- Smoke Group -->
   </suite> <!-- SmokeTest -->

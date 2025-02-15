@@ -96,12 +96,14 @@ private WebDriver driver;
     	WebElement rename = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//textarea[contains(@name,'input')]")));
     	rename.sendKeys("Smoke тестирование от " + formattedDate);
     	pressEnterKey();
+    	timing();
+    	pressEnterKey();
     }
 	
-	//@Test(groups = {"smoke", "speed2"})
-	public void t11_1_Check_Publish() {
+	@Test(groups = {"smoke", "speed2"})
+	public void t11_1_Check_Publish_User() {
 		
-		System.out.println("Запуск t11_1_Check_Publish");
+		System.out.println("Запуск t11_1_Check_Publish_User");
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String formattedDate = currentDate.format(formatter);
@@ -113,13 +115,13 @@ private WebDriver driver;
     	    ));
 		buttonTemplates.click();
 		
-		// Найти объект с классом "scroller items"
+		// Найти объект с классом "scroller items" в шаблонах
         try {
         	WebElement scrollerTemplates = wait.until(ExpectedConditions.visibilityOfElementLocated(
         			By.xpath("//div[@class='body']//div[@class='body']//div[contains(@class, 'tab columns') and not(contains(@class, 'inactive'))]//div[@class='scroller items']")
         			));
         	if (scrollerTemplates != null) {
-                //System.out.println("Скроллер найден"); //Логирование
+                //System.out.println("Скроллер в шаблонах найден"); //Логирование
 
                 try {
                     Thread.sleep(1000); // 1 секунда задержки
@@ -146,25 +148,80 @@ private WebDriver driver;
                     timing();
                     pressEnterKey();
                     
-                    //Далее ищем и прокручиваем до созданной в предыдущем шаге папке в выпадающем окне (ещё не готово)
-                    
-                    //Нажатие кнокпи "Переместить"
-                    WebElement movePushButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='selector window']//div[@class='footer']//a[@class='btn primary push']")));
-                    movePushButton.click();
-                    //Открытие корневой папки в разделе "Мои файлы"
-                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[@class='item folder active']//div[@class='cell']")));
-                    pressEnterKey();
-                    //Проверка попали ли мы в корневую папку и видно ли перемещенную
-                    WebElement checkPath = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='btn default' and @title='0 Smoke тестирование от " + formattedDate + "']")));
-                    WebElement checkFolder = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='1 Smoke тестирование от " + formattedDate + "']")));
+                 //Далее ищем и прокручиваем до созданной в предыдущем шаге папке в выпадающем окне
+                 // Найти объект с классом "scroller items"
+                    try {
+                    	WebElement scrollerCreateQuestinnary = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    			By.xpath("//div[@class='selector window']//div[@class='scroller items']//tbody")
+                    			));
+                    	if (scrollerCreateQuestinnary != null) {
+                            //System.out.println("Скроллер поиска папки для создания анкеты найден"); //Логирование
+
+                            try {
+                                Thread.sleep(1000); // 1 секунда задержки
+                            } catch (InterruptedException e) {
+                                Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
+                                System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
+                            } catch (TimeoutException e) {
+                                System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
+                            }
+
+                            // Ожидание элемента внутри найденного scroller
+                            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//span[@title='Smoke тестирование от " + formattedDate + "']")));
+                            WebElement targetFolder = scrollerCreateQuestinnary.findElement(By.xpath(".//span[@title='Smoke тестирование от " + formattedDate + "']"));
+                            if (targetFolder != null) {
+                                //System.out.println("Элемент targetFolder найден"); //Логирование
+
+                                JavascriptExecutor js2 = (JavascriptExecutor) driver;
+                                js2.executeScript("arguments[0].scrollIntoView(true);", targetFolder);
+
+                                // Ожидание, чтобы элемент был видимым и доступным для клика
+                                wait.until(ExpectedConditions.visibilityOf(targetFolder));
+                                wait.until(ExpectedConditions.elementToBeClickable(targetFolder));
+                                targetFolder.click();
+                                timing();
+                                pressEnterKey();
+                            } else {
+                                //System.out.println("Элемент targetFolder не найден"); //Логирование
+                            }
+                    	}  else {
+                            //System.out.println("Элемент targetFolder не найден"); //Логирование
+                        }
+                    } catch (NoSuchElementException e) {
+                             //System.out.println("Скроллер поиска папки для создания анкеты не найден"); //Логирование
+                         }
+                    timing();
+                    //Нажатие кнокпи "Сохранить здесь"
+                    WebElement savePushButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='selector window']//div[@class='footer']//a[@class='btn primary push']")));
+                    savePushButton.click();
+                  //Ожидание открытия
+                    try {
+                        Thread.sleep(2000); // 1 секунда задержки
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
+                        System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
+                    } catch (TimeoutException e) {
+                        System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
+                    }
+                    wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    		By.xpath("//a[@class='status tool btn default disabled']//span[contains(@title, 'Cохранен') or contains(@title, 'Последнее')]")
+                    		));
+                  //Ищем и кликаем по "Лого"
+              		WebElement logoButton = wait.until(ExpectedConditions.elementToBeClickable(
+                  	        By.xpath("//div[@class = 'header']//a[@class = 'logo btn default']")
+                  	    ));
+              		logoButton.click();
+              	//Проверка попали ли мы в созданную папку и видно ли в ней анкету
+                    WebElement checkPath = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='btn default' and @title='Smoke тестирование от " + formattedDate + "']")));
+                    WebElement checkFolder = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='copyCreateDotx Smoke тестирование от " + formattedDate + "']")));
                     Assert.assertNotNull(checkPath, "Ожидаемый путь не найден");
                     Assert.assertNotNull(checkFolder, "Ожидаемая папка не найдена");
                 } else {
-                    //System.out.println("Элемент targetFolder не найден"); //Логирование
+                    //System.out.println("Целевой файл в шаблонах не найден"); //Логирование
                 }
             }
         } catch (NoSuchElementException e) {
-            //System.out.println("Скроллер не найден"); //Логирование
+            //System.out.println("Скроллер в шаблонах не найден"); //Логирование
         }
 	}
 

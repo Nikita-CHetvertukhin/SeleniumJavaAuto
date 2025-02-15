@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,6 +104,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T11_Check_Publish_Sharing" class="method navigator-link" hash-for-method="t11_0_UserAuthorization">t11_0_UserAuthorization</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T11_Check_Publish_Sharing" class="method navigator-link" hash-for-method="t11_1_Check_Publish_User">t11_1_Check_Publish_User</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-SmokeTest -->
@@ -129,6 +134,13 @@
                   <a name="t11_0_UserAuthorization">
                   </a> <!-- t11_0_UserAuthorization -->
                   <span class="method-name">t11_0_UserAuthorization</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="t11_1_Check_Publish_User">
+                  </a> <!-- t11_1_Check_Publish_User -->
+                  <span class="method-name">t11_1_Check_Publish_User</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -191,12 +203,20 @@
                 <span class="method-in-group-name">t11_0_UserAuthorization</span>
                 <br/>
               </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">t11_1_Check_Publish_User</span>
+                <br/>
+              </div> <!-- method-in-group -->
             </div> <!-- test-group -->
             <div class="test-group">
               <span class="test-group-name">speed2</span>
               <br/>
               <div class="method-in-group">
                 <span class="method-in-group-name">t11_0_UserAuthorization</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">t11_1_Check_Publish_User</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -216,16 +236,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 't11_0_UserAuthorization')
 data.setCell(0, 2, 'SmokeTestCase.T11_Check_Publish_Sharing')
-data.setCell(0, 3, 5613);
+data.setCell(0, 3, 8222);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 't11_1_Check_Publish_User')
+data.setCell(1, 2, 'SmokeTestCase.T11_Check_Publish_Sharing')
+data.setCell(1, 3, 5706);
 window.suiteTableData['SmokeTest']= { tableData: data, tableDiv: 'times-div-SmokeTest'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 5 seconds</span>
+              <span class="suite-total-time">Total running time: 13 seconds</span>
               <div id="times-div-SmokeTest">
               </div> <!-- times-div-SmokeTest -->
             </div> <!-- times-div -->
@@ -380,7 +404,11 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="test-method">
                 <span class="method-name">t11_0_UserAuthorization</span>
-                <span class="method-start">1368 ms</span>
+                <span class="method-start">1278 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">t11_1_Check_Publish_User</span>
+                <span class="method-start">9504 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
