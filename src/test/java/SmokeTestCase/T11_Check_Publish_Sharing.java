@@ -60,12 +60,7 @@ private WebDriver driver;
         //Нажатие на кнопку входа
         button.click();
         
-        // Вставляем задержку 2 секунды
-        try {
-            Thread.sleep(2000); // 2000 миллисекунд = 2 секунды
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        timing2();
         
         // Проверка отсутствия элемента с помощью findElements
         boolean isUserBtnPresent = driver.findElements(By.cssSelector(".divided.user.btn.default, .user.btn.default")).size() > 0;
@@ -102,144 +97,143 @@ private WebDriver driver;
 	
 	@Test(groups = {"smoke", "speed2"})
 	public void t11_1_Check_Publish_User() {
-		
-		System.out.println("Запуск t11_1_Check_Publish_User");
-        LocalDate currentDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String formattedDate = currentDate.format(formatter);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        
-      //Ищем и кликаем по "Шаблоны"
-		WebElement buttonTemplates = wait.until(ExpectedConditions.elementToBeClickable(
-    	        By.xpath("//a[contains(@class, 'tag btn default')]//span[contains(text(), 'Шаблоны')]")
-    	    ));
-		buttonTemplates.click();
-		
-		// Найти объект с классом "scroller items" в шаблонах
-        try {
-        	WebElement scrollerTemplates = wait.until(ExpectedConditions.visibilityOfElementLocated(
-        			By.xpath("//div[@class='body']//div[@class='body']//div[contains(@class, 'tab columns') and not(contains(@class, 'inactive'))]//div[@class='scroller items']")
-        			));
-        	if (scrollerTemplates != null) {
-                //System.out.println("Скроллер в шаблонах найден"); //Логирование
-
-                try {
-                    Thread.sleep(1000); // 1 секунда задержки
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
-                    System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
-                } catch (TimeoutException e) {
-                    System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
-                }
-
-                // Ожидание элемента внутри найденного scroller
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//span[@title='copyCreateDotx Smoke тестирование от " + formattedDate + "']")));
-                WebElement targetFile1 = scrollerTemplates.findElement(By.xpath(".//span[@title='copyCreateDotx Smoke тестирование от " + formattedDate + "']"));
-                if (targetFile1 != null) {
-                    //System.out.println("Элемент targetFile1 найден"); //Логирование
-
-                    JavascriptExecutor js = (JavascriptExecutor) driver;
-                    js.executeScript("arguments[0].scrollIntoView(true);", targetFile1);
-
-                    // Ожидание, чтобы элемент был видимым и доступным для клика
-                    wait.until(ExpectedConditions.visibilityOf(targetFile1));
-                    wait.until(ExpectedConditions.elementToBeClickable(targetFile1));
-                    targetFile1.click();
-                    timing();
-                    pressEnterKey();
-                    
-                 //Далее ищем и прокручиваем до созданной в предыдущем шаге папке в выпадающем окне
-                 // Найти объект с классом "scroller items"
-                    try {
-                    	WebElement scrollerCreateQuestinnary = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                    			By.xpath("//div[@class='selector window']//div[@class='scroller items']//tbody")
-                    			));
-                    	if (scrollerCreateQuestinnary != null) {
-                            //System.out.println("Скроллер поиска папки для создания анкеты найден"); //Логирование
-
-                            try {
-                                Thread.sleep(1000); // 1 секунда задержки
-                            } catch (InterruptedException e) {
-                                Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
-                                System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
-                            } catch (TimeoutException e) {
-                                System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
-                            }
-
-                            // Ожидание элемента внутри найденного scroller
-                            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//span[@title='Smoke тестирование от " + formattedDate + "']")));
-                            WebElement targetFolder = scrollerCreateQuestinnary.findElement(By.xpath(".//span[@title='Smoke тестирование от " + formattedDate + "']"));
-                            if (targetFolder != null) {
-                                //System.out.println("Элемент targetFolder найден"); //Логирование
-
-                                JavascriptExecutor js2 = (JavascriptExecutor) driver;
-                                js2.executeScript("arguments[0].scrollIntoView(true);", targetFolder);
-
-                                // Ожидание, чтобы элемент был видимым и доступным для клика
-                                wait.until(ExpectedConditions.visibilityOf(targetFolder));
-                                wait.until(ExpectedConditions.elementToBeClickable(targetFolder));
-                                targetFolder.click();
-                                timing();
-                                pressEnterKey();
-                            } else {
-                                //System.out.println("Элемент targetFolder не найден"); //Логирование
-                            }
-                    	}  else {
-                            //System.out.println("Элемент targetFolder не найден"); //Логирование
-                        }
-                    } catch (NoSuchElementException e) {
-                             //System.out.println("Скроллер поиска папки для создания анкеты не найден"); //Логирование
-                         }
-                    timing();
-                    //Нажатие кнокпи "Сохранить здесь"
-                    WebElement savePushButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='selector window']//div[@class='footer']//a[@class='btn primary push']")));
-                    savePushButton.click();
-                  //Ожидание открытия
-                    try {
-                        Thread.sleep(2000); // 1 секунда задержки
-                    } catch (InterruptedException e) {
-                        Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
-                        System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
-                    } catch (TimeoutException e) {
-                        System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
-                    }
-                    wait.until(ExpectedConditions.visibilityOfElementLocated(
-                    		By.xpath("//a[@class='status tool btn default disabled']//span[contains(@title, 'Cохранен') or contains(@title, 'Последнее')]")
-                    		));
-                  //Ищем и кликаем по "Лого"
-              		WebElement logoButton = wait.until(ExpectedConditions.elementToBeClickable(
-                  	        By.xpath("//div[@class = 'header']//a[@class = 'logo btn default']")
-                  	    ));
-              		logoButton.click();
-              	//Проверка попали ли мы в созданную папку и видно ли в ней анкету
-                    WebElement checkPath = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='btn default' and @title='Smoke тестирование от " + formattedDate + "']")));
-                    WebElement checkFolder = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='copyCreateDotx Smoke тестирование от " + formattedDate + "']")));
-                    Assert.assertNotNull(checkPath, "Ожидаемый путь не найден");
-                    Assert.assertNotNull(checkFolder, "Ожидаемая папка не найдена");
-                } else {
-                    //System.out.println("Целевой файл в шаблонах не найден"); //Логирование
-                }
-            }
-        } catch (NoSuchElementException e) {
-            //System.out.println("Скроллер в шаблонах не найден"); //Логирование
-        }
+	    System.out.println("Запуск t11_1_Check_Publish_User");
+	    String formattedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    Actions actions = new Actions(driver);
+	    
+	    // Клик по "Шаблоны"
+	    clickElement(wait, "//a[contains(@class, 'tag btn default')]//span[contains(text(), 'Шаблоны')]");
+	    
+	    // Поиск и клик по файлу в шаблонах
+	    if (clickElement(wait, getXpathForFile(formattedDate, "copyCreateDotx Smoke тестирование от " + formattedDate))) {
+	        timing();
+	        pressEnterKey();
+	        
+	        // Поиск и клик по папке в выпадающем окне
+	        if (clickElement(wait, getXpathForFolder(formattedDate, "Smoke тестирование от " + formattedDate))) {
+	        	timing();
+	        	pressEnterKey();
+	        	timing1();
+	            clickElement(wait, "//div[@class='selector window']//div[@class='footer']//a[@class='btn primary push']");
+	            timing2();
+	            
+	            // Ожидание сохранения и проверка
+	            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='status tool btn default disabled']//span[contains(@title, 'Cохранен') or contains(@title, 'Последнее')]")));
+	            clickElement(wait, "//div[@class = 'header']//a[@class = 'logo btn default']");
+	            Assert.assertNotNull(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='btn default' and @title='Smoke тестирование от " + formattedDate + "']"))));
+	            Assert.assertNotNull(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='copyCreateDotx Smoke тестирование от " + formattedDate + "']"))));
+	        }
+	    }
+	    // Клик по "Шаблоны"
+	    clickElement(wait, "//a[contains(@class, 'tag btn default')]//span[contains(text(), 'Шаблоны')]");
+	    //Снятие с публикации
+        WebElement Templates = wait.until(ExpectedConditions.elementToBeClickable(
+        		By.xpath(getXpathForFile(formattedDate, "copyCreateDotx Smoke тестирование от " + formattedDate))
+        		));
+        actions.contextClick(Templates).perform();
+        WebElement unPublish = wait.until(ExpectedConditions.elementToBeClickable(
+        		By.xpath("//div[@class='text' and text()='Снять с публикации']")
+        		));
+        unPublish.click(); 
+	}
+	
+	@Test(groups = {"smoke", "speed2"})
+	public void t11_2_Check_Publish_Group() {
+	    System.out.println("Запуск t11_2_Check_Publish_Group");
+	    String formattedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    Actions actions = new Actions(driver);
+	    
+	    // Клик по "Шаблоны"
+	    clickElement(wait, "//a[contains(@class, 'tag btn default')]//span[contains(text(), 'Шаблоны')]");
+	    
+	    // Поиск и клик по файлу в шаблонах
+	    if (clickElement(wait, getXpathForFile(formattedDate, "copyCreateDotx Smoke тестирование от " + formattedDate))) {
+	        timing();
+	        pressEnterKey();
+	        
+	        // Поиск и клик по папке в выпадающем окне
+	        if (clickElement(wait, getXpathForFolder(formattedDate, "Smoke тестирование от " + formattedDate))) {
+	        	timing();
+	        	pressEnterKey();
+	        	timing1();
+	            clickElement(wait, "//div[@class='selector window']//div[@class='footer']//a[@class='btn primary push']");
+	            timing2();
+	            
+	            // Ожидание сохранения и проверка
+	            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='status tool btn default disabled']//span[contains(@title, 'Cохранен') or contains(@title, 'Последнее')]")));
+	            clickElement(wait, "//div[@class = 'header']//a[@class = 'logo btn default']");
+	            Assert.assertNotNull(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='btn default' and @title='Smoke тестирование от " + formattedDate + "']"))));
+	            Assert.assertNotNull(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='copyCreateDotx Smoke тестирование от " + formattedDate + "']"))));
+	        }
+	    }
+	    // Клик по "Шаблоны"
+	    clickElement(wait, "//a[contains(@class, 'tag btn default')]//span[contains(text(), 'Шаблоны')]");
+	    //Снятие с публикации
+        WebElement Templates = wait.until(ExpectedConditions.elementToBeClickable(
+        		By.xpath(getXpathForFile(formattedDate, "copyCreateDotx Smoke тестирование от " + formattedDate))
+        		));
+        actions.contextClick(Templates).perform();
+        WebElement unPublish = wait.until(ExpectedConditions.elementToBeClickable(
+        		By.xpath("//div[@class='text' and text()='Снять с публикации']")
+        		));
+        unPublish.click(); 
 	}
 
-	//Перманентная задержка (связано с особенностями перестраивания DOM)
-    private void timing() {
-        try {
-            Thread.sleep(200); // 200 милисекунд задержки
+	private boolean clickElement(WebDriverWait wait, String xpath) {
+	    try {
+	        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+	        element.click();
+	        return true;
+	    } catch (Exception e) {
+	        System.err.println("Не удалось кликнуть по элементу: " + xpath);
+	        return false;
+	    }
+	}
+
+	private String getXpathForFile(String date, String title) {
+	    return "//div[@class='body']//div[@class='body']//div[contains(@class, 'tab columns') and not(contains(@class, 'inactive'))]//div[@class='scroller items']//span[@title='" + title + "']";
+	}
+
+	private String getXpathForFolder(String date, String title) {
+	    return "//div[@class='selector window']//div[@class='scroller items']//span[@title='" + title + "']";
+	}
+
+	public void pressEnterKey() {
+	    new Actions(driver).sendKeys(Keys.ENTER).perform();
+	}
+	
+	private void timing() {
+	    try {
+	        Thread.sleep(200); // 200 миллисекунд задержки
+	    } catch (InterruptedException e) {
+	        Thread.currentThread().interrupt();
+	        System.err.println("Поток был прерван, операция не завершена");
+	    } catch (TimeoutException e) {
+	        System.err.println("Произошло истечение времени ожидания, операция не завершена");
+	    }
+	}
+	
+	private void timing1() {
+		try {
+            Thread.sleep(1000); // 1 секунда задержки
         } catch (InterruptedException e) {
-            Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
-            System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
+            Thread.currentThread().interrupt();
+            System.err.println("Поток был прерван, операция не завершена");
         } catch (TimeoutException e) {
-            System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
+            System.err.println("Произошло истечение времени ожидания, операция не завершена");
         }
-    }
-    
-    // Метод нажатия Enter
-    public void pressEnterKey() {
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.ENTER).perform(); // Отправляем клавишу Enter
-    }
+	}
+	
+	private void timing2() {
+		try {
+            Thread.sleep(2000); // 2 секунды задержки
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.err.println("Поток был прерван, операция не завершена");
+        } catch (TimeoutException e) {
+            System.err.println("Произошло истечение времени ожидания, операция не завершена");
+        }
+	}
 }
