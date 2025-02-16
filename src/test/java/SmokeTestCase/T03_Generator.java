@@ -130,8 +130,6 @@ public class T03_Generator {
         
         buttonReady.click();
         
-        // Перезагружаем страницу
-        driver.navigate().refresh();
 	}
     
     @AfterMethod

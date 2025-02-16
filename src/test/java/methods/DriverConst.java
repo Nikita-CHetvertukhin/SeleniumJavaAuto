@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class DriverConst {
     public static WebDriver driver;
+    public static WebDriver incognitoDriver;
 
     public static WebDriver getDriver() {
         if (driver == null) {
@@ -16,10 +17,12 @@ public class DriverConst {
     }
     
     public static WebDriver getIncognitoDriver() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--incognito");
-        WebDriver incognitoDriver = new ChromeDriver(options);
-        incognitoDriver.manage().window().maximize();
+    	if (incognitoDriver == null) {
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--incognito");
+            incognitoDriver = new ChromeDriver(options);
+            incognitoDriver.manage().window().maximize();
+        }
         return incognitoDriver;
     }
 

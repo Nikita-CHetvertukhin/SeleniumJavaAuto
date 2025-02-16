@@ -36,6 +36,9 @@ public class T04_menu_Work_Area {
 	    @Test(groups = {"smoke"})
 		public void t4_1_Sidebar_Tabs() {
 	    	
+	        // Перезагружаем страницу
+	        driver.navigate().refresh();
+	    	
 	    	System.out.println("Запуск t4_1_Sidebar_Tabs");
 	    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    	//Проверяем что рабочая область "Мои файлы" отображается и доступна

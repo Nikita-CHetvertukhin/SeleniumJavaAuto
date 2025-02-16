@@ -5,9 +5,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,16 +19,16 @@ import org.testng.annotations.Test;
 import methods.ConfigReader;
 import methods.DriverConst;
 
-public class T11_Check_Publish_Sharing {
+public class T11_Check_Publish {
 private WebDriver driver;
 	
-	@BeforeSuite(groups = {"smoke", "speed2"})
+	@BeforeSuite(groups = {"smoke", "speed3"})
     public void setUp() {
         // Инициализируем драйвер, ожидающие объекты и другие переменные
         this.driver = DriverConst.getIncognitoDriver();
     }
 	
-	@Test(groups = {"smoke", "speed2"})
+	@Test(groups = {"smoke", "speed3"})
 	public void t11_0_UserAuthorization() {
 		
 		System.out.println("Запуск t11_0_UserAuthorization");
@@ -240,6 +238,7 @@ private WebDriver driver;
         deleting.click();
         timing1();
 	}
+	
 	private boolean clickElement(WebDriverWait wait, String xpath) {
 	    try {
 	        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
