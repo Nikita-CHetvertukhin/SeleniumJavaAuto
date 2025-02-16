@@ -5,7 +5,6 @@
         <run>
             <include name="smoke"/>
             <!--<include name="speed"/>--> <!--Техническая группа, в неё доабвлены в оснвоном авторизация и прочие тесты для быстрой проверки текущего в разработке-->
-            <!--<include name="speed3"/>--> <!--Техническая группа, в неё доабвлены в оснвоном авторизация и прочие тесты для быстрой проверки текущего в разработке-->
             <!--<include name="recover"/>--> <!--Если  "pro.doczilla.recover":"true"-->
             <!--<include name="signup"/>--> <!--Если "pro.doczilla.signup":"true"-->
             <!--<include name="sharing-outer"/>--> <!--Если ""pro.doczilla.sharing.outer":"true"-->
@@ -26,6 +25,7 @@
             <class name="SmokeTestCase.T10_Share"/>
             <class name="SmokeTestCase.T11_Check_Publish"/>
             <class name="SmokeTestCase.T12_Check_Sharing"/>
+            <class name="SmokeTestCase.T13_Formuls"/>
         </classes>
     </test>
 </suite>

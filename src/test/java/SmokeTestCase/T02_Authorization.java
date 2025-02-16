@@ -20,7 +20,7 @@ public class T02_Authorization {
 	
 	 private WebDriver driver;
 
-	    @BeforeSuite(groups = {"smoke", "speed"})
+	    @BeforeSuite(groups = {"smoke", "speed4"})
 	    public void setUp() {
 	        // Получаем общий драйвер из DriverFactory
 	        driver = DriverConst.getDriver();
@@ -149,7 +149,7 @@ public class T02_Authorization {
 	        passwordField.clear();
 	    }
 	    
-	    @Test(groups = {"smoke", "speed"})
+	    @Test(groups = {"smoke", "speed4"})
 	    public void t2_4_Correct_Credentials() {
 	    	
 	    	System.out.println("Запуск t2_4_Correct_Credentials");

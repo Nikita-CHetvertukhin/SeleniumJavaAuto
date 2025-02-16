@@ -1,5 +1,10 @@
 package SmokeTestCase;
 
+import java.awt.AWTException;
+import java.awt.Dimension;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.event.InputEvent;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -44,6 +49,23 @@ private WebDriver driver;
     	String baseUrl = ConfigReader.getProperty("baseUrl");
     	
     	driver.get(baseUrl);
+    	
+    	try {
+			// Использовать Robot для нажатия клавиши ESC
+	        Robot robot = new Robot();
+	        
+	     // Получение размеров экрана
+	        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	        int screenWidth = screenSize.width;
+	        int screenHeight = screenSize.height;
+	        
+	     // Перемещение курсора в центр экрана и выполнение клика
+	        robot.mouseMove(screenWidth / 2, screenHeight / 2);
+	        robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+	        robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+		} catch (AWTException e) {
+            e.printStackTrace();
+        }
     	
     	WebElement button = wait.until(ExpectedConditions.elementToBeClickable(
 				By.xpath("//a[contains(@class, 'btn primary push')]//span[contains(text(), 'Войти')]")

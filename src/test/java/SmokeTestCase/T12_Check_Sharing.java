@@ -7,17 +7,14 @@ import java.time.format.DateTimeFormatter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import methods.ConfigReader;
 import methods.DriverConst;
 
 public class T12_Check_Sharing {
@@ -117,12 +114,14 @@ public class T12_Check_Sharing {
 	public void t12_5_Check_Delete_Sharing() {
 	    System.out.println("Запуск t12_5_Check_Delete_Sharing");
 	    String formattedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 	        
 	 // Поиск элементов по заданному XPath
 	    boolean isElementFound = !driver.findElements(By.xpath("//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='Docx Smoke тестирование от " + formattedDate + "']")).isEmpty();
 
 	    assert !isElementFound : "Объект найден, хотя доступ к нему был закрыт";
+	    
+	 // Завершение работы с драйвером
+	    driver.quit();
 	}
 	
 	private boolean clickElement(WebDriverWait wait, String xpath) {
