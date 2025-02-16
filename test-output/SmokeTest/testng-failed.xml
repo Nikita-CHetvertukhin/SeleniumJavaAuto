@@ -18,30 +18,20 @@
           <include name="t10_5_addDeleteUserShare"/>
         </methods>
       </class> <!-- SmokeTestCase.T10_Share -->
-      <class name="SmokeTestCase.T07_Dotx">
+      <class name="SmokeTestCase.T13_Formuls">
         <methods>
-          <include name="t7_5_DownloadingDotx"/>
-          <include name="t7_1_DownloadingDotx"/>
-          <include name="t7_3_CheckDotx"/>
-          <include name="t7_2_CreateDotx"/>
           <include name="setUp"/>
-          <include name="t7_4_CopyDotx"/>
+          <include name="T13_2_Formuls_Replicator"/>
+          <include name="T13_3_Formuls_Date"/>
+          <include name="T13_1_Formuls_String"/>
         </methods>
-      </class> <!-- SmokeTestCase.T07_Dotx -->
-      <class name="SmokeTestCase.T06_Docx">
-        <methods>
-          <include name="t6_3_CheckDocx"/>
-          <include name="setUp"/>
-          <include name="t6_2_DownloadingDocx"/>
-          <include name="t6_1_CreateDocx"/>
-        </methods>
-      </class> <!-- SmokeTestCase.T06_Docx -->
+      </class> <!-- SmokeTestCase.T13_Formuls -->
       <class name="SmokeTestCase.T12_Check_Sharing">
         <methods>
           <include name="t12_1_Check_Reader_User"/>
           <include name="t12_3_Check_Comment_User"/>
-          <include name="t12_2_Check_Reader_Group"/>
           <include name="t12_5_Check_Delete_Sharing"/>
+          <include name="t12_2_Check_Reader_Group"/>
           <include name="t12_4_Check_Editor_User"/>
           <include name="setUp"/>
         </methods>
@@ -63,24 +53,6 @@
           <include name="t9_2_folderPublish"/>
         </methods>
       </class> <!-- SmokeTestCase.T09_Publish -->
-      <class name="SmokeTestCase.T05_Folders">
-        <methods>
-          <include name="t5_1_CreateRenameFolders"/>
-          <include name="setUp"/>
-          <include name="t5_4_RenameNull"/>
-          <include name="t5_3_MoveFolder"/>
-          <include name="t5_2_RenameFolders"/>
-          <include name="t5_5_RemoveFolder"/>
-        </methods>
-      </class> <!-- SmokeTestCase.T05_Folders -->
-      <class name="SmokeTestCase.T04_menu_Work_Area">
-        <methods>
-          <include name="t4_4_Header_buttons"/>
-          <include name="t4_1_Sidebar_Tabs"/>
-          <include name="setUp"/>
-          <include name="t4_5_Help_button"/>
-        </methods>
-      </class> <!-- SmokeTestCase.T04_menu_Work_Area -->
       <class name="SmokeTestCase.T08_Docz">
         <methods>
           <include name="setUp"/>

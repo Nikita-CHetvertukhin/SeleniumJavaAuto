@@ -21,13 +21,13 @@ public class T12_Check_Sharing {
 	
 	private WebDriver driver;
 
-	@BeforeSuite(groups = {"smoke", "speed3"})
+	@BeforeSuite(groups = {"smoke"})
     public void setUp() {
         // Инициализируем драйвер, ожидающие объекты и другие переменные
         this.driver = DriverConst.getIncognitoDriver();
     }
 	
-	@Test(groups = {"smoke", "speed3"})
+	@Test(groups = {"smoke"})
 	public void t12_1_Check_Reader_User() {
 	    System.out.println("Запуск t12_1_Check_Reader_User");
 	    String formattedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -50,7 +50,7 @@ public class T12_Check_Sharing {
         timing1();
 	}
 	
-	@Test(groups = {"smoke", "speed3"})
+	@Test(groups = {"smoke"})
 	public void t12_2_Check_Reader_Group() {
 	    System.out.println("Запуск t12_2_Check_Reader_Group");
 	    String formattedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -70,7 +70,7 @@ public class T12_Check_Sharing {
         timing1();
 	}
 	
-	@Test(groups = {"smoke", "speed3"})
+	@Test(groups = {"smoke"})
 	public void t12_3_Check_Comment_User() {
 	    System.out.println("Запуск t12_3_Check_Comment_User");
 	    String formattedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -90,7 +90,7 @@ public class T12_Check_Sharing {
         timing1();
 	}
 	
-	@Test(groups = {"smoke", "speed3"})
+	@Test(groups = {"smoke"})
 	public void t12_4_Check_Editor_User() {
 	    System.out.println("Запуск t12_4_Check_Editor_User");
 	    String formattedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -110,7 +110,7 @@ public class T12_Check_Sharing {
         timing1();
 	}
 	
-	@Test(groups = {"smoke", "speed3"})
+	@Test(groups = {"smoke"})
 	public void t12_5_Check_Delete_Sharing() {
 	    System.out.println("Запуск t12_5_Check_Delete_Sharing");
 	    String formattedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));

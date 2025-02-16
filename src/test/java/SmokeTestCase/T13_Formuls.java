@@ -28,13 +28,13 @@ public class T13_Formuls {
 	
 	private WebDriver driver;
 
-    @BeforeSuite(groups = {"smoke", "speed4"})
+    @BeforeSuite(groups = {"smoke"})
     public void setUp() {
         // Инициализируем драйвер, ожидающие объекты и другие переменные
         this.driver = DriverConst.getDriver();
     }
     
-    @Test(groups = {"smoke", "speed4"})
+    @Test(groups = {"smoke"})
 	public void T13_1_Formuls_String() {
 		
     	System.out.println("Запуск T13_1_Formuls_String");
@@ -119,7 +119,7 @@ public class T13_Formuls {
   		logoButton.click();
 	}
     
-    @Test(groups = {"smoke", "speed4"})
+    @Test(groups = {"smoke"})
 	public void T13_2_Formuls_Replicator() {
 		
     	System.out.println("Запуск T13_2_Formuls_Replicator");
@@ -284,7 +284,7 @@ public class T13_Formuls {
   		logoButton.click();
 	}
     
-    @Test(groups = {"smoke", "speed4"})
+    @Test(groups = {"smoke"})
 	public void T13_3_Formuls_Date() {
 		
     	System.out.println("Запуск T13_3_Formuls_Date");

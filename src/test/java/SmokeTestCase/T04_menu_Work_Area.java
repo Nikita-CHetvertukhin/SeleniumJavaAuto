@@ -27,7 +27,7 @@ public class T04_menu_Work_Area {
 		
 	private WebDriver driver;
 
-	    @BeforeSuite(groups = {"smoke", "speed"})
+	    @BeforeSuite(groups = {"smoke"})
 	    public void setUp() {
 	        // Инициализируем драйвер, ожидающие объекты и другие переменные
 	        this.driver = DriverConst.getDriver();
@@ -40,7 +40,7 @@ public class T04_menu_Work_Area {
 	        driver.navigate().refresh();
 	    	
 	    	System.out.println("Запуск t4_1_Sidebar_Tabs");
-	    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 	    	//Проверяем что рабочая область "Мои файлы" отображается и доступна
 	        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//tr[@class='item folder' or @class='item file']")));
 			

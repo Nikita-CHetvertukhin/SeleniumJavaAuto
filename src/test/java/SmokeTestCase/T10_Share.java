@@ -21,13 +21,13 @@ import methods.DriverConst;
 public class T10_Share {
 private WebDriver driver;
 	
-	@BeforeSuite(groups = {"smoke", "speed"})
+	@BeforeSuite(groups = {"smoke"})
     public void setUp() {
         // Инициализируем драйвер, ожидающие объекты и другие переменные
         this.driver = DriverConst.getDriver();
     }
 	
-	@Test(groups = {"smoke", "speed"})
+	@Test(groups = {"smoke"})
 	public void t10_1_ReaderUserShare() {
 		
 		System.out.println("Запуск t10_1_ReaderUserShare");
@@ -57,7 +57,7 @@ private WebDriver driver;
             timing();
         }
 	
-	@Test(groups = {"smoke", "speed"})
+	@Test(groups = {"smoke"})
 	public void t10_2_ReaderGroupShare() {
 		
 		System.out.println("Запуск t10_2_ReaderGroupShare");
@@ -87,7 +87,7 @@ private WebDriver driver;
             timing();
         }
 	
-	@Test(groups = {"smoke", "speed"})
+	@Test(groups = {"smoke"})
 	public void t10_3_CommentUserShare() {
 		
 		System.out.println("Запуск t10_3_CommentUserShare");
@@ -117,7 +117,7 @@ private WebDriver driver;
             timing();
         }
 	
-	@Test(groups = {"smoke", "speed"})
+	@Test(groups = {"smoke"})
 	public void t10_4_EditorUserShare() {
 		
 		System.out.println("Запуск t10_4_EditorUserShare");
@@ -147,7 +147,7 @@ private WebDriver driver;
             timing();
         }
 	
-	@Test(groups = {"smoke", "speed"})
+	@Test(groups = {"smoke"})
 	public void t10_5_addDeleteUserShare() {
 		
 		System.out.println("Запуск t10_5_addDeleteUserShare");

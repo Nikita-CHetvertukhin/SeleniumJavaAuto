@@ -20,13 +20,13 @@ public class T01_Authorization_Availability {
 	
 	private WebDriver driver;
 
-	 @BeforeSuite(groups = {"smoke", "speed4"})
+	 @BeforeSuite(groups = {"smoke", "speed"})
 	    public void setUp() {
 	        // Инициализация браузера используя DriverConsy.java
 	        driver = DriverConst.getDriver();
 	    }
 
-	@Test(groups = {"smoke", "speed4"})
+	@Test(groups = {"smoke", "speed"})
 	public void t1_1_Url_Availability() {
 		
 		//Получаем url сборки из config.properties

@@ -26,13 +26,13 @@ public class T07_Dotx {
 
 	private WebDriver driver;
 
-    @BeforeSuite(groups = {"smoke", "speed"})
+    @BeforeSuite(groups = {"smoke"})
     public void setUp() {
         // Инициализируем драйвер, ожидающие объекты и другие переменные
         this.driver = DriverConst.getDriver();
     }
 	
-    @Test(groups = {"smoke", "speed"})
+    @Test(groups = {"smoke"})
 	public void t7_1_DownloadingDotx() {
 		
 		System.out.println("Запуск t7_1_DownloadingDotx");
@@ -87,7 +87,7 @@ public class T07_Dotx {
         }
     }
     
-    @Test(groups = {"smoke", "speed"})
+    @Test(groups = {"smoke"})
 	public void t7_2_CreateDotx() {
 		
 		System.out.println("Запуск t7_2_CreateDotx");
@@ -163,7 +163,7 @@ public class T07_Dotx {
       		logoButton.click();
 	}
     
-    @Test(groups = {"smoke", "speed"})
+    @Test(groups = {"smoke"})
 	public void t7_3_CheckDotx() {
     	
     	System.out.println("Запуск t7_3_CheckDotx");
@@ -185,7 +185,7 @@ public class T07_Dotx {
         Assert.assertNotNull(checkDownloadDotx, "Загруженный dotx не найден");
     }
     
-    @Test(groups = {"smoke", "speed"})
+    @Test(groups = {"smoke"})
 	public void t7_4_CopyDotx() {
     	
     	System.out.println("Запуск t7_4_CopyDotx");

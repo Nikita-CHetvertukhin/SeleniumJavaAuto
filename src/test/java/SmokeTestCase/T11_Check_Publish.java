@@ -22,13 +22,13 @@ import methods.DriverConst;
 public class T11_Check_Publish {
 private WebDriver driver;
 	
-	@BeforeSuite(groups = {"smoke", "speed3"})
+	@BeforeSuite(groups = {"smoke","speed"})
     public void setUp() {
         // Инициализируем драйвер, ожидающие объекты и другие переменные
         this.driver = DriverConst.getIncognitoDriver();
     }
 	
-	@Test(groups = {"smoke", "speed3"})
+	@Test(groups = {"smoke","speed"})
 	public void t11_0_UserAuthorization() {
 		
 		System.out.println("Запуск t11_0_UserAuthorization");
@@ -93,7 +93,7 @@ private WebDriver driver;
     	pressEnterKey();
     }
 	
-	@Test(groups = {"smoke", "speed2"})
+	@Test(groups = {"smoke"})
 	public void t11_1_Check_Publish_User() {
 	    System.out.println("Запуск t11_1_Check_Publish_User");
 	    String formattedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -138,7 +138,7 @@ private WebDriver driver;
         timing1();
 	}
 	
-	@Test(groups = {"smoke", "speed2"})
+	@Test(groups = {"smoke"})
 	public void t11_2_Check_Publish_Group() {
 	    System.out.println("Запуск t11_2_Check_Publish_Group");
 	    String formattedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -180,7 +180,7 @@ private WebDriver driver;
         timing1();
 	}
 
-	@Test(groups = {"smoke", "speed2"})
+	@Test(groups = {"smoke"})
 	public void t11_3_Check_Publish_Folder() {
 	    System.out.println("Запуск t11_3_Check_Publish_Folder");
 	    String formattedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));

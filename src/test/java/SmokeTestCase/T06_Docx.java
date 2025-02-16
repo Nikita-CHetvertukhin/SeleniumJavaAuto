@@ -28,13 +28,13 @@ public class T06_Docx {
 	
 	private WebDriver driver;
 
-    @BeforeSuite(groups = {"smoke", "speed"})
+    @BeforeSuite(groups = {"smoke"})
     public void setUp() {
         // Инициализируем драйвер, ожидающие объекты и другие переменные
         this.driver = DriverConst.getDriver();
     }
     
-    @Test(groups = {"smoke", "speed"})
+    @Test(groups = {"smoke"})
 	public void t6_1_CreateDocx() {
 		
 		System.out.println("Запуск t6_1_CreateDocx");
@@ -74,7 +74,7 @@ public class T06_Docx {
     	pressEnterKey();
     }
 
-    @Test(groups = {"smoke", "speed"})
+    @Test(groups = {"smoke"})
 	public void t6_2_DownloadingDocx() {
 		
 		System.out.println("Запуск t6_2_DownloadingDocx");
@@ -127,7 +127,7 @@ public class T06_Docx {
         }
     }
     
-    @Test(groups = {"smoke", "speed"})
+    @Test(groups = {"smoke"})
    	public void t6_3_CheckDocx() {
        	
        	System.out.println("Запуск t6_3_CheckDocx");

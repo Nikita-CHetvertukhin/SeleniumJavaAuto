@@ -91,6 +91,8 @@ public class T08_Docz {
                     WebElement savePushButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='selector window']//div[@class='footer']//a[@class='btn primary push']")));
                     savePushButton.click();
                     
+                    timing2();
+                    
                     wait.until(ExpectedConditions.visibilityOfElementLocated(
                     		By.xpath("//a[@class='status tool btn default disabled']//span[contains(@title, 'Cохранен') or contains(@title, 'Последнее')]")
                     		));
@@ -248,4 +250,15 @@ public class T08_Docz {
         }
         return null;
     }
+    
+    private void timing2() {
+		try {
+            Thread.sleep(2000); // 2 секунды задержки
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.err.println("Поток был прерван, операция не завершена");
+        } catch (TimeoutException e) {
+            System.err.println("Произошло истечение времени ожидания, операция не завершена");
+        }
+	}
 }
