@@ -121,6 +121,7 @@ private WebDriver driver;
 	            // Ожидание сохранения и проверка
 	            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='status tool btn default disabled']//span[contains(@title, 'Cохранен') or contains(@title, 'Последнее')]")));
 	            clickElement(wait, "//div[@class = 'header']//a[@class = 'logo btn default']");
+	            timing1();
 	            Assert.assertNotNull(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='btn default' and @title='Smoke тестирование от " + formattedDate + "']"))));
 	            Assert.assertNotNull(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='copyCreateDotx Smoke тестирование от " + formattedDate + "']"))));
 	        }
@@ -135,7 +136,8 @@ private WebDriver driver;
         WebElement unPublish = wait.until(ExpectedConditions.elementToBeClickable(
         		By.xpath("//div[@class='text' and text()='Снять с публикации']")
         		));
-        unPublish.click(); 
+        unPublish.click();
+        timing1();
 	}
 	
 	@Test(groups = {"smoke", "speed2"})
@@ -145,11 +147,8 @@ private WebDriver driver;
 	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    Actions actions = new Actions(driver);
 	    
-	    // Клик по "Шаблоны"
-	    clickElement(wait, "//a[contains(@class, 'tag btn default')]//span[contains(text(), 'Шаблоны')]");
-	    
 	    // Поиск и клик по файлу в шаблонах
-	    if (clickElement(wait, getXpathForFile(formattedDate, "copyCreateDotx Smoke тестирование от " + formattedDate))) {
+	    if (clickElement(wait, getXpathForFile(formattedDate, "createDotx Smoke тестирование от " + formattedDate))) {
 	        timing();
 	        pressEnterKey();
 	        
@@ -164,23 +163,83 @@ private WebDriver driver;
 	            // Ожидание сохранения и проверка
 	            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='status tool btn default disabled']//span[contains(@title, 'Cохранен') or contains(@title, 'Последнее')]")));
 	            clickElement(wait, "//div[@class = 'header']//a[@class = 'logo btn default']");
+	            timing1();
 	            Assert.assertNotNull(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='btn default' and @title='Smoke тестирование от " + formattedDate + "']"))));
-	            Assert.assertNotNull(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='copyCreateDotx Smoke тестирование от " + formattedDate + "']"))));
+	            Assert.assertNotNull(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='createDotx Smoke тестирование от " + formattedDate + "']"))));
 	        }
 	    }
 	    // Клик по "Шаблоны"
 	    clickElement(wait, "//a[contains(@class, 'tag btn default')]//span[contains(text(), 'Шаблоны')]");
 	    //Снятие с публикации
         WebElement Templates = wait.until(ExpectedConditions.elementToBeClickable(
-        		By.xpath(getXpathForFile(formattedDate, "copyCreateDotx Smoke тестирование от " + formattedDate))
+        		By.xpath(getXpathForFile(formattedDate, "createDotx Smoke тестирование от " + formattedDate))
         		));
         actions.contextClick(Templates).perform();
         WebElement unPublish = wait.until(ExpectedConditions.elementToBeClickable(
         		By.xpath("//div[@class='text' and text()='Снять с публикации']")
         		));
-        unPublish.click(); 
+        unPublish.click();
+        timing1();
 	}
 
+	@Test(groups = {"smoke", "speed2"})
+	public void t11_3_Check_Publish_Folder() {
+	    System.out.println("Запуск t11_3_Check_Publish_Folder");
+	    String formattedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    Actions actions = new Actions(driver);
+	    
+	    // Поиск и клик по папке в шаблонах
+	    if (clickElement(wait, getXpathForFile(formattedDate, "FolderTemplates Smoke тестирование от " + formattedDate))) {
+	        timing();
+	        pressEnterKey();
+	        timing();
+	        clickElement(wait, getXpathForFile(formattedDate, "dotxDownload Smoke тестирование от " + formattedDate));
+	        timing();
+	        pressEnterKey();
+	        
+	        // Поиск и клик по папке в выпадающем окне
+	        if (clickElement(wait, getXpathForFolder(formattedDate, "Smoke тестирование от " + formattedDate))) {
+	        	timing();
+	        	pressEnterKey();
+	        	timing1();
+	            clickElement(wait, "//div[@class='selector window']//div[@class='footer']//a[@class='btn primary push']");
+	            timing2();
+	            
+	            // Ожидание сохранения и проверка
+	            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='status tool btn default disabled']//span[contains(@title, 'Cохранен') or contains(@title, 'Последнее')]")));
+	            clickElement(wait, "//div[@class = 'header']//a[@class = 'logo btn default']");
+	            timing1();
+	            Assert.assertNotNull(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='btn default' and @title='Smoke тестирование от " + formattedDate + "']"))));
+	            Assert.assertNotNull(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='body']//div[@class='body']//div[@class='scroller items']//span[@class='text' and @title='dotxDownload Smoke тестирование от " + formattedDate + "']"))));
+	        }
+	    }
+	    // Клик по "Шаблоны"
+	    clickElement(wait, "//a[contains(@class, 'tag btn default')]//span[contains(text(), 'Шаблоны')]");
+	    //Снятие с публикации
+        WebElement Templates = wait.until(ExpectedConditions.elementToBeClickable(
+        		By.xpath(getXpathForFile(formattedDate, "dotxDownload Smoke тестирование от " + formattedDate))
+        		));
+        actions.contextClick(Templates).perform();
+        WebElement unPublish = wait.until(ExpectedConditions.elementToBeClickable(
+        		By.xpath("//div[@class='text' and text()='Снять с публикации']")
+        		));
+        unPublish.click();
+        //Возврат в шаблоны
+        WebElement path = (wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='btn default' and @title='Шаблоны']"))));
+        path.click();
+        timing();
+        //Удаление папки в шаблонах
+        WebElement templatesFolder = wait.until(ExpectedConditions.elementToBeClickable(
+        		By.xpath(getXpathForFile(formattedDate, "FolderTemplates Smoke тестирование от " + formattedDate))
+        		));
+        actions.contextClick(templatesFolder).perform();
+        WebElement deleting = wait.until(ExpectedConditions.elementToBeClickable(
+        		By.xpath("//div[@class='text' and text()='Удалить']")
+        		));
+        deleting.click();
+        timing1();
+	}
 	private boolean clickElement(WebDriverWait wait, String xpath) {
 	    try {
 	        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));

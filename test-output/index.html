@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">4 methods,   4 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -109,6 +109,16 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T11_Check_Publish_Sharing" class="method navigator-link" hash-for-method="t11_1_Check_Publish_User">t11_1_Check_Publish_User</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T11_Check_Publish_Sharing" class="method navigator-link" hash-for-method="t11_2_Check_Publish_Group">t11_2_Check_Publish_Group</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-SmokeTest" title="SmokeTestCase.T11_Check_Publish_Sharing" class="method navigator-link" hash-for-method="t11_3_Check_Publish_Folder">t11_3_Check_Publish_Folder</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-SmokeTest -->
@@ -141,6 +151,20 @@
                   <a name="t11_1_Check_Publish_User">
                   </a> <!-- t11_1_Check_Publish_User -->
                   <span class="method-name">t11_1_Check_Publish_User</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="t11_2_Check_Publish_Group">
+                  </a> <!-- t11_2_Check_Publish_Group -->
+                  <span class="method-name">t11_2_Check_Publish_Group</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="t11_3_Check_Publish_Folder">
+                  </a> <!-- t11_3_Check_Publish_Folder -->
+                  <span class="method-name">t11_3_Check_Publish_Folder</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -207,6 +231,14 @@
                 <span class="method-in-group-name">t11_1_Check_Publish_User</span>
                 <br/>
               </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">t11_2_Check_Publish_Group</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">t11_3_Check_Publish_Folder</span>
+                <br/>
+              </div> <!-- method-in-group -->
             </div> <!-- test-group -->
             <div class="test-group">
               <span class="test-group-name">speed2</span>
@@ -217,6 +249,14 @@
               </div> <!-- method-in-group -->
               <div class="method-in-group">
                 <span class="method-in-group-name">t11_1_Check_Publish_User</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">t11_2_Check_Publish_Group</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">t11_3_Check_Publish_Folder</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -236,20 +276,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 't11_0_UserAuthorization')
+data.setCell(0, 1, 't11_3_Check_Publish_Folder')
 data.setCell(0, 2, 'SmokeTestCase.T11_Check_Publish_Sharing')
-data.setCell(0, 3, 5917);
+data.setCell(0, 3, 8079);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 't11_1_Check_Publish_User')
+data.setCell(1, 1, 't11_0_UserAuthorization')
 data.setCell(1, 2, 'SmokeTestCase.T11_Check_Publish_Sharing')
-data.setCell(1, 3, 5659);
+data.setCell(1, 3, 7277);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 't11_1_Check_Publish_User')
+data.setCell(2, 2, 'SmokeTestCase.T11_Check_Publish_Sharing')
+data.setCell(2, 3, 7219);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 't11_2_Check_Publish_Group')
+data.setCell(3, 2, 'SmokeTestCase.T11_Check_Publish_Sharing')
+data.setCell(3, 3, 6614);
 window.suiteTableData['SmokeTest']= { tableData: data, tableDiv: 'times-div-SmokeTest'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 11 seconds</span>
+              <span class="suite-total-time">Total running time: 29 seconds</span>
               <div id="times-div-SmokeTest">
               </div> <!-- times-div-SmokeTest -->
             </div> <!-- times-div -->
@@ -270,15 +318,15 @@ return data;
             <div class="ignored-class-div">
               <span class="ignored-class-name">SmokeTestCase.T10_Share</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">t10_1_ReaderUserShare</span>
+                <span class="ignored-method-name">t10_2_ReaderGroupShare</span>
                 <br/>
                 <span class="ignored-method-name">t10_4_EditorUserShare</span>
+                <br/>
+                <span class="ignored-method-name">t10_1_ReaderUserShare</span>
                 <br/>
                 <span class="ignored-method-name">t10_3_CommentUserShare</span>
                 <br/>
                 <span class="ignored-method-name">t10_5_addDeleteUserShare</span>
-                <br/>
-                <span class="ignored-method-name">t10_2_ReaderGroupShare</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -287,35 +335,35 @@ return data;
               <div class="ignored-methods-div">
                 <span class="ignored-method-name">t7_1_DownloadingDotx</span>
                 <br/>
-                <span class="ignored-method-name">t7_3_CheckDotx</span>
+                <span class="ignored-method-name">t7_2_CreateDotx</span>
                 <br/>
                 <span class="ignored-method-name">t7_4_CopyDotx</span>
                 <br/>
-                <span class="ignored-method-name">t7_5_DownloadingDotx</span>
+                <span class="ignored-method-name">t7_3_CheckDotx</span>
                 <br/>
-                <span class="ignored-method-name">t7_2_CreateDotx</span>
+                <span class="ignored-method-name">t7_5_DownloadingDotx</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
             <div class="ignored-class-div">
               <span class="ignored-class-name">SmokeTestCase.T06_Docx</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">t6_1_CreateDocx</span>
+                <span class="ignored-method-name">t6_2_DownloadingDocx</span>
                 <br/>
                 <span class="ignored-method-name">t6_3_CheckDocx</span>
                 <br/>
-                <span class="ignored-method-name">t6_2_DownloadingDocx</span>
+                <span class="ignored-method-name">t6_1_CreateDocx</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
             <div class="ignored-class-div">
               <span class="ignored-class-name">SmokeTestCase.T09_Publish</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">t9_2_GroupPublish</span>
+                <span class="ignored-method-name">t9_2_folderPublish</span>
                 <br/>
                 <span class="ignored-method-name">t9_1_UserPublish</span>
                 <br/>
-                <span class="ignored-method-name">t9_2_folderPublish</span>
+                <span class="ignored-method-name">t9_2_GroupPublish</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -329,15 +377,15 @@ return data;
             <div class="ignored-class-div">
               <span class="ignored-class-name">SmokeTestCase.T05_Folders</span>
               <div class="ignored-methods-div">
+                <span class="ignored-method-name">t5_5_RemoveFolder</span>
+                <br/>
                 <span class="ignored-method-name">t5_4_RenameNull</span>
-                <br/>
-                <span class="ignored-method-name">t5_2_RenameFolders</span>
-                <br/>
-                <span class="ignored-method-name">t5_1_CreateRenameFolders</span>
                 <br/>
                 <span class="ignored-method-name">t5_3_MoveFolder</span>
                 <br/>
-                <span class="ignored-method-name">t5_5_RemoveFolder</span>
+                <span class="ignored-method-name">t5_1_CreateRenameFolders</span>
+                <br/>
+                <span class="ignored-method-name">t5_2_RenameFolders</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -346,26 +394,26 @@ return data;
               <div class="ignored-methods-div">
                 <span class="ignored-method-name">t4_5_Help_button</span>
                 <br/>
-                <span class="ignored-method-name">t4_1_Sidebar_Tabs</span>
+                <span class="ignored-method-name">t4_3_Sidebar_Tabs_AI</span>
                 <br/>
                 <span class="ignored-method-name">t4_2_Sidebar_Tabs_Sharing_Drives</span>
                 <br/>
                 <span class="ignored-method-name">t4_4_Header_buttons</span>
                 <br/>
-                <span class="ignored-method-name">t4_3_Sidebar_Tabs_AI</span>
+                <span class="ignored-method-name">t4_1_Sidebar_Tabs</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
             <div class="ignored-class-div">
               <span class="ignored-class-name">SmokeTestCase.T02_Authorization</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">t2_3_Incorrect_Password</span>
-                <br/>
-                <span class="ignored-method-name">t2_4_Correct_Credentials</span>
-                <br/>
                 <span class="ignored-method-name">t2_2_Incorrect_Login</span>
                 <br/>
                 <span class="ignored-method-name">t2_1_Incorrect_Credentials</span>
+                <br/>
+                <span class="ignored-method-name">t2_4_Correct_Credentials</span>
+                <br/>
+                <span class="ignored-method-name">t2_3_Incorrect_Password</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -381,11 +429,11 @@ return data;
             <div class="ignored-class-div">
               <span class="ignored-class-name">SmokeTestCase.T01_Authorization_Availability</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">t1_2_Url_Refresh</span>
-                <br/>
                 <span class="ignored-method-name">t1_3_Special_Button</span>
                 <br/>
                 <span class="ignored-method-name">t1_1_Url_Availability</span>
+                <br/>
+                <span class="ignored-method-name">t1_2_Url_Refresh</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -404,11 +452,19 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="test-method">
                 <span class="method-name">t11_0_UserAuthorization</span>
-                <span class="method-start">1569 ms</span>
+                <span class="method-start">1275 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">t11_1_Check_Publish_User</span>
-                <span class="method-start">7489 ms</span>
+                <span class="method-start">8556 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">t11_2_Check_Publish_Group</span>
+                <span class="method-start">15777 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">t11_3_Check_Publish_Folder</span>
+                <span class="method-start">22393 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

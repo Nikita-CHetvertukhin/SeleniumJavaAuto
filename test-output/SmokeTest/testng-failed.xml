@@ -10,7 +10,8 @@
     <classes>
       <class name="SmokeTestCase.T11_Check_Publish_Sharing">
         <methods>
-          <include name="t11_1_Check_Publish_User"/>
+          <include name="t11_3_Check_Publish_Folder"/>
+          <include name="t11_2_Check_Publish_Group"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- SmokeTestCase.T11_Check_Publish_Sharing -->
