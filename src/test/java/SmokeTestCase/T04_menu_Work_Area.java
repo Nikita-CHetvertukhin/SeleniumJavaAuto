@@ -197,13 +197,13 @@ public class T04_menu_Work_Area {
 
 	        // Основной цикл для прохождения по всем кнопкам
 	        List<WebElement> buttons = driver.findElements(By.xpath("//div[@class='header-menu']//a[@class='btn default'] | //div[@class='header-menu']//div[@class='btn']"));
-	        //System.out.println("buttons.size() равен: " + (buttons.size())); //Логирование
+	        System.out.println("buttons.size() равен: " + (buttons.size())); //Логирование
 	        
 	        for (int i = 0; i < buttons.size(); i++) {
 	        	WebElement button = buttons.get(i);
-	        	//System.out.println("Текущий номер кнопки: " + (i)); //Логирование
+	        	System.out.println("Текущий номер кнопки: " + (i)); //Логирование
 	            wait.until(ExpectedConditions.elementToBeClickable(button)).click();
-	            timing();
+	            timing1();
 	            
 	        	List<WebElement> scrollerItems = button.findElements(By.xpath(".//div[@class='scroller items']"));
 		            if (!scrollerItems.isEmpty()) {
@@ -212,7 +212,7 @@ public class T04_menu_Work_Area {
 		            	    List<WebElement> cells = scrollerItem.findElements(By.xpath(".//div[@class='cell']"));
 		            	    tableRows.addAll(cells);
 		            	}
-		            	//System.out.println("tableRows.size() равен: " + (tableRows.size())); //Логирование
+		            	System.out.println("tableRows.size() равен: " + (tableRows.size())); //Логирование
 		            	
 		            	for (int k = 0; k < tableRows.size(); k++) {
 		            		WebElement row = tableRows.get(k);
@@ -224,27 +224,27 @@ public class T04_menu_Work_Area {
 		            	        continue;
 		            	    }
 		            		
-		            		//System.out.println("Текущий номер строки: " + (k)); //Логирование
+		            		System.out.println("Текущий номер строки: " + (k)); //Логирование
 		            		hoverOverElement(row);// наведение курсора на строку row первого уровня button
 		            		timing();
 		            		List<WebElement> secondScrollerItems = row.findElements(By.xpath(".//div[contains(@class, 'cell')]"));
 		                    if (!secondScrollerItems.isEmpty()) { //Определение есть ли подсписок
-		                    	//System.out.println("submenu found: "); //Логирование
-		                    	//System.out.println("Количество элементов: " + secondScrollerItems.size()); //Логирование
+		                    	System.out.println("submenu found: "); //Логирование
+		                    	System.out.println("Количество элементов: " + secondScrollerItems.size()); //Логирование
 		                    	// Вывод названий всех элементов подсписка
-		                        /*for (WebElement item : secondScrollerItems) {
+		                        for (WebElement item : secondScrollerItems) {
 		                            System.out.println("Название элемента: " + item.getText());
-		                        }*/ //Логирование
+		                        } //Логирование
 		                    	
 		                    	for (int n = 0; n < secondScrollerItems.size(); n++) {
 		    	            		WebElement item = secondScrollerItems.get(n);
-		    	            		//System.out.println("Текущий номер элемента: " + (n)); //Логирование
+		    	            		System.out.println("Текущий номер элемента: " + (n)); //Логирование
 		    	            		
 		    	            		// Проверим, содержит ли строка элемент div с классом "text" и параметром title="Генерация схемы данных" если содержит пропускаем (также добавлены кнопки побуждающие к запуску кастомных задач)
 				            	    List<WebElement> itemGeneration = item.findElements(By.xpath("./div[@class=' text' and (@title='Генерация схемы данных' or @title='Чтение и валидация структуры документа' or @title='Добавить пользователя в группу' or @title='Обновление связи анкеты с шаблоном' or @title='Индексация формулировок' or @title='Индексация документов' or @title='Поделиться папками' or @title='Исправление типов документов пакета' or @title='Заблокировать неактивных пользователей' or @title='Добавить всех в группу Users' or @title='Массовое заведение пользователей')]"));
 				            	    // Если такой элемент найден, пропускаем текущую строку и переходим к следующей
 				            	    if (!itemGeneration.isEmpty()) {
-				            	    	//System.out.println("Кнопка генерации найдена"); //Логирование
+				            	    	System.out.println("Кнопка генерации найдена"); //Логирование
 				            	        continue;
 				            	    }
 		    	            		
@@ -270,7 +270,7 @@ public class T04_menu_Work_Area {
 				                    timing();
 		                    	}
 		                    } else { //Если нет подсписка
-		                    	//System.out.println("submenu not found"); //Логирование
+		                    	System.out.println("submenu not found"); //Логирование
 		                        wait.until(ExpectedConditions.elementToBeClickable(row)).click();
 		                        CloseButton(shortWait); //После клика на row если появляется мешающие всплывающие окна - убираем их
 		                        timing();
@@ -395,6 +395,19 @@ public class T04_menu_Work_Area {
 	            System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
 	        }
 	    }
+	    
+	  //Перманентная задержка (связано с особенностями перестраивания DOM)
+	    private void timing1() {
+	        try {
+	            Thread.sleep(1000); // 1000 милисекунд задержки
+	        } catch (InterruptedException e) {
+	            Thread.currentThread().interrupt(); // Восстанавливаем прерванное состояние потока
+	            System.err.println("Поток был прерван, операция не завершена"); // Выводим сообщение об ошибке
+	        } catch (TimeoutException e) {
+	            System.err.println("Произошло истечение времени ожидания, операция не завершена"); // Выводим сообщение об ошибке
+	        }
+	    }
+	    
 	    
 	    //Метод закрытия мешающих экранов в процессе прокликивания кнопок
 	    private void CloseButton(WebDriverWait shortWait) {

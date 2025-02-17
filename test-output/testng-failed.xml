@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [SmokeTest]">
-  <test thread-count="5" name="Smoke Group(failed)">
-    <groups>
-      <run>
-        <include name="smoke"/>
-      </run>
-    </groups>
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="SmokeTestCase.T10_Share">
+      <class name="SmokeTestCase.T01_Authorization_Availability">
         <methods>
-          <include name="t10_3_CommentUserShare"/>
+          <include name="t1_2_Url_Refresh"/>
+          <include name="t1_3_Special_Button"/>
           <include name="setUp"/>
-          <include name="t10_1_ReaderUserShare"/>
-          <include name="t10_2_ReaderGroupShare"/>
-          <include name="t10_4_EditorUserShare"/>
-          <include name="t10_5_addDeleteUserShare"/>
+          <include name="checkTestResult"/>
+          <include name="t1_1_Url_Availability"/>
         </methods>
-      </class> <!-- SmokeTestCase.T10_Share -->
+      </class> <!-- SmokeTestCase.T01_Authorization_Availability -->
       <class name="SmokeTestCase.T13_Formuls">
         <methods>
           <include name="setUp"/>
@@ -26,40 +20,16 @@
           <include name="T13_1_Formuls_String"/>
         </methods>
       </class> <!-- SmokeTestCase.T13_Formuls -->
-      <class name="SmokeTestCase.T12_Check_Sharing">
+      <class name="SmokeTestCase.T02_Authorization">
         <methods>
-          <include name="t12_1_Check_Reader_User"/>
-          <include name="t12_3_Check_Comment_User"/>
-          <include name="t12_5_Check_Delete_Sharing"/>
-          <include name="t12_2_Check_Reader_Group"/>
-          <include name="t12_4_Check_Editor_User"/>
+          <include name="checkTestResult"/>
+          <include name="t2_2_Incorrect_Login"/>
+          <include name="t2_4_Correct_Credentials"/>
           <include name="setUp"/>
+          <include name="t2_3_Incorrect_Password"/>
+          <include name="t2_1_Incorrect_Credentials"/>
         </methods>
-      </class> <!-- SmokeTestCase.T12_Check_Sharing -->
-      <class name="SmokeTestCase.T11_Check_Publish">
-        <methods>
-          <include name="t11_2_Check_Publish_Group"/>
-          <include name="t11_1_Check_Publish_User"/>
-          <include name="setUp"/>
-          <include name="t11_0_UserAuthorization"/>
-          <include name="t11_3_Check_Publish_Folder"/>
-        </methods>
-      </class> <!-- SmokeTestCase.T11_Check_Publish -->
-      <class name="SmokeTestCase.T09_Publish">
-        <methods>
-          <include name="t9_2_GroupPublish"/>
-          <include name="setUp"/>
-          <include name="t9_1_UserPublish"/>
-          <include name="t9_2_folderPublish"/>
-        </methods>
-      </class> <!-- SmokeTestCase.T09_Publish -->
-      <class name="SmokeTestCase.T08_Docz">
-        <methods>
-          <include name="setUp"/>
-          <include name="t8_1_CreateDocz"/>
-          <include name="t8_2_DownloadingDocz"/>
-        </methods>
-      </class> <!-- SmokeTestCase.T08_Docz -->
+      </class> <!-- SmokeTestCase.T02_Authorization -->
     </classes>
-  </test> <!-- Smoke Group(failed) -->
-</suite> <!-- Failed suite [SmokeTest] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

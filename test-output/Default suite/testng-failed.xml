@@ -3,12 +3,33 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="SmokeTestCase.T4_menu_Work_Area">
+      <class name="SmokeTestCase.T01_Authorization_Availability">
+        <methods>
+          <include name="t1_2_Url_Refresh"/>
+          <include name="t1_3_Special_Button"/>
+          <include name="setUp"/>
+          <include name="checkTestResult"/>
+          <include name="t1_1_Url_Availability"/>
+        </methods>
+      </class> <!-- SmokeTestCase.T01_Authorization_Availability -->
+      <class name="SmokeTestCase.T13_Formuls">
         <methods>
           <include name="setUp"/>
-          <include name="t4_4_Header_buttons"/>
+          <include name="T13_2_Formuls_Replicator"/>
+          <include name="T13_3_Formuls_Date"/>
+          <include name="T13_1_Formuls_String"/>
         </methods>
-      </class> <!-- SmokeTestCase.T4_menu_Work_Area -->
+      </class> <!-- SmokeTestCase.T13_Formuls -->
+      <class name="SmokeTestCase.T02_Authorization">
+        <methods>
+          <include name="checkTestResult"/>
+          <include name="t2_2_Incorrect_Login"/>
+          <include name="t2_4_Correct_Credentials"/>
+          <include name="setUp"/>
+          <include name="t2_3_Incorrect_Password"/>
+          <include name="t2_1_Incorrect_Credentials"/>
+        </methods>
+      </class> <!-- SmokeTestCase.T02_Authorization -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

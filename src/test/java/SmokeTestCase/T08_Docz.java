@@ -82,6 +82,7 @@ public class T08_Docz {
                     targetFolder.click();
                     timing();
                     pressEnterKey();
+                    timing();
                     
                     WebElement renameArea = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[contains(@name, 'input') and @placeholder='Новое название']")));
                     renameArea.clear();
